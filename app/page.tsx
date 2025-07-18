@@ -20,8 +20,8 @@ export default function Home() {
       <Contacts />
       <Finish />
       <PreFinish />
-      <PreFinish3 />
       <PreFinish2 />
+      <PreFinish3 />
     </div>
   );
 }

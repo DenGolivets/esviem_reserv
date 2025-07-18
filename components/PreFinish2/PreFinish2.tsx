@@ -23,121 +23,108 @@ const menuItems = [
   { label: "Контакти", icon: <FaPhoneAlt />, desc: "Як з нами звʼязатись" },
 ];
 
-const gradients = [
-  "linear-gradient(135deg, #cca000 0%, #f5cc00 100%)",
-  "linear-gradient(135deg, #003566 0%, #cca000 100%)",
-  "linear-gradient(135deg, #001d3d 0%, #003566 100%)",
-  "linear-gradient(135deg, #f5cc00 0%, #cca000 100%)",
-  "linear-gradient(135deg, #003566 0%, #f5cc00 100%)",
-  "linear-gradient(135deg, #000814 0%, #cca000 100%)",
-];
-
 const PreFinish2 = () => {
-  const [hovered, setHovered] = useState<number | null>(null);
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState(0);
 
   return (
     <section
       className="relative min-h-screen w-full flex flex-col bg-[var(--pre2-bg)]"
       style={
         {
-          // https://coolors.co/palette/000814-001d3d-003566-cca000-f5cc00
-          ["--pre2-bg"]: "#000814",
-          ["--pre2-dark"]: "#001d3d",
-          ["--pre2-blue"]: "#003566",
-          ["--pre2-gold"]: "#cca000",
-          ["--pre2-yellow"]: "#f5cc00",
-          ["--pre2-card"]: "#0a1830",
+          // https://coolors.co/palette/d6d6d6-ffee32-ffd100-202020-333533
+          ["--pre2-bg"]: "#e5e5e5",
+          ["--pre2-gray"]: "#d6d6d6",
+          ["--pre2-yellow"]: "#ffee32",
+          ["--pre2-accent"]: "#ffd100",
+          ["--pre2-dark"]: "#202020",
+          ["--pre2-black"]: "#333533",
+          ["--pre2-card"]: "#ffffff",
         } as React.CSSProperties
       }
     >
-      {/* Glass/Neumorph Grid-меню */}
+      {/* Split-menu */}
       <nav className="w-full flex flex-col items-center pt-12 pb-20 select-none">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-4xl px-4">
-          {menuItems.map((item, idx) => {
-            const isActive = active === idx || hovered === idx;
-            return (
+        <div className="flex w-full max-w-5xl mx-auto items-center justify-between gap-2">
+          {/* Left side */}
+          <div className="flex flex-col gap-3 flex-1 items-end">
+            {menuItems.slice(0, 3).map((item, idx) => (
               <button
                 key={item.label}
-                className={`relative flex flex-col items-center justify-center h-44 rounded-3xl shadow-xl transition-all duration-300 group overflow-hidden
-                  ${isActive ? "scale-105 z-10" : "scale-100"}
+                className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-300 w-56 justify-end
                   ${
-                    isActive
-                      ? "bg-[var(--pre2-yellow)] text-[var(--pre2-dark)]"
-                      : "bg-white/10 text-[var(--pre2-yellow)]"
+                    active === idx
+                      ? "bg-[var(--pre2-yellow)] text-[var(--pre2-black)] scale-105 shadow-xl"
+                      : "bg-[var(--pre2-gray)] text-[var(--pre2-dark)] hover:bg-[var(--pre2-yellow)] hover:text-[var(--pre2-black)]"
                   }
                 `}
-                style={{
-                  boxShadow: isActive
-                    ? "0 8px 32px 0 #f5cc0088, 0 1.5px 8px 0 #fff4"
-                    : "0 2px 12px 0 #001d3d33, 0 1.5px 8px 0 #fff1",
-                  backdropFilter: "blur(8px)",
-                  WebkitBackdropFilter: "blur(8px)",
-                  border: isActive ? "2.5px solid #cca000" : "2px solid #222a",
-                  transition: "all 0.3s cubic-bezier(.4,0,.2,1)",
-                }}
-                onMouseEnter={() => setHovered(idx)}
-                onMouseLeave={() => setHovered(null)}
                 onClick={() => setActive(idx)}
+                style={{ fontFamily: "inherit" }}
               >
-                <span className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-2 text-4xl transition-all duration-300 shadow-md">
-                  {item.icon}
-                </span>
-                <span className="font-bold text-lg md:text-xl mb-1 uppercase tracking-wide">
-                  {item.label}
-                </span>
-                <span
-                  className={`block text-base font-normal rounded transition-all duration-200 h-6 flex items-center justify-center
-                    ${
-                      isActive
-                        ? "opacity-100 scale-100 text-[var(--pre2-dark)]"
-                        : "opacity-0 scale-95 text-transparent"
-                    }`}
-                  style={{ minHeight: 24 }}
-                >
-                  {item.desc}
-                </span>
-                {/* Glass shine effect */}
-                <span
-                  className={`absolute left-0 top-0 w-full h-full pointer-events-none rounded-3xl transition-all duration-300 ${
-                    isActive ? "opacity-60" : "opacity-0"
-                  }`}
-                  style={{
-                    background:
-                      "linear-gradient(120deg, #fff8 10%, #fff2 60%, transparent 100%)",
-                  }}
-                ></span>
+                <span className="text-2xl">{item.icon}</span>
+                <span>{item.label}</span>
               </button>
-            );
-          })}
+            ))}
+          </div>
+          {/* Center active */}
+          <div className="flex flex-col items-center flex-shrink-0 mx-4">
+            <div className="flex flex-col items-center justify-center w-64 h-64 rounded-3xl shadow-2xl bg-[var(--pre2-accent)] text-[var(--pre2-black)] transition-all duration-300 border-4 border-[var(--pre2-yellow)]">
+              <span className="text-5xl mb-4">{menuItems[active].icon}</span>
+              <span className="font-extrabold text-2xl mb-2 uppercase tracking-wide text-center">
+                {menuItems[active].label}
+              </span>
+              <span className="block text-lg font-normal text-center text-[var(--pre2-dark)]">
+                {menuItems[active].desc}
+              </span>
+            </div>
+          </div>
+          {/* Right side */}
+          <div className="flex flex-col gap-3 flex-1 items-start">
+            {menuItems.slice(3).map((item, idx) => (
+              <button
+                key={item.label}
+                className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-lg transition-all duration-300 w-56 justify-start
+                  ${
+                    active === idx + 3
+                      ? "bg-[var(--pre2-yellow)] text-[var(--pre2-black)] scale-105 shadow-xl"
+                      : "bg-[var(--pre2-gray)] text-[var(--pre2-dark)] hover:bg-[var(--pre2-yellow)] hover:text-[var(--pre2-black)]"
+                  }
+                `}
+                onClick={() => setActive(idx + 3)}
+                style={{ fontFamily: "inherit" }}
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
 
       {/* Showcase UI/UX */}
       <div className="flex-1 flex flex-col items-center justify-center py-20 px-4">
         <div className="flex flex-col items-center gap-10 w-full max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--pre2-yellow)] text-center mb-2 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--pre2-dark)] text-center mb-2 tracking-tight">
             PreFinish2 — нова палітра
           </h2>
-          <p className="text-lg md:text-xl text-[var(--pre2-gold)] text-center mb-6 max-w-xl">
+          <p className="text-lg md:text-xl text-[var(--pre2-accent)] text-center mb-6 max-w-xl">
             Showcase UI/UX-елементів у сучасній палітрі
           </p>
           <div className="flex flex-wrap gap-6 justify-center w-full">
             {/* Кнопки */}
-            <button className="px-6 py-2 rounded-full font-semibold bg-[var(--pre2-yellow)] text-[var(--pre2-dark)] shadow-md hover:bg-[var(--pre2-gold)] hover:text-[var(--pre2-blue)] transition-colors border-2 border-[var(--pre2-yellow)]">
+            <button className="px-6 py-2 rounded-full font-semibold bg-[var(--pre2-yellow)] text-[var(--pre2-black)] shadow-md hover:bg-[var(--pre2-accent)] hover:text-[var(--pre2-dark)] transition-colors">
               Дізнатись більше
             </button>
-            <button className="px-6 py-2 rounded-full font-semibold bg-white text-[var(--pre2-yellow)] border-2 border-[var(--pre2-yellow)] hover:bg-[var(--pre2-yellow)] hover:text-[var(--pre2-dark)] transition-colors">
+            <button className="px-6 py-2 rounded-full font-semibold bg-[var(--pre2-accent)] text-[var(--pre2-black)] border-2 border-[var(--pre2-dark)] hover:bg-[var(--pre2-yellow)] transition-colors">
               Замовити консультацію
             </button>
             {/* Инпут */}
             <input
               type="text"
               placeholder="Ваше ім'я"
-              className="px-4 py-2 rounded-full border-2 border-[var(--pre2-yellow)] focus:outline-none focus:ring-2 focus:ring-[var(--pre2-yellow)] bg-white text-[var(--pre2-dark)] min-w-[180px] placeholder-[var(--pre2-blue)]"
+              className="px-4 py-2 rounded-full border border-[var(--pre2-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--pre2-accent)] bg-white text-[var(--pre2-dark)] min-w-[180px]"
             />
             {/* Селект */}
-            <select className="px-4 py-2 rounded-full border-2 border-[var(--pre2-yellow)] bg-white text-[var(--pre2-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--pre2-yellow)] min-w-[180px]">
+            <select className="px-4 py-2 rounded-full border border-[var(--pre2-black)] bg-white text-[var(--pre2-black)] focus:outline-none focus:ring-2 focus:ring-[var(--pre2-accent)] min-w-[180px]">
               <option>Оберіть послугу</option>
               <option>Передфінішний аудит</option>
               <option>Підготовка до завершення</option>
