@@ -8,6 +8,7 @@ import LegalConsulting from "@/components/Legal/LegalConsulting";
 import PreFinish from "@/components/PreFinish/PreFinish";
 import PreFinish2 from "@/components/PreFinish2/PreFinish2";
 import PreFinish3 from "@/components/PreFinish3/PreFinish3";
+import PreFinish4 from "@/components/PreFinish4/PreFinish3";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <PreFinish />
       <PreFinish2 />
       <PreFinish3 />
+      <PreFinish4 />
     </div>
   );
 }
