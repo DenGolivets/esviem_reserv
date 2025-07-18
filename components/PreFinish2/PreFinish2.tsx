@@ -106,7 +106,7 @@ const PreFinish2 = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--pre2-dark)] text-center mb-2 tracking-tight">
             PreFinish2 — нова палітра
           </h2>
-          <p className="text-lg md:text-xl text-[var(--pre2-accent)] text-center mb-6 max-w-xl">
+          <p className="text-lg md:text-xl text-[#bc7613] text-center mb-6 max-w-xl">
             Showcase UI/UX-елементів у сучасній палітрі
           </p>
           <div className="flex flex-wrap gap-6 justify-center w-full">
