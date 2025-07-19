@@ -14,7 +14,9 @@ export default function Home() {
       <Hero3 />
       <Hero />
       <Hero2 />
+      <div className="h-16 w-full bg-gradient-to-b from-[var(--hero-gold)] via-[var(--hero-bg2)] to-[var(--hero-bg)]" />
       <AboutUs />
+      <div className="h-16 w-full bg-gradient-to-b from-[var(--hero-gold)] via-[var(--hero-bg2)] to-[var(--hero-bg)]" />
       <LandConsulting />
       <ConstructionConsulting />
       <FinancialConsulting />

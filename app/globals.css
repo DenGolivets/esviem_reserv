@@ -54,6 +54,15 @@ html {
     );
   }
 
+  .hero-gradient-tr {
+    background: linear-gradient(
+      45deg,
+      var(--hero-bg) 0%,
+      var(--hero-bg2) 80%,
+      var(--hero-gold) 150%
+    );
+  }
+
   .gold-gradient-2 {
     background: linear-gradient(135deg, var(--hero-gold), var(--hero-yellow));
   }
