@@ -74,7 +74,7 @@ const Hero2 = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-hero-yellow opacity-5 rounded-full blur-3xl animate-pulse-slow" />
       </div>
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 xl:py-24">
+      <div className="relative container mx-auto px-6 md:px-0 py-8 sm:py-12 lg:py-16 xl:py-24">
         {/* Main Hero Content */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-6rem)] lg:min-h-[80vh]">
           {/* Left Content */}
