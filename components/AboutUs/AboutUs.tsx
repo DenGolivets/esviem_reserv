@@ -8,26 +8,26 @@ const stats = [
   {
     icon: <FaUserTie className="text-hero-gold w-8 h-8 mb-2" />,
     value: "15+",
-    label: "Лет опыта",
-    desc: "Эксперты в консалтинге, праве, строительстве, финансах.",
+    label: "Років досвіду",
+    desc: "Експерти у консалтингу, праві, будівництві, фінансах.",
   },
   {
     icon: <FaRocket className="text-hero-gold w-8 h-8 mb-2" />,
     value: "500+",
-    label: "Успешных кейсов",
-    desc: "Реальные результаты для клиентов по всей стране.",
+    label: "Успішних кейсів",
+    desc: "Реальні результати для клієнтів у всій країні.",
   },
   {
-    icon: <FaShieldAlt className="text-hero-blue w-8 h-8 mb-2" />,
+    icon: <FaShieldAlt className="text-hero-gold w-8 h-8 mb-2" />,
     value: "98%",
-    label: "Довольных клиентов",
-    desc: "Доверие, прозрачность, долгосрочные отношения.",
+    label: "Задоволених клієнтів",
+    desc: "Довіра, прозорість, довгострокові стосунки.",
   },
   {
     icon: <FaRegSmile className="text-hero-gold w-8 h-8 mb-2" />,
     value: "24/7",
-    label: "Поддержка",
-    desc: "Оперативная связь и сопровождение на каждом этапе.",
+    label: "Підтримка",
+    desc: "Оперативний зв'язок та супровід на кожному етапі.",
   },
 ];
 
@@ -64,11 +64,11 @@ const AboutUs = () => {
         {/* Левая часть: текст + преимущества */}
         <div className="w-full md:w-1/2 flex flex-col gap-10">
           <h2 className="text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
-            О компании <span className="gold-gradient">ESVIEM</span>
+            Про компанію <span className="gold-gradient">ESVIEM</span>
           </h2>
           <p className="text-xl text-gray-200 mb-8 max-w-xl">
-            Мы создаём ценность для бизнеса через инновации, экспертизу и
-            доверие. Ваш успех — наша репутация.
+            Ми створюємо цінність для бізнесу через інновації, експертизу та
+            довіру. Ваш успіх – наша репутація.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {stats.map((s) => (
@@ -96,9 +96,11 @@ const AboutUs = () => {
         </div>
         {/* Правая часть: интерактивная карточка/иллюстрация */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <div className="relative group max-w-md w-full aspect-[4/5] rounded-3xl overflow-hidden 
+          <div
+            className="relative group max-w-md w-full aspect-[4/5] rounded-3xl overflow-hidden 
           shadow-2xl border-4 border-hero-gold/40 bg-white/10 backdrop-blur-xl transition-all 
-          duration-500 hover:scale-105 hover:shadow-[0_8px_40px_#cca00044]">
+          duration-500 hover:scale-105 hover:shadow-[0_8px_40px_#cca00044]"
+          >
             <Image
               src="/about-us/card-about.jpg"
               width={1000}
