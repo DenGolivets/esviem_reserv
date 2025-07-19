@@ -231,7 +231,7 @@ const Hero2 = () => {
                     Безкоштовна консультація протягом 24 годин
                   </p>
                 </div>
-                <button className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 gold-gradient rounded-lg 
+                <button className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 gold-gradient-2 rounded-lg 
                 font-medium text-white transition-all duration-300 hover:shadow-lg 
                 hover:shadow-hero-gold/25 hover:scale-105 focus:outline-none focus:ring-2 
                 focus:ring-hero-gold/50 text-sm sm:text-base cursor-pointer">

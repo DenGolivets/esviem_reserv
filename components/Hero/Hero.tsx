@@ -141,7 +141,7 @@ const Hero = () => {
           })}
         </div>
         {/* Анимированная кнопка */}
-        <button className="px-10 py-4 rounded-full font-bold bg-[var(--hero-yellow)] text-[var(--hero-dark)] shadow-lg border-2 border-[var(--hero-gold)] hover:bg-[var(--hero-gold)] hover:text-[var(--hero-yellow)] transition-all text-xl tracking-wide animate-bounce hover:animate-none">
+        <button className="px-10 py-4 rounded-full font-bold bg-[var(--hero-yellow)] text-[var(--hero-dark)] shadow-lg border-2 border-[var(--hero-gold)] hover:bg-[var(--hero-gold)] hover:text-[var(--hero-dark)] cursor-pointer transition-all text-xl tracking-wide animate-bounce hover:animate-none">
           Отримати консультацію
         </button>
       </div>
