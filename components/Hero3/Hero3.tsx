@@ -20,6 +20,7 @@ import { scrollToSection } from "@/utils/scrollToSection";
 import { i18n } from "@lingui/core";
 import MenuCircle from "./MenuCircle";
 import MobileMenu from "./MobileMenu";
+import { ContainerTextFlip } from "../ui/container-text-flip";
 
 export const menuItems: MenuItem[] = [
   {
@@ -259,9 +260,7 @@ const Hero3 = () => {
                 onClick={() => handleLangChange("uk")}
                 className={`px-3 py-1.5 text-sm font-medium text-gray-300 hover:text-yellow-400
                 hover:bg-yellow-400/10 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentLang === "uk"
-                    ? "bg-[var(--hero-gold)]"
-                    : ""
+                  currentLang === "uk" ? "bg-[var(--hero-gold)]" : ""
                 }`}
               >
                 UK
@@ -271,9 +270,7 @@ const Hero3 = () => {
                 onClick={() => handleLangChange("en")}
                 className={`px-3 py-1.5 text-sm font-medium text-gray-300 hover:text-yellow-400 
                 hover:bg-yellow-400/10 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentLang === "en"
-                    ? "bg-[var(--hero-gold)]"
-                    : ""
+                  currentLang === "en" ? "bg-[var(--hero-gold)]" : ""
                 }`}
               >
                 EN
@@ -333,7 +330,9 @@ const Hero3 = () => {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                  партнер
+                  <ContainerTextFlip
+                    words={["партнер", "помічник", "консультант"]}
+                  />
                 </motion.span>
               </h1>
             </motion.div>
