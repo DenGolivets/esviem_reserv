@@ -23,15 +23,6 @@ const menuItems = [
   { label: "Контакти", icon: <FaPhoneAlt />, desc: "Як з нами звʼязатись" },
 ];
 
-const gradients = [
-  "linear-gradient(135deg, #cca000 0%, #f5cc00 100%)",
-  "linear-gradient(135deg, #003566 0%, #cca000 100%)",
-  "linear-gradient(135deg, #001d3d 0%, #003566 100%)",
-  "linear-gradient(135deg, #f5cc00 0%, #cca000 100%)",
-  "linear-gradient(135deg, #003566 0%, #f5cc00 100%)",
-  "linear-gradient(135deg, #000814 0%, #cca000 100%)",
-];
-
 const PreFinish3 = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [active, setActive] = useState<number>(0);
@@ -87,7 +78,7 @@ const PreFinish3 = () => {
                   {item.label}
                 </span>
                 <span
-                  className={`block text-base font-normal rounded transition-all duration-200 h-6 flex items-center justify-center
+                  className={`text-base font-normal rounded transition-all duration-200 h-6 flex items-center justify-center
                     ${
                       isActive
                         ? "opacity-100 scale-100 text-[var(--pre2-dark)]"

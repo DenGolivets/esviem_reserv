@@ -1,29 +1,25 @@
+import AboutUs from "@/components/AboutUs/AboutUs";
 import ConstructionConsulting from "@/components/Construction/ConstructionConsulting";
 import Contacts from "@/components/Contacts/Contacts";
 import FinancialConsulting from "@/components/Financial/FinancialConsulting";
-import Finish from "@/components/Finish/Finish";
 import Hero from "@/components/Hero/Hero";
+import Hero2 from "@/components/Hero2/Hero2";
+import Hero3 from "@/components/Hero3/Hero3";
 import LandConsulting from "@/components/Land/LandConsulting";
 import LegalConsulting from "@/components/Legal/LegalConsulting";
-import PreFinish from "@/components/PreFinish/PreFinish";
-import PreFinish2 from "@/components/PreFinish2/PreFinish2";
-import PreFinish3 from "@/components/PreFinish3/PreFinish3";
-import PreFinish4 from "@/components/PreFinish4/PreFinish3";
 
 export default function Home() {
   return (
     <div className="w-full h-full">
+      <Hero3 />
       <Hero />
+      <Hero2 />
+      <AboutUs />
       <LandConsulting />
       <ConstructionConsulting />
       <FinancialConsulting />
       <LegalConsulting />
       <Contacts />
-      <Finish />
-      <PreFinish />
-      <PreFinish2 />
-      <PreFinish3 />
-      <PreFinish4 />
     </div>
   );
 }
