@@ -65,7 +65,7 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: "contacts",
-    title: "Контакты",
+    title: "Контакти",
     icon: Phone,
     position: { x: "100%", y: "30%" },
     sectionId: "contact-section",
@@ -116,6 +116,8 @@ const Hero3 = () => {
       ref={ref}
       className="relative min-h-screen hero-gradient overflow-hidden"
     >
+      {/* Bottom Gradient */}
+      {/* <div className="bg-gradient-to-b from-slate-700 via-gray-800 to-slate-800"></div> */}
       {/* Background Buildings Image */}
       <div className="absolute inset-0">
         <div
@@ -159,7 +161,7 @@ const Hero3 = () => {
       )}
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 h-screen flex flex-col">
+      <div className="relative z-100 container mx-auto px-4 h-screen flex flex-col">
         {/* WhatsApp Floating Button */}
         <motion.div
           initial={{ opacity: 0, scale: 0, rotate: -180 }}
@@ -170,7 +172,7 @@ const Hero3 = () => {
             type: "spring",
             stiffness: 100,
           }}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed bottom-20 right-6 z-100"
         >
           <motion.a
             href="https://wa.me/+1234567890"
@@ -302,7 +304,8 @@ const Hero3 = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.2, ease: "easeOut" }}
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold 
+              mb-6 md:mb-8 leading-loose md:leading-tight">
                 <motion.span
                   className="text-white block uppercase"
                   initial={{ opacity: 0, x: -50 }}
@@ -459,7 +462,8 @@ const Hero3 = () => {
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent" />
+      {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-900 to-transparent" /> */}
+      <div className="absolute bottom-0 left-0 right-0 h-22 bg-gradient-to-t from-gray-900 to-transparent" />
     </section>
   );
 };
