@@ -33,7 +33,7 @@ interface DashboardSidebarProps {
   onClose: () => void;
 }
 
-const menuItems: MenuItem[] = [
+export const menuItems: MenuItem[] = [
   {
     id: "about",
     title: "Про нас",

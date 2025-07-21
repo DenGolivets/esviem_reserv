@@ -2,7 +2,7 @@
 
 import { scrollToSection } from "@/utils/scrollToSection";
 import { motion } from "framer-motion";
-import { menuItems } from "./Hero3";
+import { menuItems } from "../dashboard/DashboardSidebar";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -31,7 +31,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
               onClick={() => {
-                scrollToSection(item.sectionId);
+                scrollToSection(item.id);
                 onClose();
               }}
               className="flex items-center space-x-4 p-4 rounded-xl bg-slate-700/50 hover:bg-slate-700 transition-all duration-300 group"
@@ -41,7 +41,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </div>
               <div className="text-left">
                 <h3 className="text-white font-semibold">{item.title}</h3>
-                <p className="text-gray-400 text-sm">{item.description}</p>
+                {/* <p className="text-gray-400 text-sm">{item.description}</p> */}
               </div>
             </motion.button>
           );
