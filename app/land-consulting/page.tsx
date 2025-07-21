@@ -1,3 +1,5 @@
+'use client'
+
 import LandConsultingWrapper from '@/components/Land/LandConsultingWrapper'
 import React from 'react'
 

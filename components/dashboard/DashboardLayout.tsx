@@ -5,13 +5,15 @@ import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 import DashboardSidebar from "./DashboardSidebar";
 import DashboardContent from "./DashboardContent";
+import { usePathname } from "next/navigation";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const pathname = usePathname();
+  const [manualActiveMenu, setManualActiveMenu] = useState<string | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -30,17 +32,49 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    if (pathname.startsWith("/land-consulting")) {
+      setManualActiveMenu(null);
+    }
+    if (pathname.startsWith("/construction-consulting")) {
+      setManualActiveMenu(null);
+    }
+    // Аналогично для других страниц:
+    // if (pathname.startsWith('/financial-consulting')) setManualActiveMenu(null);
+    // if (pathname.startsWith('/legal-consulting')) setManualActiveMenu(null);
+  }, [pathname]);
+
   const handleMenuClick = (menuId: string) => {
-    setActiveMenu(menuId);
+    setManualActiveMenu(menuId);
   };
 
   const handleCloseContent = () => {
-    setActiveMenu(null);
+    setManualActiveMenu(null);
   };
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  // Автоматическая активация меню по pathname
+  let activeMenu = manualActiveMenu;
+  if (!manualActiveMenu) {
+    if (pathname.startsWith("/land-consulting")) {
+      activeMenu = "land";
+    }
+    if (pathname.startsWith("/construction-consulting")) {
+      activeMenu = "construction";
+    }
+    // Здесь можно добавить аналогично для других консалтингов:
+    // if (pathname.startsWith('/construction-consulting')) activeMenu = 'construction';
+    // и т.д.
+  }
+
+  const isLandConsultingPage = pathname.startsWith("/land-consulting");
+  const isConstructionConsultingPage = pathname.startsWith(
+    "/construction-consulting"
+  );
+  const isManualMenu = !!manualActiveMenu;
 
   return (
     <div className="relative min-h-screen bg-[#324158]">
@@ -74,15 +108,22 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         }`}
       >
         {/* Page Content */}
-        {!activeMenu && children}
+        {(!activeMenu ||
+          ((isLandConsultingPage || isConstructionConsultingPage) &&
+            !isManualMenu)) &&
+          children}
 
         {/* Dashboard Content Overlay */}
-        <DashboardContent
-          activeMenu={activeMenu}
-          onClose={handleCloseContent}
-          isMobile={isMobile}
-          onNavigateToPage={handleCloseContent}
-        />
+        {activeMenu &&
+          (!(isLandConsultingPage || isConstructionConsultingPage) ||
+            isManualMenu) && (
+            <DashboardContent
+              activeMenu={activeMenu}
+              onClose={handleCloseContent}
+              isMobile={isMobile}
+              onNavigateToPage={handleCloseContent}
+            />
+          )}
       </div>
     </div>
   );

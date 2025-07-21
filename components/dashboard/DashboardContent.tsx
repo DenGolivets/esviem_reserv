@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import LandConsulting from "../Land/LandConsulting";
 import AboutUs from "../AboutUs2/AboutUs2";
+import ConstructionConsulting from "../Construction/ConstructionConsulting";
 
 interface DashboardContentProps {
   activeMenu: string | null;
@@ -15,30 +16,18 @@ export default function DashboardContent({
   activeMenu,
   onClose,
   isMobile,
-  onNavigateToPage,
 }: DashboardContentProps) {
   const renderContent = () => {
     switch (activeMenu) {
       case "about":
         return <AboutUs />;
       case "land":
-        return <LandConsulting onNavigateToPage={onNavigateToPage} />;
+        return <LandConsulting />;
       case "construction":
-        return (
-          <div className="h-screen bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800 flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                Будівельний консалтинг
-              </h2>
-              <p className="text-xl text-gray-300">
-                Будівництво та проектування
-              </p>
-            </div>
-          </div>
-        );
+        return <ConstructionConsulting />;
       case "financial":
         return (
-          <div className="h-screen bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800 flex items-center justify-center">
+          <div className="h-screen flex items-center justify-center">
             <div className="text-center">
               <h2 className="text-4xl font-bold text-white mb-4">
                 Фінансовий консалтинг

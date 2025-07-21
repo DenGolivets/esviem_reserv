@@ -16,6 +16,7 @@ import {
 import land from "@/public/land/land.json";
 import Lottie from "react-lottie-player/dist/LottiePlayerLight";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const services = [
   {
@@ -38,11 +39,7 @@ const services = [
   },
 ];
 
-interface LandConsultingProps {
-  onNavigateToPage?: () => void;
-}
-
-const LandConsulting = ({ onNavigateToPage }: LandConsultingProps) => {
+const LandConsulting = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -51,6 +48,8 @@ const LandConsulting = ({ onNavigateToPage }: LandConsultingProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+
+  const router = useRouter();
 
   return (
     <section
@@ -466,7 +465,10 @@ const LandConsulting = ({ onNavigateToPage }: LandConsultingProps) => {
                   <Link
                     href="/land-consulting"
                     className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer"
-                    onClick={onNavigateToPage}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push("/land-consulting");
+                    }}
                   >
                     <span>Дізнатись більше</span>
                     <ArrowRight className="w-5 h-5" />
