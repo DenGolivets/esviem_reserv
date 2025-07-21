@@ -74,7 +74,7 @@ const features = [
   },
 ];
 
-const AboutUs2 = () => {
+const AboutUs = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -88,8 +88,6 @@ const AboutUs2 = () => {
       ref={ref}
       className="relative min-h-screen overflow-hidden"
     >
-      {/* Top Gradient */}
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-gray-900 via-gray-800 to-transparent" />
       {/* 3D Background Grid */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-20">
@@ -422,4 +420,4 @@ const AboutUs2 = () => {
   );
 };
 
-export default AboutUs2;
+export default AboutUs;

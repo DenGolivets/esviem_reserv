@@ -43,6 +43,21 @@ body,
 html {
   background: var(--hero-bg);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; /* Для горизонтального скролла */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #324158; /* Цвет фона дорожки */
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: #182237;
+  border-radius: 4px;
 }
 
 @layer utilities {
@@ -136,9 +151,9 @@ html {
     animation: pulse 3s ease-in-out infinite;
   }
 
-  /* .bg-border-gradient {
-    background-image: linear-gradient(90deg, rgba(251,251,252,1) 24%, rgba(97,16,117,1) 69%, rgba(67,14,88,1) 100%)
-  } */
+  .clip-v-bronze {
+    clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%);
+  }
 }
 
 @keyframes fadeIn {
@@ -182,3 +197,68 @@ html {
     box-shadow: 0 0 40px rgba(204, 160, 0, 0.6);
   }
 }
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes rotate-conic {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom group-hover:text-* для динамических цветов */
+.group:hover .group-hover\:text-blue-500 {
+  color: #3b82f6 !important;
+}
+.group:hover .group-hover\:text-green-500 {
+  color: #22c55e !important;
+}
+.group:hover .group-hover\:text-orange-500 {
+  color: #f97316 !important;
+}
+.group:hover .group-hover\:text-yellow-500 {
+  color: #eab308 !important;
+}
+.group:hover .group-hover\:text-purple-500 {
+  color: #a855f7 !important;
+}
+
+.active-gradient-border {
+  border: none !important;
+}
+.active-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 0.75rem;
+  padding: 2px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.active-gradient-border.from-blue-500.to-yellow-600::before {
+  background: linear-gradient(90deg, #3b82f6, #eab308);
+}
+.active-gradient-border.from-green-500.to-yellow-600::before {
+  background: linear-gradient(90deg, #22c55e, #eab308);
+}
+.active-gradient-border.from-orange-500.to-yellow-600::before {
+  background: linear-gradient(90deg, #f97316, #eab308);
+}
+.active-gradient-border.from-yellow-500.to-yellow-600::before {
+  background: linear-gradient(90deg, #eab308, #ca8a04);
+}
+.active-gradient-border.from-purple-500.to-yellow-600::before {
+  background: linear-gradient(90deg, #a855f7, #eab308);
+}
+
+/* Button AboutUs */

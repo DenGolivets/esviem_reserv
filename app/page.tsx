@@ -1,29 +1,9 @@
-import AboutUs from "@/components/AboutUs/AboutUs";
-import AboutUs2 from "@/components/AboutUs2/AboutUs2";
-import ConstructionConsulting from "@/components/Construction/ConstructionConsulting";
-import Contacts from "@/components/Contacts/Contacts";
-import FinancialConsulting from "@/components/Financial/FinancialConsulting";
-import Hero from "@/components/Hero/Hero";
-import Hero2 from "@/components/Hero2/Hero2";
-import Hero3 from "@/components/Hero3/Hero3";
-import LandConsulting from "@/components/Land/LandConsulting";
-import LegalConsulting from "@/components/Legal/LegalConsulting";
+import MainWrapper from "@/components/MainWrapper";
 
 export default function Home() {
   return (
-    <div className="w-full h-full bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800">
-      <Hero3 />
-      <AboutUs2 />
-      {/* <div className="h-16 w-full bg-gradient-to-b from-[var(--hero-gold)] via-[var(--hero-bg2)] to-[var(--hero-bg)]" /> */}    
-      {/* <div className="h-16 w-full bg-gradient-to-b from-[var(--hero-gold)] via-[var(--hero-bg2)] to-[var(--hero-bg)]" /> */}
-      <LandConsulting />
-      <Hero />
-      <Hero2 />
-      <AboutUs />
-      <ConstructionConsulting />
-      <FinancialConsulting />
-      <LegalConsulting />
-      <Contacts />
+    <div>
+      <MainWrapper />
     </div>
   );
 }

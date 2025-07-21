@@ -13,10 +13,9 @@ import {
   Zap,
   Shield,
 } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 import land from "@/public/land/land.json";
 import Lottie from "react-lottie-player/dist/LottiePlayerLight";
+import Link from "next/link";
 
 const services = [
   {
@@ -39,14 +38,20 @@ const services = [
   },
 ];
 
-const LandConsulting = () => {
+interface LandConsultingProps {
+  onNavigateToPage?: () => void;
+}
+
+const LandConsulting = ({ onNavigateToPage }: LandConsultingProps) => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+
   return (
     <section
       id="land-section"
@@ -137,7 +142,6 @@ const LandConsulting = () => {
               Консалтинг
             </span>
           </h2>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -152,12 +156,7 @@ const LandConsulting = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-green-400 mt-0 md:mt-24 md:mb-6">
               ВИДИ ПОСЛУГ В ГАЛУЗІ ЗЕМЕЛЬНИХ ВІДНОСИН
             </h3>
-            <Lottie
-              loop
-              animationData={land}
-              play
-              className="w-70 h-70"
-            />
+            <Lottie loop animationData={land} play className="w-70 h-70" />
           </div>
         </motion.div>
 
@@ -366,13 +365,11 @@ const LandConsulting = () => {
                 </motion.div>
               </div>
 
-              <div className="absolute inset-0 z-0">
-                <Image
+              <div className="absolute inset-0 z-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/land/cta-bg.jpg"
                   alt="Земельний консалтинг"
-                  width={800}
-                  height={600}
-                  loading="lazy"
                   className="w-full h-full object-cover opacity-80 blur-[3px]"
                   style={{ pointerEvents: "none" }}
                 />
@@ -463,20 +460,16 @@ const LandConsulting = () => {
                 </motion.div>
               </div>
 
-              <Link href="/land-consulting">
-                <motion.button
-                  whileHover={{
-                    scale: 1.02,
-                    boxShadow: "0 0 30px rgba(16, 185, 129, 0.5)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
-                  onClick={() => setIsModalOpen(false)}
+              <div>
+                <Link
+                  href="/land-consulting"
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 cursor-pointer"
+                  onClick={onNavigateToPage}
                 >
                   <span>Дізнатись більше</span>
                   <ArrowRight className="w-5 h-5" />
-                </motion.button>
-              </Link>
+                </Link>
+              </div>
             </motion.div>
           </motion.div>
         )}
