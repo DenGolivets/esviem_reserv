@@ -8,7 +8,6 @@ import FinancialConsulting from "../Financial/FinancialConsulting";
 
 interface DashboardContentProps {
   activeMenu: string | null;
-  onClose: () => void;
   isMobile: boolean;
   onNavigateToPage?: () => void;
   handleShowComponent?: (component: string) => void;
@@ -16,7 +15,6 @@ interface DashboardContentProps {
 
 export default function DashboardContent({
   activeMenu,
-  onClose,
   isMobile,
 }: DashboardContentProps) {
   const renderContent = () => {
@@ -55,17 +53,6 @@ export default function DashboardContent({
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className={`fixed inset-0 z-30 ${isMobile ? "" : "md:ml-80"}`}
         >
-          {/* Close Button */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            onClick={onClose}
-            className="fixed top-6 right-6 z-50 w-12 h-12 bg-slate-800 hover:bg-slate-700 rounded-full flex items-center justify-center shadow-lg transition-colors duration-200"
-          >
-            <span className="text-white text-xl">×</span>
-          </motion.button>
-
           {/* Content */}
           <div className="h-full overflow-y-auto overflow-x-hidden">
             {renderContent()}

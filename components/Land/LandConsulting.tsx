@@ -18,22 +18,6 @@ const LandConsulting = () => {
       ref={ref}
     >
       <div className="relative w-full h-full">
-        {/* 3D Hexagonal Grid Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.3'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-              transform: "perspective(1000px) rotateX(30deg)",
-              transformOrigin: "center bottom",
-              maskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0))",
-              WebkitMaskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,1) 80%, rgba(0,0,0,0))",
-            }}
-          />
-        </div>
-
         <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
           {/* Header */}
           <motion.div
@@ -78,7 +62,7 @@ const LandConsulting = () => {
             </motion.p>
 
             <div className="flex items-center text-center justify-center">
-              <h3 className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-green-400 mt-0 md:mt-24 md:mb-6">
+              <h3 className="text-2xl md:text-3xl xl:text-4xl font-bold text-green-400 mt-0 md:mt-14 md:mb-6">
                 ВИДИ ПОСЛУГ В ГАЛУЗІ ЗЕМЕЛЬНИХ ВІДНОСИН
               </h3>
             </div>

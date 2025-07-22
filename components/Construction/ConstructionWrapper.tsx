@@ -7,7 +7,6 @@ import {
   Building,
   FileText,
   Hammer,
-  ArrowLeft,
   CheckCircle,
   Scale,
   Compass,
@@ -19,7 +18,6 @@ import {
   Home,
   MapPin,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 const services = [
   {
@@ -112,124 +110,10 @@ export default function ConstructionWrapper() {
   });
 
   const [hoveredService, setHoveredService] = useState<number | null>(null);
-  const router = useRouter();
-
   return (
-    <div className="h-full w-full overflow-hidden bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800">
-      {/* Header */}
-      <div className="text-white border-b border-slate-600 overflow-hidden">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <motion.button
-              onClick={() => router.back()}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-4 py-2 
-                rounded-full hover:bg-orange-500/30 transition-all duration-300 border 
-                border-orange-400/30 z-1 cursor-pointer"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Назад</span>
-            </motion.button>
-
-            <motion.h1
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => router.push("/")}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 
-              bg-clip-text text-transparent cursor-pointer z-1"
-            >
-              ESVIEM
-            </motion.h1>
-          </div>
-        </div>
-      </div>
-
-      {/* 3D Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(249, 115, 22, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(249, 115, 22, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "40px 40px",
-              transform: "perspective(1000px) rotateX(25deg)",
-              transformOrigin: "center bottom",
-            }}
-          />
-        </div>
-
-        {/* Floating particles */}
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-orange-400 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              scale: [1, 1.5, 1],
-              opacity: [0.3, 0.7, 0.3],
-            }}
-            transition={{
-              duration: 6 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
-      </div>
-
+    <div className="h-full w-full">
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16 relative z-10" ref={ref}>
-        {/* Page Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={inView ? { scale: 1, opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-8 shadow-2xl"
-            style={{
-              boxShadow:
-                "0 0 40px rgba(249, 115, 22, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
-            }}
-          >
-            <Building className="w-10 h-10 text-white" />
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white"
-          >
-            ВИДИ ПОСЛУГ В ГАЛУЗІ БУДІВНИЦТВА
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto rounded-full shadow-lg"
-          />
-        </motion.div>
-
+      <div className="container mx-auto px-4 relative z-10" ref={ref}>
         {/* Services Grid */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

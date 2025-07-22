@@ -86,60 +86,8 @@ const AboutUs = () => {
     <section
       id="about-section"
       ref={ref}
-      className="relative min-h-screen overflow-hidden bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800"
+      className="relative min-h-screen overflow-hidden w-full"
     >
-      {/* 3D Background Grid */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "70px 70px",
-              transform: "perspective(1000px) rotateX(20deg)",
-              transformOrigin: "bottom top",
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Floating 3D Particles */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            style={{
-              left: `${Math.random() * 80}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              rotateY: [0, 360],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 8 + Math.random() * 4,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
-            }}
-          >
-            <div
-              className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full shadow-lg"
-              style={{
-                boxShadow: "0 0 20px rgba(255, 193, 7, 0.5)",
-                filter: "blur(0.5px)",
-              }}
-            />
-          </motion.div>
-        ))}
-      </div>
-
       <div className="container mx-auto px-4 md:px-0 py-16 md:py-24 relative z-10">
         {/* Header */}
         <motion.div

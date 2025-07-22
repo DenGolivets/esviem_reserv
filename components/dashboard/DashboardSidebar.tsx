@@ -105,6 +105,7 @@ const contactItems = [
 ];
 
 export default function DashboardSidebar() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState<"uk" | "en">("uk");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -201,7 +202,6 @@ export default function DashboardSidebar() {
         {manualActiveMenu && (
           <DashboardContent
             activeMenu={manualActiveMenu}
-            onClose={handleCloseContent}
             isMobile={isMobile}
             onNavigateToPage={handleCloseContent}
           />
@@ -251,9 +251,7 @@ export default function DashboardSidebar() {
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="space-y-3">
             {menuItems.map((item) => {
-              const Icon = item.icon;
               const isActive = manualActiveMenu === item.id;
-              const isHovered = hoveredItem === item.id;
 
               // Маппинг для group-hover цвета
               const groupHoverColor =
@@ -276,7 +274,7 @@ export default function DashboardSidebar() {
                   }}
                   onHoverStart={() => setHoveredItem(item.id)}
                   onHoverEnd={() => setHoveredItem(null)}
-                  className={`w-full z-[2] flex relative items-center space-x-4 p-4 rounded-xl group h-20 min-h-20 max-h-20 overflow-hidden ${
+                  className={`w-full z-[2] flex relative items-center space-x-4 py-2 px-8 rounded-xl group h-20 min-h-20 max-h-20 overflow-hidden ${
                     isActive
                       ? `active-gradient-border ${item.borderActive}`
                       : "hover:bg-slate-700/50 border border-transparent"
@@ -284,19 +282,9 @@ export default function DashboardSidebar() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <motion.div
-                    animate={{
-                      scale: isHovered ? 1.1 : 1,
-                      rotateY: isHovered ? 180 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center shadow-lg`}
-                  >
-                    <Icon className="w-6 h-6 text-white" />
-                  </motion.div>
                   <div className="text-left">
                     <h4
-                      className={`font-semibold transition-colors ${
+                      className={`font-semibold transition-colors text-lg md:text-xl uppercase ${
                         isActive
                           ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
                           : `text-white ${groupHoverColor}`
@@ -311,7 +299,7 @@ export default function DashboardSidebar() {
           </div>
 
           {/* Contact Section */}
-          <div className="mt-8">
+          <div className="mt-12">
             <h3 className="text-gray-400 text-sm font-semibold mb-4 uppercase tracking-wider">
               Контакти
             </h3>
@@ -345,13 +333,13 @@ export default function DashboardSidebar() {
 
         {/* Language Switcher */}
         <div className="p-6 border-t border-slate-700 w-full">
-          <div className="flex items-center space-x-2 bg-slate-700/50 rounded-full p-2 w-fit">
+          <div className="flex items-center space-x-2 bg-transparent rounded-full p-2 w-fit">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => handleLangChange("uk")}
               className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-120 ${
-                  currentLang === "uk" ? "scale-140" : ""
+                  currentLang === "uk" ? "scale-120" : ""
                 }`}
             >
               <Image
@@ -367,7 +355,7 @@ export default function DashboardSidebar() {
               onClick={() => handleLangChange("en")}
               className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-120 ${
-                  currentLang === "en" ? "scale-140" : ""
+                  currentLang === "en" ? "scale-120" : ""
                 }`}
             >
               <Image
