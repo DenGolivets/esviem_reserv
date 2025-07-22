@@ -220,7 +220,7 @@ export default function DashboardSidebar() {
           ease: "easeOut",
         }}
         className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-slate-600 via-gray-800 
-        to-slate-700 border-r border-slate-700 z-40 flex flex-col"
+        to-slate-700 z-40 flex flex-col"
         style={{
           borderTopRightRadius: "2rem",
           borderBottomRightRadius: "2rem",
@@ -259,7 +259,7 @@ export default function DashboardSidebar() {
         {/* Menu Items */}
         <div className="flex-1 p-6 overflow-y-auto">
           <div className="space-y-3">
-            {menuItems.map((item) => {
+            {menuItems.map((item, index) => {
               const isActive = manualActiveMenu === item.id;
 
               // Маппинг для group-hover цвета
@@ -283,9 +283,9 @@ export default function DashboardSidebar() {
                   }}
                   onHoverStart={() => setHoveredItem(item.id)}
                   onHoverEnd={() => setHoveredItem(null)}
-                  className={`w-full z-[2] flex relative items-center space-x-4 py-2 px-8 rounded-xl group h-20 min-h-20 max-h-20 overflow-hidden ${
-                    isActive
-                      ? `active-gradient-border ${item.borderActive}`
+                  className={`w-full z-[2] flex relative items-center space-x-2 py-2 px-8 rounded-xl group h-16 min-h-16 max-h-20 overflow-hidden ${
+                    isActive && index % 2 === 0
+                      ? `active-gradient-border ${item.borderActive} bg-slate-700/70`
                       : "hover:bg-slate-700/50 border border-transparent"
                   }`}
                   whileHover={{ scale: 1.02 }}
@@ -293,7 +293,7 @@ export default function DashboardSidebar() {
                 >
                   <div className="text-left">
                     <h4
-                      className={`font-semibold transition-colors text-lg md:text-xl uppercase ${
+                      className={`font-semibold transition-colors text-lg md:text-base uppercase ${
                         isActive
                           ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
                           : `text-white ${groupHoverColor}`

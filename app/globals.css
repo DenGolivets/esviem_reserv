@@ -261,4 +261,8 @@ html {
   background: linear-gradient(90deg, #a855f7, #eab308);
 }
 
-/* Button AboutUs */
+@media (min-width: 768px) {
+  .custom-clip {
+    clip: rect(30px, 30px, 20px, 20px);
+  }
+}
