@@ -11,10 +11,13 @@ import {
   MessageCircle,
   Phone,
   Send,
+  Menu,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { i18n } from "@lingui/core";
+import Image from "next/image";
+import DashboardContent from "./DashboardContent";
 
 interface MenuItem {
   id: string;
@@ -24,13 +27,6 @@ interface MenuItem {
   textColor: string;
   textColorActive: string;
   borderActive: string;
-}
-
-interface DashboardSidebarProps {
-  onMenuClick: (menuId: string) => void;
-  activeMenu: string | null;
-  isOpen: boolean;
-  onClose: () => void;
 }
 
 export const menuItems: MenuItem[] = [
@@ -100,16 +96,35 @@ const contactItems = [
     color: "from-blue-500 to-blue-600",
     href: "https://t.me/username",
   },
+  {
+    id: "signal",
+    icon: MessageCircle,
+    color: "from-blue-500 to-blue-600",
+    href: "https://signal.me/#p/+1234567890",
+  },
 ];
 
-export default function DashboardSidebar({
-  onMenuClick,
-  activeMenu,
-  isOpen,
-  onClose,
-}: DashboardSidebarProps) {
+export default function DashboardSidebar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState<"uk" | "en">("uk");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [manualActiveMenu, setManualActiveMenu] = useState<string | null>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsSidebarOpen(true);
+      } else {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -120,6 +135,18 @@ export default function DashboardSidebar({
     }
   }, []);
 
+  useEffect(() => {
+    setManualActiveMenu("about");
+  }, []);
+
+  const handleCloseContent = () => {
+    setManualActiveMenu(null);
+  };
+
+  const handleToggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   const handleLangChange = (lang: "uk" | "en") => {
     if (typeof window !== "undefined") {
       localStorage.setItem("lang", lang);
@@ -129,10 +156,18 @@ export default function DashboardSidebar({
     }
   };
 
+  const handleMenuClick = (menuId: string) => {
+    setManualActiveMenu(menuId);
+  };
+
+  const onClose = () => {
+    setIsSidebarOpen(false);
+  };
+
   return (
     <>
       {/* Mobile Overlay */}
-      {isOpen && (
+      {isSidebarOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -142,9 +177,40 @@ export default function DashboardSidebar({
         />
       )}
 
+      {/* Mobile Menu Button */}
+      {isMobile && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5 }}
+          onClick={handleToggleSidebar}
+          className="fixed top-6 left-6 z-50 w-12 h-12 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 border border-yellow-400/30"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <Menu className="w-6 h-6 text-yellow-400" />
+        </motion.button>
+      )}
+
+      <div
+        className={`min-h-screen transition-all duration-300  ${
+          isMobile ? "" : "ml-80"
+        }`}
+      >
+        {/* Page Content */}
+        {manualActiveMenu && (
+          <DashboardContent
+            activeMenu={manualActiveMenu}
+            onClose={handleCloseContent}
+            isMobile={isMobile}
+            onNavigateToPage={handleCloseContent}
+          />
+        )}
+      </div>
+
       <motion.div
         initial={{ x: -320 }}
-        animate={{ x: isOpen ? 0 : -320 }}
+        animate={{ x: isSidebarOpen ? 0 : -320 }}
         transition={{
           type: "tween",
           damping: 25,
@@ -179,18 +245,14 @@ export default function DashboardSidebar({
           >
             ESVIEM
           </Link>
-          <p className="text-gray-400 text-sm mt-1">Consulting</p>
         </div>
 
         {/* Menu Items */}
         <div className="flex-1 p-6 overflow-y-auto">
-          <h3 className="text-gray-400 text-sm font-semibold mb-4 uppercase tracking-wider">
-            Послуги
-          </h3>
           <div className="space-y-3">
             {menuItems.map((item) => {
               const Icon = item.icon;
-              const isActive = activeMenu === item.id;
+              const isActive = manualActiveMenu === item.id;
               const isHovered = hoveredItem === item.id;
 
               // Маппинг для group-hover цвета
@@ -207,7 +269,7 @@ export default function DashboardSidebar({
                 <motion.button
                   key={item.id}
                   onClick={() => {
-                    onMenuClick(item.id);
+                    handleMenuClick(item.id);
                     if (window.innerWidth < 768) {
                       onClose();
                     }
@@ -242,7 +304,6 @@ export default function DashboardSidebar({
                     >
                       {item.title}
                     </h4>
-                    <p className="text-gray-400 text-sm">Консалтинг</p>
                   </div>
                 </motion.button>
               );
@@ -284,30 +345,38 @@ export default function DashboardSidebar({
 
         {/* Language Switcher */}
         <div className="p-6 border-t border-slate-700 w-full">
-          <div className="flex items-center space-x-4 bg-slate-700/50 rounded-full p-2 w-fit">
+          <div className="flex items-center space-x-2 bg-slate-700/50 rounded-full p-2 w-fit">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => handleLangChange("uk")}
-              className={`px-3 py-1.5 text-sm font-medium text-gray-300 hover:text-yellow-400
-                hover:bg-yellow-400/10 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentLang === "uk"
-                    ? "bg-[var(--hero-gold)]"
-                    : "bg-yellow-400/10 text-yellow-400"
+              className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
+                duration-300 cursor-pointer hover:scale-120 ${
+                  currentLang === "uk" ? "scale-140" : ""
                 }`}
             >
-              UK
+              <Image
+                src="/ukraine.png"
+                alt="Ukrainian Flag"
+                width={24}
+                height={24}
+                className="w-full h-full object-cover"
+              />
             </motion.button>
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => handleLangChange("en")}
-              className={`px-3 py-1.5 text-sm font-medium text-gray-300 hover:text-yellow-400 
-              hover:bg-yellow-400/10 rounded-full transition-all duration-300 cursor-pointer ${
-                currentLang === "en"
-                  ? "bg-[var(--hero-gold)]"
-                  : "bg-yellow-400/10 text-yellow-400"
-              }`}
+              className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
+                duration-300 cursor-pointer hover:scale-120 ${
+                  currentLang === "en" ? "scale-140" : ""
+                }`}
             >
-              EN
+              <Image
+                src="/usa.png"
+                alt="USA Flag"
+                width={24}
+                height={24}
+                className="w-full h-full object-cover"
+              />
             </motion.button>
           </div>
         </div>

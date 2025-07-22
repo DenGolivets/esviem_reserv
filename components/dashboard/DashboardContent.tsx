@@ -11,6 +11,7 @@ interface DashboardContentProps {
   onClose: () => void;
   isMobile: boolean;
   onNavigateToPage?: () => void;
+  handleShowComponent?: (component: string) => void;
 }
 
 export default function DashboardContent({
