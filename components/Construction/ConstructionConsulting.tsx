@@ -14,7 +14,7 @@ export default function ConstructionConsulting() {
     <section
       id="construction-section"
       ref={ref}
-      className="relative w-full min-h-screen overflow-hidden"
+      className="relative w-full min-h-screen overflow-hidden "
     >
       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
         {/* Header */}
@@ -39,12 +39,11 @@ export default function ConstructionConsulting() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-            <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r mr-2 from-white via-gray-100 to-white bg-clip-text text-transparent">
               Будівельний
             </span>
-            <br />
             <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-              консалтинг
+              Консалтинг
             </span>
           </h2>
 

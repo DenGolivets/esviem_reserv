@@ -4,10 +4,8 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import {
-  DollarSign,
   Calculator,
   TrendingUp,
-  ArrowLeft,
   PieChart,
   BarChart3,
   FileText,
@@ -15,10 +13,7 @@ import {
   Phone,
   Mail,
   MessageCircle,
-  Coins,
-  CreditCard,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 const services = [
   {
@@ -68,15 +63,6 @@ const services = [
   },
 ];
 
-const floatingIcons = [
-  DollarSign,
-  Coins,
-  CreditCard,
-  BarChart3,
-  PieChart,
-  TrendingUp,
-];
-
 export default function FinancialConsultingWrapper() {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -84,146 +70,11 @@ export default function FinancialConsultingWrapper() {
   });
 
   const [hoveredService, setHoveredService] = useState<number | null>(null);
-  const router = useRouter();
 
   return (
-    <div className="h-full w-full overflow-hidden bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800">
-      {/* Header */}
-      <div className="text-white border-b border-slate-600 overflow-hidden">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <motion.button
-              onClick={() => router.back()}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center z-1 cursor-pointer space-x-2 bg-yellow-500/20 
-                backdrop-blur-sm px-4 py-2 rounded-full hover:bg-yellow-500/30 transition-all 
-                duration-300 border border-yellow-400/30"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Назад</span>
-            </motion.button>
-
-            <motion.h1
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => router.push("/")}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-400 to-amber-500 
-              bg-clip-text text-transparent z-1 cursor-pointer"
-            >
-              ESVIEM
-            </motion.h1>
-          </div>
-        </div>
-      </div>
-
-      {/* 3D Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(27, 191, 57, 0.848) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(234, 179, 8, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: "20px 20px",
-              transform: "perspective(1000px) rotateX(25deg)",
-              transformOrigin: "center bottom",
-            }}
-          />
-        </div>
-
-        {/* Floating financial particles */}
-        {[...Array(15)].map((_, i) => {
-          const IconComponent = floatingIcons[i % floatingIcons.length];
-          return (
-            <motion.div
-              key={i}
-              className="absolute opacity-20"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 80}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, 15, 0],
-                rotateY: [0, 360],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 8 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 4,
-              }}
-            >
-              <IconComponent className="w-6 h-6 text-yellow-400" />
-            </motion.div>
-          );
-        })}
-      </div>
-
+    <div className="h-full w-full overflow-hidden bg-transparent">
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16 relative z-10" ref={ref}>
-        {/* Page Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={inView ? { scale: 1, opacity: 1 } : {}}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full mb-8 shadow-2xl relative"
-            style={{
-              boxShadow:
-                "0 0 40px rgba(234, 179, 8, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
-            }}
-          >
-            <DollarSign className="w-10 h-10 text-white" />
-            {/* Animated rings */}
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  scale: [1, 2, 1],
-                  opacity: [0.5, 0, 0.5],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: i * 0.5,
-                  ease: "easeInOut",
-                }}
-                className="absolute inset-0 border-2 border-yellow-400 rounded-full"
-              />
-            ))}
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white"
-          >
-            ВИДИ ФІНАНСОВИХ ПОСЛУГ
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full shadow-lg"
-          />
-        </motion.div>
-
+      <div className="container mx-auto px-4 relative z-10" ref={ref}>
         {/* Services Grid */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -253,6 +104,7 @@ export default function FinancialConsultingWrapper() {
                   }}
                   transition={{ duration: 0.4 }}
                   style={{ transformStyle: "preserve-3d" }}
+                  className="h-full min-h-[200px]"
                 >
                   <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-2xl border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
@@ -375,33 +227,10 @@ export default function FinancialConsultingWrapper() {
           transition={{ duration: 0.8, delay: 2 }}
           className="bg-gradient-to-r from-yellow-600 to-amber-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden"
           style={{
-            boxShadow: "0 0 50px rgba(234, 179, 8, 0.3)",
+            boxShadow: "0 0 20px rgba(234, 179, 8, 0.3)",
           }}
         >
-          {/* 3D Background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-white rounded-full opacity-20"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.2, 0.5, 0.2],
-                  rotateY: [0, 360],
-                }}
-                transition={{
-                  duration: 4 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
+          
 
           <div className="relative z-10">
             <div className="text-center mb-8">

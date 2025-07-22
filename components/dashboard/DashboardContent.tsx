@@ -5,6 +5,7 @@ import LandConsulting from "../Land/LandConsulting";
 import AboutUs from "../AboutUs2/AboutUs2";
 import ConstructionConsulting from "../Construction/ConstructionConsulting";
 import FinancialConsulting from "../Financial/FinancialConsulting";
+import LegalConsulting from "../Legal/LegalConsulting";
 
 interface DashboardContentProps {
   activeMenu: string | null;
@@ -28,16 +29,7 @@ export default function DashboardContent({
       case "financial":
         return <FinancialConsulting />;
       case "legal":
-        return (
-          <div className="h-screen bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800 flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                Юридичний консалтинг
-              </h2>
-              <p className="text-xl text-gray-300">Правовий супровід</p>
-            </div>
-          </div>
-        );
+        return <LegalConsulting />;
       default:
         return null;
     }

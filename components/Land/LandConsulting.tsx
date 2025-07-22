@@ -14,7 +14,7 @@ const LandConsulting = () => {
   return (
     <section
       id="land-section"
-      className="min-h-screen w-full overflow-hidden bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800"
+      className="min-h-screen w-full overflow-hidden "
       ref={ref}
     >
       <div className="relative w-full h-full">

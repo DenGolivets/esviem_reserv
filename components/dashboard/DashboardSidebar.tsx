@@ -180,7 +180,7 @@ export default function DashboardSidebar() {
       )}
 
       {/* Mobile Menu Button */}
-      {isMobile && (
+      {isMobile && !isSidebarOpen && (
         <motion.button
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -219,7 +219,7 @@ export default function DashboardSidebar() {
           duration: 0.7,
           ease: "easeOut",
         }}
-        className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-slate-800 to-slate-900 border-r border-slate-700 z-40 flex flex-col"
+        className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-slate-600 via-gray-800 to-slate-700 border-r border-slate-700 z-40 flex flex-col"
         style={{
           borderTopRightRadius: "2rem",
           borderBottomRightRadius: "2rem",
@@ -244,7 +244,14 @@ export default function DashboardSidebar() {
             className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text 
             text-transparent"
           >
-            ESVIEM
+            <Image
+              src="/esviem2.png"
+              alt="V"
+              width={500}
+              height={500}
+              priority
+              className="block w-35 h-10"
+            />
           </Link>
         </div>
 
@@ -354,11 +361,11 @@ export default function DashboardSidebar() {
                 }`}
             >
               <Image
-                src="/ukraine.png"
+                src="/ukraine-xs.gif"
                 alt="Ukrainian Flag"
-                width={24}
-                height={24}
-                className="w-full h-full object-cover"
+                width={14}
+                height={14}
+                className="w-7 h-4 object-cover"
               />
             </motion.button>
             <motion.button
@@ -370,11 +377,11 @@ export default function DashboardSidebar() {
                 }`}
             >
               <Image
-                src="/usa.png"
+                src="/united-states-xs.gif"
                 alt="USA Flag"
-                width={24}
-                height={24}
-                className="w-full h-full object-cover"
+                width={14}
+                height={14}
+                className="w-7 h-4 object-cover"
               />
             </motion.button>
           </div>

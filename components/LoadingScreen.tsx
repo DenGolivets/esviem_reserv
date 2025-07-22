@@ -8,7 +8,7 @@ export default function LoadingScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setLoading(false), 4000);
+    const timeout = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -21,7 +21,7 @@ export default function LoadingScreen() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
-          className="fixed inset-0 z-[9999] bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800 flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-gradient-to-r from-slate-200 via-gray-300 to-slate-400 flex items-center justify-center"
         >
           <DashboardLogo />
         </motion.div>

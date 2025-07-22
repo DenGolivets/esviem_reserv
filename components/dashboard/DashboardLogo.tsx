@@ -19,31 +19,25 @@ export default function DashboardLogo() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="text-black">ES</span>
+          {/* <span className="text-black">ES</span> */}
           <span
             className="inline-block align-baseline"
-            // style={{
-            //   width: "1em",
-            //   height: "1.2em",
-            //   verticalAlign: "text-bottom",
-            //   marginTop: "-0.1em",
-            // }}
           >
             <Image
-              src="/v.svg"
+              src="/esviem2.png"
               alt="V"
-              width={100}
-              height={100}
+              width={500}
+              height={500}
               priority
-              className="block w-24 h-26"
+              className="block w-85 h-26"
             />
           </span>
-          <span className="text-black">IEM</span>
+          {/* <span className="text-black">IEM</span> */}
         </motion.h1>
 
         {/* CONSULTING */}
         <motion.h2
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-slate-400 mb-6 tracking-[0.3em]"
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#072A40] mb-6 tracking-[0.3em]"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -53,7 +47,7 @@ export default function DashboardLogo() {
 
         {/* WE SHAPE YOUR SUCCESS */}
         <motion.p
-          className="text-lg md:text-xl lg:text-2xl text-slate-500 font-medium tracking-wider"
+          className="text-lg md:text-xl lg:text-2xl text-[#072A40] font-medium tracking-wider"
           initial={{ y: 0, opacity: 0 }}
           animate={{ y: 0, opacity: [1, 0.3, 1] }}
           transition={{ duration: 2, delay: 0.8, repeat: Infinity }}
