@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LandConsulting from "../Land/LandConsulting";
 import AboutUs from "../AboutUs2/AboutUs2";
 import ConstructionConsulting from "../Construction/ConstructionConsulting";
+import FinancialConsulting from "../Financial/FinancialConsulting";
 
 interface DashboardContentProps {
   activeMenu: string | null;
@@ -26,18 +27,7 @@ export default function DashboardContent({
       case "construction":
         return <ConstructionConsulting />;
       case "financial":
-        return (
-          <div className="h-screen flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-4xl font-bold text-white mb-4">
-                Фінансовий консалтинг
-              </h2>
-              <p className="text-xl text-gray-300">
-                Фінансові рішення та інвестиції
-              </p>
-            </div>
-          </div>
-        );
+        return <FinancialConsulting />;
       case "legal":
         return (
           <div className="h-screen bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800 flex items-center justify-center">

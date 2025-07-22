@@ -86,7 +86,7 @@ const AboutUs = () => {
     <section
       id="about-section"
       ref={ref}
-      className="relative min-h-screen overflow-hidden"
+      className="relative min-h-screen overflow-hidden bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800"
     >
       {/* 3D Background Grid */}
       <div className="absolute inset-0">

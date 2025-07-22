@@ -39,8 +39,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     if (pathname.startsWith("/construction-consulting")) {
       setManualActiveMenu(null);
     }
+    if (pathname.startsWith("/financial-consulting")) {
+      setManualActiveMenu(null);
+    }
     // Аналогично для других страниц:
-    // if (pathname.startsWith('/financial-consulting')) setManualActiveMenu(null);
     // if (pathname.startsWith('/legal-consulting')) setManualActiveMenu(null);
   }, [pathname]);
 
@@ -65,6 +67,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     if (pathname.startsWith("/construction-consulting")) {
       activeMenu = "construction";
     }
+    if (pathname.startsWith("/financial-consulting")) {
+      activeMenu = "financial";
+    }
     // Здесь можно добавить аналогично для других консалтингов:
     // if (pathname.startsWith('/construction-consulting')) activeMenu = 'construction';
     // и т.д.
@@ -73,6 +78,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const isLandConsultingPage = pathname.startsWith("/land-consulting");
   const isConstructionConsultingPage = pathname.startsWith(
     "/construction-consulting"
+  );
+  const isFinancialConsultingPage = pathname.startsWith(
+    "/financial-consulting"
   );
   const isManualMenu = !!manualActiveMenu;
 
@@ -109,13 +117,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       >
         {/* Page Content */}
         {(!activeMenu ||
-          ((isLandConsultingPage || isConstructionConsultingPage) &&
+          ((isLandConsultingPage || isConstructionConsultingPage || isFinancialConsultingPage) &&
             !isManualMenu)) &&
           children}
 
         {/* Dashboard Content Overlay */}
         {activeMenu &&
-          (!(isLandConsultingPage || isConstructionConsultingPage) ||
+          (!(isLandConsultingPage || isConstructionConsultingPage || isFinancialConsultingPage) ||
             isManualMenu) && (
             <DashboardContent
               activeMenu={activeMenu}
