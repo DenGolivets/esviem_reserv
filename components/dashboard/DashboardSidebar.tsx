@@ -12,6 +12,7 @@ import {
   Phone,
   Send,
   Menu,
+  Mail,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
@@ -327,6 +328,16 @@ export default function DashboardSidebar() {
                   </motion.a>
                 );
               })}
+            </div>
+            <div className="flex flex-col gap-3 mt-10">
+              <div className="flex items-center gap-2">
+                <Mail className="w-5 h-5 text-white" />
+                <p className="text-gray-300">esviemua@gmail.com</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-5 h-5 text-white" />
+                <p className="text-gray-300">+380508128888</p>
+              </div>
             </div>
           </div>
         </div>
