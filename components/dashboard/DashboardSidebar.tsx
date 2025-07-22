@@ -219,7 +219,8 @@ export default function DashboardSidebar() {
           duration: 0.7,
           ease: "easeOut",
         }}
-        className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-slate-600 via-gray-800 to-slate-700 border-r border-slate-700 z-40 flex flex-col"
+        className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-slate-600 via-gray-800 
+        to-slate-700 border-r border-slate-700 z-40 flex flex-col"
         style={{
           borderTopRightRadius: "2rem",
           borderBottomRightRadius: "2rem",
