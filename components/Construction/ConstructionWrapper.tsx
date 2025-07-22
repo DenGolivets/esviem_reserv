@@ -224,34 +224,9 @@ export default function ConstructionWrapper() {
           transition={{ duration: 0.8, delay: 2 }}
           className="bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden"
           style={{
-            boxShadow: "0 0 50px rgba(249, 115, 22, 0.3)",
+            boxShadow: "0 0 20px rgba(249, 115, 22, 0.3)",
           }}
         >
-          {/* 3D Background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-white rounded-full opacity-20"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.2, 0.5, 0.2],
-                  rotateY: [0, 360],
-                }}
-                transition={{
-                  duration: 4 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
-
           <div className="relative z-10">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
