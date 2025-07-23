@@ -13,6 +13,7 @@ import {
   Phone,
   Mail,
   MessageCircle,
+  ArrowLeft,
 } from "lucide-react";
 
 const services = [
@@ -22,6 +23,26 @@ const services = [
     title: "Консультування та підтримка бухгалтерії",
     description: "з питань оподаткування та фінансів",
     color: "from-yellow-500 to-amber-500",
+    detailedDescription: `
+      Професійне консультування з питань бухгалтерського обліку та оподаткування для ефективного ведення бізнесу.
+      
+      Етапи роботи:
+      1. Аналіз поточної системи обліку
+      2. Виявлення проблемних питань
+      3. Розробка рекомендацій з оптимізації
+      4. Постійна підтримка та консультації
+      5. Супровід при перевірках
+      
+      Допомагаємо:
+      - Правильно вести бухгалтерський облік
+      - Оптимізувати податкові платежі
+      - Уникнути штрафів та санкцій
+      - Підготуватися до перевірок
+    `,
+    examples: [
+      "/financial/accounting-doc1.jpg",
+      "/financial/accounting-doc2.jpg"
+    ]
   },
   {
     id: 2,
@@ -29,14 +50,52 @@ const services = [
     title: "Планування податкових зобов'язань",
     description: "та розробка стратегії податкових обов'язків",
     color: "from-blue-500 to-indigo-500",
+    detailedDescription: `
+      Стратегічне планування податкових зобов'язань для оптимізації фінансових потоків підприємства.
+      
+      Етапи роботи:
+      1. Аналіз поточного податкового навантаження
+      2. Прогнозування податкових платежів
+      3. Розробка стратегії оптимізації
+      4. Впровадження запланованих заходів
+      5. Моніторинг результатів
+      
+      Результат:
+      - Зменшення податкового навантаження
+      - Покращення фінансового планування
+      - Уникнення податкових ризиків
+    `,
+    examples: [
+      "/financial/tax-planning-doc1.jpg",
+      "/financial/tax-planning-doc2.jpg"
+    ]
   },
   {
     id: 3,
     icon: BarChart3,
     title: "Аналіз фінансової звітності",
-    description:
-      "за 2024 рік та за 1 квартал 2025 року для розробки стратегії та плану розвитку підприємства",
+    description: "за 2024 рік та за 1 квартал 2025 року для розробки стратегії та плану розвитку підприємства",
     color: "from-purple-500 to-blue-500",
+    detailedDescription: `
+      Комплексний аналіз фінансового стану підприємства для прийняття стратегічних рішень.
+      
+      Етапи роботи:
+      1. Збір та систематизація звітності
+      2. Горизонтальний та вертикальний аналіз
+      3. Розрахунок фінансових коефіцієнтів
+      4. Оцінка динаміки показників
+      5. Підготовка висновків та рекомендацій
+      
+      Аналізуємо:
+      - Ліквідність та платоспроможність
+      - Рентабельність діяльності
+      - Фінансову стійкість
+      - Ділову активність
+    `,
+    examples: [
+      "/financial/financial-analysis-doc1.jpg",
+      "/financial/financial-analysis-doc2.jpg"
+    ]
   },
   {
     id: 4,
@@ -44,22 +103,80 @@ const services = [
     title: "Оптимізація витрат підприємства",
     description: "Ефективне управління фінансовими ресурсами",
     color: "from-green-500 to-emerald-500",
+    detailedDescription: `
+      Комплексний підхід до оптимізації витрат та підвищення ефективності використання ресурсів.
+      
+      Етапи роботи:
+      1. Аудит поточних витрат
+      2. Категоризація та аналіз витрат
+      3. Виявлення точок оптимізації
+      4. Розробка плану скорочення витрат
+      5. Контроль впровадження заходів
+      
+      Оптимізуємо:
+      - Операційні витрати
+      - Адміністративні витрати
+      - Витрати на персонал
+      - Закупівельну політику
+    `,
+    examples: [
+      "/financial/cost-optimization-doc1.jpg",
+      "/financial/cost-optimization-doc2.jpg"
+    ]
   },
   {
     id: 5,
     icon: PieChart,
     title: "Проведення аналізу 20 рахунків",
-    description:
-      "бухгалтерського обліку та надання рекомендацій для ефективного використання матеріальних ресурсів",
+    description: "бухгалтерського обліку та надання рекомендацій для ефективного використання матеріальних ресурсів",
     color: "from-orange-500 to-red-500",
+    detailedDescription: `
+      Детальний аналіз рахунків бухгалтерського обліку для оптимізації використання ресурсів.
+      
+      Етапи роботи:
+      1. Вибір 20 ключових рахунків
+      2. Аналіз оборотів та залишків
+      3. Перевірка правильності відображення операцій
+      4. Виявлення невикористаних резервів
+      5. Розробка рекомендацій з оптимізації
+      
+      Аналізуємо рахунки:
+      - Матеріальних цінностей
+      - Розрахунків з покупцями
+      - Розрахунків з постачальниками
+      - Витрат на виробництво
+    `,
+    examples: [
+      "/financial/accounts-analysis-doc1.jpg",
+      "/financial/accounts-analysis-doc2.jpg"
+    ]
   },
   {
     id: 6,
     icon: FileText,
     title: "Збір установчих документів",
-    description:
-      "фінансових, бухгалтерських документів відповідно до положень Господарського кодексу України",
+    description: "фінансових, бухгалтерських документів відповідно до положень Господарського кодексу України",
     color: "from-indigo-500 to-purple-500",
+    detailedDescription: `
+      Повний комплекс послуг з підготовки та оформлення документації відповідно до законодавства України.
+      
+      Етапи роботи:
+      1. Консультація щодо необхідних документів
+      2. Підготовка установчих документів
+      3. Оформлення фінансової документації
+      4. Перевірка відповідності законодавству
+      5. Подача документів до відповідних органів
+      
+      Готуємо документи:
+      - Статут підприємства
+      - Фінансові звіти
+      - Бухгалтерську документацію
+      - Документи для реєстрації
+    `,
+    examples: [
+      "/financial/documents-doc1.jpg",
+      "/financial/documents-doc2.jpg"
+    ]
   },
 ];
 
@@ -70,6 +187,91 @@ export default function FinancialConsultingWrapper() {
   });
 
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+
+  const handleServiceClick = (serviceId: number) => {
+    setSelectedService(serviceId);
+  };
+
+  const handleBackClick = () => {
+    setSelectedService(null);
+  };
+
+  const currentService = services.find(s => s.id === selectedService);
+
+  // Детальна сторінка сервісу
+  if (selectedService && currentService) {
+    const Icon = currentService.icon;
+    
+    return (
+      <div className="h-full w-full overflow-hidden bg-transparent">
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Кнопка назад */}
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            onClick={handleBackClick}
+            className="flex items-center space-x-2 mb-8 text-yellow-400 hover:text-yellow-300 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Назад до списку</span>
+          </motion.button>
+
+          {/* Заголовок */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center space-x-4 mb-8"
+          >
+            <div className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-2xl flex items-center justify-center`}>
+              <Icon className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-white">{currentService.title}</h1>
+          </motion.div>
+
+          {/* Детальний опис */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 mb-8 border border-slate-600"
+          >
+            <div className="prose prose-lg prose-invert max-w-none">
+              <pre className="whitespace-pre-wrap text-gray-300 font-sans leading-relaxed">
+                {currentService.detailedDescription}
+              </pre>
+            </div>
+          </motion.div>
+
+          {/* Приклади документів */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">Приклади документів</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {currentService.examples.map((imagePath, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
+                >
+                  <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
+                    <FileText className="w-16 h-16 text-slate-400" />
+                    <span className="ml-2 text-slate-400">Приклад документа {index + 1}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-full w-full overflow-hidden bg-transparent">
@@ -92,6 +294,7 @@ export default function FinancialConsultingWrapper() {
                 transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
                 onHoverStart={() => setHoveredService(index)}
                 onHoverEnd={() => setHoveredService(null)}
+                onClick={() => handleServiceClick(service.id)}
                 className="group"
                 style={{ perspective: "1000px" }}
               >
@@ -104,7 +307,7 @@ export default function FinancialConsultingWrapper() {
                   }}
                   transition={{ duration: 0.4 }}
                   style={{ transformStyle: "preserve-3d" }}
-                  className="h-full min-h-[200px]"
+                  className="h-full min-h-[200px] cursor-pointer"
                 >
                   <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-2xl border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
@@ -116,36 +319,32 @@ export default function FinancialConsultingWrapper() {
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
                     />
 
+                    {/* Підсказка при наведенні */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, x: 10 }}
+                      animate={{
+                        opacity: hoveredService === index ? 1 : 0,
+                        y: hoveredService === index ? 0 : -10,
+                        x: hoveredService === index ? 0 : 10,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-3 right-3 bg-yellow-500/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg border border-yellow-400/50 z-20"
+                    >
+                      Клікніть для деталей
+                    </motion.div>
+
                     {/* Floating money animation on hover */}
-                    {hoveredService === index && (
-                      <div className="absolute inset-0">
-                        {[...Array(6)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, scale: 0, y: 20 }}
-                            animate={{
-                              opacity: [0, 1, 0],
-                              scale: [0, 1, 0],
-                              y: [20, -40, -80],
-                              x: [
-                                0,
-                                Math.random() * 60 - 30,
-                                Math.random() * 80 - 40,
-                              ],
-                            }}
-                            transition={{
-                              duration: 2.5,
-                              delay: i * 0.15,
-                              repeat: Infinity,
-                              repeatDelay: 1.5,
-                            }}
-                            className="absolute bottom-4 left-1/2 text-yellow-400 text-lg"
-                          >
-                            {i % 2 === 0 ? "💰" : "💵"}
-                          </motion.div>
-                        ))}
-                      </div>
-                    )}
+                    <motion.div
+                      animate={{
+                        opacity: hoveredService === index ? 1 : 0,
+                        scale: hoveredService === index ? 1 : 0,
+                        rotate: hoveredService === index ? 360 : 0,
+                      }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute top-2 right-2 text-yellow-400"
+                    >
+                      💰
+                    </motion.div>
 
                     <div className="relative z-10">
                       {/* Service Number */}

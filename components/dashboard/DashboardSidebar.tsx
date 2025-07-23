@@ -219,172 +219,185 @@ export default function DashboardSidebar() {
           duration: 0.7,
           ease: "easeOut",
         }}
-        className="fixed left-0 top-0 h-screen w-80 bg-gradient-to-b from-slate-600 via-gray-800 
-        to-slate-700 z-40 flex flex-col"
+        className="fixed left-0 top-6 w-80 z-40 flex flex-col bg-gradient-to-b from-slate-600 via-gray-800 to-slate-700 rounded-3xl"
         style={{
-          borderTopRightRadius: "2rem",
-          borderBottomRightRadius: "2rem",
+          height: "calc(100vh - 3rem)",
+          transform: !isMobile
+            ? "perspective(1000px) rotateX(5deg) rotateY(-2deg)"
+            : "none",
+          transformOrigin: "center center",
+          filter: !isMobile
+            ? "drop-shadow(8px 8px 16px rgba(0,0,0,0.4))"
+            : "none",
         }}
       >
-        {/* Close button for mobile */}
-        <div className="md:hidden absolute top-4 right-4">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={onClose}
-            className="w-8 h-8 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center text-white"
-          >
-            ×
-          </motion.button>
-        </div>
-
-        {/* Logo */}
-        <div className="p-6 border-b border-slate-700">
-          <Link
-            href="/"
-            className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text 
-            text-transparent"
-          >
-            <Image
-              src="/esviem2.png"
-              alt="V"
-              width={500}
-              height={500}
-              priority
-              className="block w-35 h-10"
-            />
-          </Link>
-        </div>
-
-        {/* Menu Items */}
-        <div className="flex-1 p-6 overflow-y-auto">
-          <div className="space-y-3">
-            {menuItems.map((item, index) => {
-              const isActive = manualActiveMenu === item.id;
-
-              // Маппинг для group-hover цвета
-              const groupHoverColor =
-                {
-                  "text-blue-500": "group-hover:text-blue-500",
-                  "text-green-500": "group-hover:text-green-500",
-                  "text-orange-500": "group-hover:text-orange-500",
-                  "text-yellow-500": "group-hover:text-yellow-500",
-                  "text-purple-500": "group-hover:text-purple-500",
-                }[item.textColor] || "";
-
-              return (
-                <motion.button
-                  key={item.id}
-                  onClick={() => {
-                    handleMenuClick(item.id);
-                    if (window.innerWidth < 768) {
-                      onClose();
-                    }
-                  }}
-                  onHoverStart={() => setHoveredItem(item.id)}
-                  onHoverEnd={() => setHoveredItem(null)}
-                  className={`w-full z-[2] flex relative items-center space-x-2 py-2 px-8 rounded-xl group h-16 min-h-16 max-h-20 overflow-hidden ${
-                    isActive && index % 2 === 0
-                      ? `active-gradient-border ${item.borderActive} bg-slate-700/70`
-                      : "hover:bg-slate-700/50 border border-transparent"
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="text-left">
-                    <h4
-                      className={`font-semibold transition-colors text-lg md:text-base uppercase ${
-                        isActive
-                          ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
-                          : `text-white ${groupHoverColor}`
-                      }`}
-                    >
-                      {item.title}
-                    </h4>
-                  </div>
-                </motion.button>
-              );
-            })}
+        <div
+          className={`relative z-10 flex flex-col h-full ${
+            isMobile
+              ? "bg-gradient-to-b from-slate-600 via-gray-800 to-slate-700 rounded-r-3xl"
+              : ""
+          }`}
+        >
+          {/* Close button for mobile */}
+          <div className="md:hidden absolute top-4 right-4">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={onClose}
+              className="w-8 h-8 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center text-white"
+            >
+              ×
+            </motion.button>
           </div>
 
-          {/* Contact Section */}
-          <div className="mt-12">
-            <h3 className="text-gray-400 text-sm font-semibold mb-4 uppercase tracking-wider">
-              Контакти
-            </h3>
-            <div className="flex space-x-3">
-              {contactItems.map((contact, index) => {
-                const Icon = contact.icon;
+          {/* Logo */}
+          <div className="p-6 border-b border-slate-700">
+            <Link
+              href="/"
+              className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text 
+            text-transparent"
+            >
+              <Image
+                src="/esviem2.png"
+                alt="V"
+                width={500}
+                height={500}
+                priority
+                className="block w-35 h-10"
+              />
+            </Link>
+          </div>
+
+          {/* Menu Items */}
+          <div className="flex-1 p-6 overflow-y-auto">
+            <div className="space-y-3">
+              {menuItems.map((item, index) => {
+                const isActive = manualActiveMenu === item.id;
+
+                // Маппинг для group-hover цвета
+                const groupHoverColor =
+                  {
+                    "text-blue-500": "group-hover:text-blue-500",
+                    "text-green-500": "group-hover:text-green-500",
+                    "text-orange-500": "group-hover:text-orange-500",
+                    "text-yellow-500": "group-hover:text-yellow-500",
+                    "text-purple-500": "group-hover:text-purple-500",
+                  }[item.textColor] || "";
+
                 return (
-                  <motion.a
-                    key={contact.id}
-                    href={contact.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                    whileHover={{
-                      scale: 1.1,
-                      rotateY: 10,
-                      boxShadow: "0 0 20px rgba(255, 193, 7, 0.4)",
+                  <motion.button
+                    key={item.id}
+                    onClick={() => {
+                      handleMenuClick(item.id);
+                      if (window.innerWidth < 768) {
+                        onClose();
+                      }
                     }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-r ${contact.color} flex items-center justify-center shadow-lg transition-all duration-300`}
+                    onHoverStart={() => setHoveredItem(item.id)}
+                    onHoverEnd={() => setHoveredItem(null)}
+                    className={`w-full z-[2] flex relative items-center space-x-2 py-2 px-8 rounded-xl group h-16 min-h-16 max-h-20 overflow-hidden ${
+                      isActive && index % 2 === 0
+                        ? `active-gradient-border ${item.borderActive} bg-slate-700/70`
+                        : "hover:bg-slate-700/50 border border-transparent"
+                    }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <Icon className="w-5 h-5 text-white" />
-                  </motion.a>
+                    <div className="text-left">
+                      <h4
+                        className={`font-semibold transition-colors text-lg md:text-base uppercase ${
+                          isActive
+                            ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
+                            : `text-white ${groupHoverColor}`
+                        }`}
+                      >
+                        {item.title}
+                      </h4>
+                    </div>
+                  </motion.button>
                 );
               })}
             </div>
-            <div className="flex flex-col gap-3 mt-10">
-              <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-white" />
-                <p className="text-gray-300">esviemua@gmail.com</p>
+
+            {/* Contact Section */}
+            <div className="mt-12">
+              <h3 className="text-gray-400 text-sm font-semibold mb-4 uppercase tracking-wider">
+                Контакти
+              </h3>
+              <div className="flex space-x-3">
+                {contactItems.map((contact, index) => {
+                  const Icon = contact.icon;
+                  return (
+                    <motion.a
+                      key={contact.id}
+                      href={contact.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.6 + index * 0.1 }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotateY: 10,
+                        boxShadow: "0 0 20px rgba(255, 193, 7, 0.4)",
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-r ${contact.color} flex items-center justify-center shadow-lg transition-all duration-300`}
+                    >
+                      <Icon className="w-5 h-5 text-white" />
+                    </motion.a>
+                  );
+                })}
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-white" />
-                <p className="text-gray-300">+380508128888</p>
+              <div className="flex flex-col gap-3 mt-10">
+                <div className="flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-white" />
+                  <p className="text-gray-300">esviemua@gmail.com</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 text-white" />
+                  <p className="text-gray-300">+380508128888</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Language Switcher */}
-        <div className="p-6 border-t border-slate-700 w-full">
-          <div className="flex items-center space-x-2 bg-transparent rounded-full p-2 w-fit">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => handleLangChange("uk")}
-              className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
+          {/* Language Switcher */}
+          <div className="p-6 border-t border-slate-700 w-full">
+            <div className="flex items-center space-x-2 bg-transparent rounded-full p-2 w-fit">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleLangChange("uk")}
+                className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-120 ${
                   currentLang === "uk" ? "scale-120" : ""
                 }`}
-            >
-              <Image
-                src="/ukraine-xs.gif"
-                alt="Ukrainian Flag"
-                width={14}
-                height={14}
-                className="w-7 h-4 object-cover"
-              />
-            </motion.button>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => handleLangChange("en")}
-              className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
+              >
+                <Image
+                  src="/ukraine-xs.gif"
+                  alt="Ukrainian Flag"
+                  width={14}
+                  height={14}
+                  className="w-7 h-4 object-cover"
+                />
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleLangChange("en")}
+                className={`px-3 py-1.5 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-120 ${
                   currentLang === "en" ? "scale-120" : ""
                 }`}
-            >
-              <Image
-                src="/united-states-xs.gif"
-                alt="USA Flag"
-                width={14}
-                height={14}
-                className="w-7 h-4 object-cover"
-              />
-            </motion.button>
+              >
+                <Image
+                  src="/united-states-xs.gif"
+                  alt="USA Flag"
+                  width={14}
+                  height={14}
+                  className="w-7 h-4 object-cover"
+                />
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.div>

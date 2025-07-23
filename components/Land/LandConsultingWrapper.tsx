@@ -16,6 +16,7 @@ import {
   Phone,
   Mail,
   MessageCircle,
+  ArrowLeft,
 } from "lucide-react";
 
 const services = [
@@ -25,6 +26,25 @@ const services = [
     title: "Приватизація земельних ділянок",
     description: "(технічна документація, проєкт)",
     color: "from-blue-500 to-blue-600",
+    detailedDescription: `
+      Повний супровід процедури приватизації земельних ділянок з підготовкою всієї необхідної документації.
+      
+      Етапи роботи:
+      1. Аналіз правового статусу ділянки
+      2. Підготовка технічної документації
+      3. Розробка проєкту землеустрою
+      4. Подача документів до відповідних органів
+      5. Отримання державного акта на право власності
+      
+      Необхідні документи:
+      - Документи на право користування землею
+      - Технічний паспорт ділянки
+      - Довідка про відсутність заборон
+      - Кадастрова карта
+      
+      Термін виконання: 30-45 робочих днів
+    `,
+    examples: ["/land/privatization-doc1.jpg", "/land/privatization-doc2.jpg"],
   },
   {
     id: 2,
@@ -32,6 +52,28 @@ const services = [
     title: "Зміна цільового призначення",
     description: "земельної ділянки",
     color: "from-green-500 to-green-600",
+    detailedDescription: `
+      Професійний супровід процедури зміни цільового призначення земельної ділянки відповідно до потреб клієнта.
+      
+      Етапи роботи:
+      1. Аналіз поточного статусу ділянки
+      2. Визначення можливості зміни призначення
+      3. Підготовка обґрунтування зміни
+      4. Погодження з місцевими органами
+      5. Внесення змін до кадастру
+      
+      Можливі зміни:
+      - З сільськогосподарського на житлове будівництво
+      - З житлового на комерційне
+      - Під промислове будівництво
+      - Під рекреаційні цілі
+      
+      Термін виконання: 20-30 робочих днів
+    `,
+    examples: [
+      "/land/purpose-change-doc1.jpg",
+      "/land/purpose-change-doc2.jpg",
+    ],
   },
   {
     id: 3,
@@ -39,6 +81,26 @@ const services = [
     title: "Внесення коду цільового призначення",
     description: "при існуючому праві власності на землю і без нього",
     color: "from-purple-500 to-purple-600",
+    detailedDescription: `
+      Внесення або зміна коду цільового призначення земельної ділянки в Державному земельному кадастрі.
+      
+      Етапи роботи:
+      1. Аналіз документів на земельну ділянку
+      2. Визначення відповідного коду призначення
+      3. Підготовка пакета документів
+      4. Подача заяви до органів кадастру
+      5. Отримання витягу з оновленими даними
+      
+      Коди призначення:
+      - 01 - Землі сільськогосподарського призначення
+      - 02 - Землі житлової та громадської забудови  
+      - 03 - Землі природно-заповідного фонду
+      - 04 - Землі історико-культурного призначення
+      - 05 - Землі лісогосподарського призначення
+      
+      Термін виконання: 15-20 робочих днів
+    `,
+    examples: ["/land/purpose-code-doc1.jpg", "/land/purpose-code-doc2.jpg"],
   },
   {
     id: 4,
@@ -46,6 +108,26 @@ const services = [
     title: "Внесення виправлень помилок",
     description: "в Держгеокадастр",
     color: "from-red-500 to-red-600",
+    detailedDescription: `
+      Виправлення технічних та реєстраційних помилок у Державному земельному кадастрі.
+      
+      Етапи роботи:
+      1. Виявлення та документування помилок
+      2. Підготовка обґрунтування виправлень
+      3. Збір підтверджуючих документів
+      4. Подача заяви про виправлення
+      5. Контроль внесення змін
+      
+      Види помилок що виправляємо:
+      - Неправильні координати меж ділянки
+      - Помилки в площі ділянки
+      - Неточності в адресі розташування
+      - Помилки в кодах призначення
+      - Реєстраційні помилки
+      
+      Термін виконання: 10-15 робочих днів
+    `,
+    examples: ["/land/corrections-doc1.jpg", "/land/corrections-doc2.jpg"],
   },
   {
     id: 5,
@@ -53,6 +135,26 @@ const services = [
     title: "Винесення меж земельної ділянки",
     description: "в натуру",
     color: "from-yellow-500 to-yellow-600",
+    detailedDescription: `
+      Професійне винесення меж земельної ділянки в натуру з встановленням межових знаків.
+      
+      Етапи роботи:
+      1. Аналіз кадастрових даних ділянки
+      2. Польові геодезичні роботи
+      3. Винесення координат меж на місцевість
+      4. Встановлення межових знаків
+      5. Складання акта винесення меж
+      
+      Включено в послугу:
+      - Геодезичні вимірювання
+      - Встановлення межових знаків
+      - GPS-координування меж
+      - Акт винесення меж в натуру
+      - Схема розташування ділянки
+      
+      Термін виконання: 3-5 робочих днів
+    `,
+    examples: ["/land/boundaries-doc1.jpg", "/land/boundaries-doc2.jpg"],
   },
   {
     id: 6,
@@ -60,6 +162,26 @@ const services = [
     title: "Підготовка документів для судового процесу",
     description: "(в разі самовільного зайняття земельної ділянки та інш)",
     color: "from-indigo-500 to-indigo-600",
+    detailedDescription: `
+      Комплексна підготовка документації для судового захисту земельних прав та інтересів.
+      
+      Етапи роботи:
+      1. Аналіз правової ситуації
+      2. Збір доказової бази
+      3. Підготовка процесуальних документів
+      4. Експертна оцінка земельної ділянки
+      5. Представництво інтересів у суді
+      
+      Готуємо документи для:
+      - Спорів щодо меж земельних ділянок
+      - Випадків самовільного зайняття землі
+      - Визнання права власності на землю
+      - Спорів щодо сервітутів
+      - Відшкодування збитків
+      
+      Термін виконання: 15-30 робочих днів
+    `,
+    examples: ["/land/court-doc1.jpg", "/land/court-doc2.jpg"],
   },
   {
     id: 7,
@@ -67,35 +189,26 @@ const services = [
     title: "Топозйомка",
     description: "з усіма необхідними погодженнями",
     color: "from-teal-500 to-teal-600",
-  },
-  {
-    id: 8,
-    icon: Layers,
-    title: "Поділ та об'єднання",
-    description: "земельних ділянок",
-    color: "from-orange-500 to-orange-600",
-  },
-  {
-    id: 9,
-    icon: Mountain,
-    title: "Геодезія. Топографічна зйомка",
-    description: "масштаба 1:500, 1:2000",
-    color: "from-cyan-500 to-cyan-600",
-  },
-  {
-    id: 10,
-    icon: Mountain,
-    title: "Геологія",
-    description: "під будівництво",
-    color: "from-emerald-500 to-emerald-600",
-  },
-  {
-    id: 11,
-    icon: Camera,
-    title: "Лазерне сканування 3D",
-    description:
-      "Зйомка об'єктів, створення метричних панорамних 3D сцен для огляду об'єктів",
-    color: "from-pink-500 to-pink-600",
+    detailedDescription: `
+      Комплексна топографічна зйомка земельної ділянки з отриманням всіх необхідних погоджень.
+      
+      Етапи роботи:
+      1. Попереднє обстеження ділянки
+      2. Польові топографічні роботи
+      3. Камеральна обробка даних
+      4. Погодження з службами та організаціями
+      5. Виготовлення топографічного плану
+      
+      Погодження з:
+      - Енергопостачальними організаціями
+      - Газопостачальними службами
+      - Водоканалом та каналізацією
+      - Телекомунікаційними операторами
+      - Органами охорони природи
+      
+      Термін виконання: 10-20 робочих днів
+    `,
+    examples: ["/land/topography-doc1.jpg", "/land/topography-doc2.jpg"],
   },
 ];
 
@@ -106,6 +219,100 @@ const LandConsultingWrapper = () => {
   });
 
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+
+  const handleServiceClick = (serviceId: number) => {
+    setSelectedService(serviceId);
+  };
+
+  const handleBackClick = () => {
+    setSelectedService(null);
+  };
+
+  const currentService = services.find((s) => s.id === selectedService);
+
+  // Детальна сторінка сервісу
+  if (selectedService && currentService) {
+    const Icon = currentService.icon;
+
+    return (
+      <div className="h-full w-full">
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Кнопка назад */}
+          <motion.button
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            onClick={handleBackClick}
+            className="flex items-center space-x-2 mb-8 text-green-400 hover:text-green-300 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span>Назад до списку</span>
+          </motion.button>
+
+          {/* Заголовок */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center space-x-4 mb-8"
+          >
+            <div
+              className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-2xl flex items-center justify-center`}
+            >
+              <Icon className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold text-white">
+              {currentService.title}
+            </h1>
+          </motion.div>
+
+          {/* Детальний опис */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 mb-8 border border-slate-600"
+          >
+            <div className="prose prose-lg prose-invert max-w-none">
+              <pre className="whitespace-pre-wrap text-gray-300 font-sans leading-relaxed">
+                {currentService.detailedDescription}
+              </pre>
+            </div>
+          </motion.div>
+
+          {/* Приклади документів */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-8"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6">
+              Приклади документів
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {currentService.examples.map((imagePath, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
+                >
+                  <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
+                    <FileText className="w-16 h-16 text-slate-400" />
+                    <span className="ml-2 text-slate-400">
+                      Приклад документа {index + 1}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="h-full w-full">
       {/* Main Content */}
@@ -127,6 +334,7 @@ const LandConsultingWrapper = () => {
                 transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
                 onHoverStart={() => setHoveredService(index)}
                 onHoverEnd={() => setHoveredService(null)}
+                onClick={() => handleServiceClick(service.id)}
                 className="group"
                 style={{ perspective: "1000px" }}
               >
@@ -139,7 +347,7 @@ const LandConsultingWrapper = () => {
                   }}
                   transition={{ duration: 0.4 }}
                   style={{ transformStyle: "preserve-3d" }}
-                  className="h-full min-h-[200px]"
+                  className="h-full min-h-[200px] cursor-pointer"
                 >
                   <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-2xl border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
@@ -150,6 +358,20 @@ const LandConsultingWrapper = () => {
                       }}
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
                     />
+
+                    {/* Підсказка при наведенні */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, x: 10 }}
+                      animate={{
+                        opacity: hoveredService === index ? 1 : 0,
+                        y: hoveredService === index ? 0 : -10,
+                        x: hoveredService === index ? 0 : 10,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute top-3 right-3 bg-green-500/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg border border-green-400/50 z-20"
+                    >
+                      Клікніть для деталей
+                    </motion.div>
 
                     <div className="relative z-10">
                       {/* Service Number */}
