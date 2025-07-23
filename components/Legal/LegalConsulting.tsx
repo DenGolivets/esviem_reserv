@@ -415,7 +415,7 @@ export default function LegalConsulting() {
 
     return (
       <section className="relative min-h-screen w-full overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-0 md:px-4 relative z-10">
           {/* Кнопка назад */}
           <motion.button
             initial={{ opacity: 0, x: -20 }}
@@ -558,7 +558,7 @@ export default function LegalConsulting() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 relative z-10 pt-20">
+      <div className="container mx-auto px-0 md:px-4 relative z-10 pt-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

@@ -88,7 +88,7 @@ const AboutUs = () => {
       ref={ref}
       className="relative min-h-screen overflow-hidden w-full"
     >
-      <div className="container mx-auto px-4 md:px-0 py-16 md:py-24 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -162,7 +162,7 @@ const AboutUs = () => {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 
-                  shadow-2xl border border-slate-600 text-center relative overflow-hidden h-full min-h-[220px] sm:min-h-[200px]">
+                  border border-slate-600 text-center relative overflow-hidden h-full min-h-[220px] sm:min-h-[200px]">
                     {/* Glow effect */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
@@ -222,7 +222,7 @@ const AboutUs = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="grid md:grid-cols-2 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -245,14 +245,15 @@ const AboutUs = () => {
                   animate={{
                     rotateY: hoveredFeature === index ? index % 2 === 0 ? 5 : -5 : 0,
                     rotateX: hoveredFeature === index ? index % 2 === 0 ? 2 : -2 : 0,
-                    scale: hoveredFeature === index ? 1.02 : 1,
+                    scale: hoveredFeature === index ? 1.01 : 1,
                     z: hoveredFeature === index ? 30 : 0,
                   }}
                   transition={{ duration: 0.4 }}
                   style={{ transformStyle: "preserve-3d" }}
+                  className="min-h-[200px] h-full"
                 >
                   <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 
-                  shadow-2xl border border-slate-600 h-full relative overflow-hidden">
+                  border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated background */}
                     <motion.div
                       animate={{

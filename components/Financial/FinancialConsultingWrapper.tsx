@@ -205,7 +205,7 @@ export default function FinancialConsultingWrapper() {
     
     return (
       <div className="h-full w-full overflow-hidden bg-transparent">
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-0 md:px-4 relative z-10">
           {/* Кнопка назад */}
           <motion.button
             initial={{ opacity: 0, x: -20 }}
@@ -276,7 +276,7 @@ export default function FinancialConsultingWrapper() {
   return (
     <div className="h-full w-full overflow-hidden bg-transparent">
       {/* Main Content */}
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
+      <div className="container mx-auto px-0 md:px-4 relative z-10" ref={ref}>
         {/* Services Grid */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
