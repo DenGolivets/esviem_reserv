@@ -356,19 +356,7 @@ const LandConsultingWrapper = () => {
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
                     />
 
-                    {/* Підсказка при наведенні */}
-                    <motion.div
-                      initial={{ opacity: 0, y: -10, x: 10 }}
-                      animate={{
-                        opacity: hoveredService === index ? 1 : 0,
-                        y: hoveredService === index ? 0 : -10,
-                        x: hoveredService === index ? 0 : 10,
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute top-3 right-3 bg-green-500/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg border border-green-400/50 z-20"
-                    >
-                      Клікніть для деталей
-                    </motion.div>
+
 
                     <div className="relative z-10">
                       {/* Service Number */}
