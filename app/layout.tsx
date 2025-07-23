@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Goldman,
+  Great_Vibes,
+  Vollkorn,
+  Oleo_Script,
+  Poppins,
+} from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
 import LoadingScreen from "@/components/LoadingScreen";
@@ -12,6 +20,36 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const goldman = Goldman({
+  variable: "--font-goldman",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const vollkorn = Vollkorn({
+  variable: "--font-vollkorn",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const oleoScript = Oleo_Script({
+  variable: "--font-oleo-script",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${goldman.variable} ${greatVibes.variable} ${vollkorn.variable} ${oleoScript.variable} ${poppins.variable} antialiased`}
       >
         <Provider>
           <LoadingScreen />

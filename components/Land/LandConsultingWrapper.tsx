@@ -292,7 +292,7 @@ const LandConsultingWrapper = () => {
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
+                  transition={{ delay: 0.3 + index * 0.05 }}
                   className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
                 >
                   <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
@@ -328,7 +328,7 @@ const LandConsultingWrapper = () => {
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.05 }}
                 onHoverStart={() => setHoveredService(index)}
                 onHoverEnd={() => setHoveredService(null)}
                 onClick={() => handleServiceClick(service.id)}

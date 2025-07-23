@@ -38,7 +38,7 @@ export default function ConstructionConsulting() {
             <Building className="w-10 h-10 text-white" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-vollkorn">
             <span className="bg-gradient-to-r mr-2 from-white via-gray-100 to-white bg-clip-text text-transparent">
               Будівельний
             </span>
@@ -57,7 +57,7 @@ export default function ConstructionConsulting() {
             супроводу
           </motion.p>
           <div className="flex items-center text-center justify-center">
-            <h3 className="text-2xl md:text-3xl xl:text-4xl font-bold text-orange-400 mt-0 md:mt-14 md:mb-6">
+            <h3 className="font-vollkorn text-2xl md:text-3xl xl:text-4xl font-bold text-orange-400 mt-0 md:mt-14 md:mb-6">
               ВИДИ ПОСЛУГ В ГАЛУЗІ БУДІВНИЦТВА
             </h3>
           </div>

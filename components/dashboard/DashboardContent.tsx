@@ -43,7 +43,7 @@ export default function DashboardContent({
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "100%", opacity: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className={`fixed inset-0 z-30 ${isMobile ? "" : "ml-[400px]"}`}
+          className={`fixed inset-0 z-30 ${isMobile ? "" : "ml-[280px]"}`}
         >
           {/* Content */}
           <div className="h-full overflow-y-auto overflow-x-hidden">

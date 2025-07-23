@@ -110,7 +110,7 @@ const AboutUs = () => {
             <Users className="w-10 h-10 text-white" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-goldman">
             <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
               Про
             </span>
@@ -287,7 +287,7 @@ const AboutUs = () => {
                             color:
                               hoveredFeature === index ? "#fbbf24" : "#ffffff",
                           }}
-                          className="text-xl md:text-2xl font-bold ml-4"
+                          className="text-xl md:text-2xl font-semibold ml-4 font-goldman"
                         >
                           {feature.title}
                         </motion.h3>

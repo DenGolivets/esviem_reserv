@@ -257,7 +257,7 @@ export default function FinancialConsultingWrapper() {
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
+                  transition={{ delay: 0.3 + index * 0.05 }}
                   className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
                 >
                   <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
@@ -291,7 +291,7 @@ export default function FinancialConsultingWrapper() {
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.05 }}
                 onHoverStart={() => setHoveredService(index)}
                 onHoverEnd={() => setHoveredService(null)}
                 onClick={() => handleServiceClick(service.id)}
@@ -318,21 +318,6 @@ export default function FinancialConsultingWrapper() {
                       }}
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
                     />
-
-                    {/* Підсказка при наведенні */}
-                    <motion.div
-                      initial={{ opacity: 0, y: -10, x: 10 }}
-                      animate={{
-                        opacity: hoveredService === index ? 1 : 0,
-                        y: hoveredService === index ? 0 : -10,
-                        x: hoveredService === index ? 0 : 10,
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute top-3 right-3 bg-yellow-500/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg border border-yellow-400/50 z-20"
-                    >
-                      Клікніть для деталей
-                    </motion.div>
-
                     {/* Floating money animation on hover */}
                     <motion.div
                       animate={{
@@ -388,7 +373,7 @@ export default function FinancialConsultingWrapper() {
                           color:
                             hoveredService === index ? "#fbbf24" : "#ffffff",
                         }}
-                        className="text-lg md:text-xl font-bold mb-3 leading-tight"
+                        className="text-lg md:text-xl font-bold mb-3 leading-tight font-oleo-script"
                       >
                         {service.title}
                       </motion.h3>

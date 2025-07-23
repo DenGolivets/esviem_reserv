@@ -30,6 +30,11 @@
   --color-light: var(--color-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-goldman: var(--font-goldman);
+  --font-greatVibes: var(--font-great-vibes);
+  --font-vollkorn: var(--font-vollkorn);
+  --font-oleo-script: var(--font-oleo-script);
+  --font-poppins: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {

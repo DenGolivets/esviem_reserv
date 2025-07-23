@@ -415,7 +415,119 @@ export default function LegalConsulting() {
 
     return (
       <section className="relative min-h-screen w-full overflow-hidden">
-        <div className="container mx-auto px-0 md:px-4 relative z-10">
+        {/* 3D Legal Grid Background */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.3'%3E%3Cpath d='M30 0l15 15-15 15-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              transform: "perspective(1000px) rotateX(20deg)",
+              transformOrigin: "center bottom",
+            }}
+          />
+        </div>
+
+        {/* Floating 3D Legal Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0, rotateY: 0 }}
+              animate={{
+                opacity: [0, 0.6, 0],
+                scale: [0, 1, 0],
+                rotateY: [0, 360, 720],
+                x: [
+                  Math.random() *
+                    (typeof window !== "undefined" ? window.innerWidth : 1200),
+                  Math.random() *
+                    (typeof window !== "undefined" ? window.innerWidth : 1200),
+                  Math.random() *
+                    (typeof window !== "undefined" ? window.innerWidth : 1200),
+                ],
+                y: [
+                  Math.random() *
+                    (typeof window !== "undefined" ? window.innerHeight : 800),
+                  Math.random() *
+                    (typeof window !== "undefined" ? window.innerHeight : 800),
+                  Math.random() *
+                    (typeof window !== "undefined" ? window.innerHeight : 800),
+                ],
+              }}
+              transition={{
+                duration: 20 + i * 2,
+                repeat: Infinity,
+                delay: i * 2,
+              }}
+              className="absolute"
+              style={{
+                filter: "blur(1px)",
+              }}
+            >
+              <div
+                className={`w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center`}
+                style={{
+                  boxShadow: "0 0 30px rgba(139, 92, 246, 0.3)",
+                  transform: "perspective(100px) rotateX(45deg)",
+                }}
+              >
+                <Scale className="w-8 h-8 text-white" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="container mx-auto px-0 md:px-4 relative z-10 pt-20">
+          {/* Header Section - такий же як в основному компоненті */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ scale: 0.8, rotateY: -180 }}
+              animate={{ scale: 1, rotateY: 0 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-8 shadow-2xl"
+              style={{
+                boxShadow:
+                  "0 0 40px rgba(139, 92, 246, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
+                transform: "perspective(1000px)",
+              }}
+            >
+              <Scale className="w-10 h-10 text-white" />
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-5xl xl:text-6xl font-bold mb-6 font-poppins"
+            >
+              <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                Юридичні
+              </span>{" "}
+              <span className="text-white">Послуги</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
+            >
+              Професійний юридичний захист та консультації з усіх галузей права
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="w-24 h-1 bg-gradient-to-r from-purple-400 to-indigo-500 mx-auto rounded-full shadow-lg mb-12"
+            />
+          </motion.div>
+
           {/* Кнопка назад */}
           <motion.button
             initial={{ opacity: 0, x: -20 }}
@@ -473,7 +585,7 @@ export default function LegalConsulting() {
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
+                  transition={{ delay: 0.3 + index * 0.05 }}
                   className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
                 >
                   <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
@@ -522,14 +634,32 @@ export default function LegalConsulting() {
                     scale: [0, 1, 0],
                     rotateY: [0, 360, 720],
                     x: [
-                      Math.random() * window.innerWidth,
-                      Math.random() * window.innerWidth,
-                      Math.random() * window.innerWidth,
+                      Math.random() *
+                        (typeof window !== "undefined"
+                          ? window.innerWidth
+                          : 1200),
+                      Math.random() *
+                        (typeof window !== "undefined"
+                          ? window.innerWidth
+                          : 1200),
+                      Math.random() *
+                        (typeof window !== "undefined"
+                          ? window.innerWidth
+                          : 1200),
                     ],
                     y: [
-                      Math.random() * window.innerHeight,
-                      Math.random() * window.innerHeight,
-                      Math.random() * window.innerHeight,
+                      Math.random() *
+                        (typeof window !== "undefined"
+                          ? window.innerHeight
+                          : 800),
+                      Math.random() *
+                        (typeof window !== "undefined"
+                          ? window.innerHeight
+                          : 800),
+                      Math.random() *
+                        (typeof window !== "undefined"
+                          ? window.innerHeight
+                          : 800),
                     ],
                   }
                 : {}
@@ -566,11 +696,25 @@ export default function LegalConsulting() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ scale: 0.8, rotateY: -180 }}
+            animate={inView ? { scale: 1, rotateY: 0 } : {}}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-8 shadow-2xl"
+            style={{
+              boxShadow:
+                "0 0 40px rgba(139, 92, 246, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
+              transform: "perspective(1000px)",
+            }}
+          >
+            <Scale className="w-10 h-10 text-white" />
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl xl:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl xl:text-6xl font-bold mb-6 font-poppins"
           >
             <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
               Юридичні
@@ -609,7 +753,7 @@ export default function LegalConsulting() {
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.05 }}
                 onHoverStart={() => setHoveredService(index)}
                 onHoverEnd={() => setHoveredService(null)}
                 onClick={() => handleServiceClick(service.id)}
@@ -636,20 +780,6 @@ export default function LegalConsulting() {
                       }}
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
                     />
-
-                    {/* Підсказка при наведенні */}
-                    <motion.div
-                      initial={{ opacity: 0, y: -10, x: 10 }}
-                      animate={{
-                        opacity: hoveredService === index ? 1 : 0,
-                        y: hoveredService === index ? 0 : -10,
-                        x: hoveredService === index ? 0 : 10,
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute top-3 right-3 bg-purple-500/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-lg border border-purple-400/50 z-20"
-                    >
-                      Клікніть для деталей
-                    </motion.div>
 
                     <div className="relative z-10">
                       {/* Service Number and Icon */}
@@ -682,7 +812,7 @@ export default function LegalConsulting() {
                           color:
                             hoveredService === index ? "#a855f7" : "#ffffff",
                         }}
-                        className="text-sm md:text-base font-bold mb-2 leading-tight"
+                        className="text-sm md:text-base font-medium mb-2 leading-tight font-poppins"
                       >
                         {service.title}
                       </motion.h3>

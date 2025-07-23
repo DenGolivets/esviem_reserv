@@ -196,7 +196,7 @@ export default function DashboardSidebar() {
 
       <div
         className={`min-h-screen transition-all duration-300  ${
-          isMobile ? "" : "ml-80"
+          isMobile ? "" : "ml-60"
         }`}
       >
         {/* Page Content */}
@@ -210,8 +210,8 @@ export default function DashboardSidebar() {
       </div>
 
       <motion.div
-        initial={{ x: -320 }}
-        animate={{ x: isSidebarOpen ? 0 : -320 }}
+        initial={{ x: -240 }}
+        animate={{ x: isSidebarOpen ? 0 : -240 }}
         transition={{
           type: "tween",
           damping: 25,
@@ -219,9 +219,14 @@ export default function DashboardSidebar() {
           duration: 0.7,
           ease: "easeOut",
         }}
-        className={`fixed ${!isMobile ? 'left-10 top-6' : 'left-0 top-0'} w-80 z-40 flex flex-col ${isMobile && !isSidebarOpen ? 'hidden' : ''}`}
+        className={`fixed ${
+          !isMobile ? "left-10 top-1/2 -translate-y-1/2" : "left-0 top-0"
+        } ${!isMobile ? "w-60" : "w-80"} z-40 flex flex-col ${
+          isMobile && !isSidebarOpen ? "hidden" : ""
+        }`}
         style={{
-          height: !isMobile ? "calc(100vh - 3rem)" : "100vh",
+          height: !isMobile ? "550px" : "100vh",
+          maxHeight: !isMobile ? "550px" : "100vh",
           filter: !isMobile
             ? "drop-shadow(8px 8px 16px rgba(0,0,0,0.4))"
             : "none",
@@ -233,21 +238,21 @@ export default function DashboardSidebar() {
             <svg
               width="100%"
               height="100%"
-              viewBox="0 0 320 740"
+              viewBox="0 0 240 600"
               preserveAspectRatio="none"
               className="w-full h-full"
             >
               <path
-                d="M19.0342 0C20.843 0 22.6431 0.257824 24.3789 0.766602L306.344 83.4131C314.438 85.7857 320 93.2114 320 101.646V722.014C320 728.429 316.82 734.102 311.95 737.542C309.05 739.591 305.303 739.627 301.823 738.918L16.0102 680.731C6.69355 678.834 0 670.641 0 661.133V6C0 2.68629 2.68629 1.6811e-07 6 0H19.0342Z"
+                d="M14.276 0C15.632 0 16.982 0.209 18.289 0.622L229.758 67.685C235.829 69.628 240 75.372 240 82.113V553.411C240 558.348 237.615 562.892 233.962 565.94C231.787 567.693 228.977 567.720 226.367 567.157L12.008 521.593C5.020 520.075 0 513.989 0 506.910V4.5C0 2.015 2.015 0 4.5 0H14.276Z"
                 fill="url(#dashGradient)"
               />
               <defs>
                 <linearGradient
                   id="dashGradient"
-                  x1="160"
+                  x1="120"
                   y1="0"
-                  x2="160"
-                  y2="740"
+                  x2="120"
+                  y2="600"
                   gradientUnits="userSpaceOnUse"
                 >
                   <stop stopColor="rgb(71, 85, 105)" />
@@ -262,8 +267,8 @@ export default function DashboardSidebar() {
         )}
 
         <div
-          className={`relative z-10 flex flex-col h-full justify-between md:justify-normal ${
-            !isMobile ? "pl-6 pr-12 pt-6 pb-4" : ""
+          className={`relative z-10 flex flex-col h-full ${
+            !isMobile ? "pl-8 pr-12 pt-4 pb-3" : ""
           }`}
         >
           {/* Close button for mobile */}
@@ -278,11 +283,11 @@ export default function DashboardSidebar() {
             </motion.button>
           </div>
 
-          {/* Logo */}
+          {/* Logo - фиксированный */}
           <div
             className={`${
-              !isMobile ? "px-0 py-5" : "p-6"
-            } border-b w-fit border-slate-700`}
+              !isMobile ? "px-0 pt-6 pb-3" : "p-6"
+            } border-b w-fit border-slate-700 flex-shrink-0`}
           >
             <Link
               href="/"
@@ -295,152 +300,161 @@ export default function DashboardSidebar() {
                 width={500}
                 height={500}
                 priority
-                className={`block ${!isMobile ? "w-28 h-8" : "w-35 h-10"}`}
+                className={`block ${!isMobile ? "w-20 h-6" : "w-35 h-10"}`}
               />
             </Link>
           </div>
 
-          {/* Menu Items */}
-          <div className={`${!isMobile ? "px-0 py-4 mt-9" : "p-6 mt-0"}`}>
-            <div className="space-y-2">
-              {menuItems.map((item, index) => {
-                const isActive = manualActiveMenu === item.id;
+          {/* Скроллируемый контент */}
+          <div className="flex-1 overflow-y-auto overflow-x-hidden">
+            {/* Menu Items */}
+            <div className={`${!isMobile ? "px-0 py-3 mt-4" : "p-6 mt-0"}`}>
+              <div className="space-y-1">
+                {menuItems.map((item, index) => {
+                  const isActive = manualActiveMenu === item.id;
 
-                // Маппинг для group-hover цвета
-                const groupHoverColor =
-                  {
-                    "text-blue-500": "group-hover:text-blue-500",
-                    "text-green-500": "group-hover:text-green-500",
-                    "text-orange-500": "group-hover:text-orange-500",
-                    "text-yellow-500": "group-hover:text-yellow-500",
-                    "text-purple-500": "group-hover:text-purple-500",
-                  }[item.textColor] || "";
+                  // Маппинг для group-hover цвета
+                  const groupHoverColor =
+                    {
+                      "text-blue-500": "group-hover:text-blue-500",
+                      "text-green-500": "group-hover:text-green-500",
+                      "text-orange-500": "group-hover:text-orange-500",
+                      "text-yellow-500": "group-hover:text-yellow-500",
+                      "text-purple-500": "group-hover:text-purple-500",
+                    }[item.textColor] || "";
 
-                return (
-                  <motion.button
-                    key={item.id}
-                    onClick={() => {
-                      handleMenuClick(item.id);
-                      if (window.innerWidth < 768) {
-                        onClose();
-                      }
-                    }}
-                    onHoverStart={() => setHoveredItem(item.id)}
-                    onHoverEnd={() => setHoveredItem(null)}
-                    className={`w-full z-[2] flex relative items-center space-x-2 py-1.5 ${
-                      !isMobile ? "px-3" : "px-8"
-                    } rounded-lg group ${
-                      !isMobile ? "h-16" : "h-16"
-                    } min-h-10 overflow-hidden ${
-                      isActive && index % 2 === 0
-                        ? `active-gradient-border ${item.borderActive} bg-slate-700/70`
-                        : "hover:bg-slate-700/50 border border-transparent"
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="text-left">
-                      <h4
-                        className={`font-semibold transition-colors ${
-                          !isMobile ? "text-base" : "text-lg md:text-base"
-                        } uppercase ${
-                          isActive
-                            ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
-                            : `text-white ${groupHoverColor}`
-                        }`}
-                      >
-                        {item.title}
-                      </h4>
-                    </div>
-                  </motion.button>
-                );
-              })}
+                  return (
+                    <motion.button
+                      key={item.id}
+                      onClick={() => {
+                        handleMenuClick(item.id);
+                        if (window.innerWidth < 768) {
+                          onClose();
+                        }
+                      }}
+                      onHoverStart={() => setHoveredItem(item.id)}
+                      onHoverEnd={() => setHoveredItem(null)}
+                      className={`w-full z-[2] flex relative items-center space-x-2 py-1 ${
+                        !isMobile ? "px-2" : "px-8"
+                      } rounded-lg group ${
+                        !isMobile ? "h-6" : "h-16"
+                      } min-h-10 overflow-hidden ${
+                        isActive && index % 2 === 0
+                          ? `active-gradient-border ${item.borderActive} bg-slate-700/70`
+                          : "hover:bg-slate-700/50 border border-transparent"
+                      }`}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="text-left">
+                        <h4
+                          className={`font-medium transition-colors font-poppins ${
+                            !isMobile ? "text-sm" : "text-lg md:text-base"
+                          } uppercase ${
+                            isActive
+                              ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
+                              : `text-white ${groupHoverColor}`
+                          }`}
+                        >
+                          {item.title}
+                        </h4>
+                      </div>
+                    </motion.button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
 
-          {/* Contact Section */}
-          <div className={`${!isMobile ? "px-0 py-3 mt-10" : "p-6 mt-0"}`}>
-            <h3
-              className={`text-gray-400 ${
-                !isMobile ? "text-sm mb-4" : "text-sm mb-0"
-              } font-semibold mb-2 uppercase tracking-wider`}
-            >
-              Контакти
-            </h3>
-            <div className="flex space-x-2">
-              {contactItems.map((contact, index) => {
-                const Icon = contact.icon;
-                return (
-                  <motion.a
-                    key={contact.id}
-                    href={contact.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                    whileHover={{
-                      scale: 1.1,
-                      rotateY: 10,
-                      boxShadow: "0 0 20px rgba(255, 193, 7, 0.4)",
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`${
-                      !isMobile ? "w-8 h-8" : "w-12 h-12"
-                    } rounded-lg bg-gradient-to-r ${
-                      contact.color
-                    } flex items-center justify-center shadow-lg transition-all duration-300`}
-                  >
-                    <Icon
+            {/* Contact Section */}
+            <div className={`${!isMobile ? "px-0 py-2 mt-1" : "p-6 mt-0"}`}>
+              <h3
+                className={`text-gray-400 ${
+                  !isMobile ? "text-xs mb-2" : "text-sm mb-0"
+                } font-semibold mb-1 uppercase tracking-wider`}
+              >
+                Контакти
+              </h3>
+              <div className="flex space-x-1">
+                {contactItems.map((contact, index) => {
+                  const Icon = contact.icon;
+                  return (
+                    <motion.a
+                      key={contact.id}
+                      href={contact.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.6 + index * 0.1 }}
+                      whileHover={{
+                        scale: 1.1,
+                        rotateY: 10,
+                        boxShadow: "0 0 20px rgba(255, 193, 7, 0.4)",
+                      }}
+                      whileTap={{ scale: 0.95 }}
                       className={`${
-                        !isMobile ? "w-4 h-4" : "w-5 h-5"
-                      } text-white`}
-                    />
-                  </motion.a>
-                );
-              })}
-            </div>
-            <div
-              className={`flex flex-col ${!isMobile ? "mt-7 gap-3" : "mt-10 gap-1"}`}
-            >
-              <div className="flex items-center gap-2">
-                <Mail
-                  className={`${!isMobile ? "w-5 h-5" : "w-5 h-5"} text-white`}
-                />
-                <p
-                  className={`text-gray-300 ${
-                    !isMobile ? "text-sm" : "text-sm"
-                  }`}
-                >
-                  esviemua@gmail.com
-                </p>
+                        !isMobile ? "w-6 h-6" : "w-12 h-12"
+                      } rounded-lg bg-gradient-to-r ${
+                        contact.color
+                      } flex items-center justify-center shadow-lg transition-all duration-300`}
+                    >
+                      <Icon
+                        className={`${
+                          !isMobile ? "w-3 h-3" : "w-5 h-5"
+                        } text-white`}
+                      />
+                    </motion.a>
+                  );
+                })}
               </div>
-              <div className="flex items-center gap-2">
-                <Phone
-                  className={`${!isMobile ? "w-5 h-5" : "w-5 h-5"} text-white`}
-                />
-                <p
-                  className={`text-gray-300 ${
-                    !isMobile ? "text-sm" : "text-sm"
-                  }`}
-                >
-                  +380508128888
-                </p>
+              <div
+                className={`flex flex-col ${
+                  !isMobile ? "mt-4 gap-2" : "mt-10 gap-1"
+                }`}
+              >
+                <div className="flex items-center gap-1">
+                  <Mail
+                    className={`${
+                      !isMobile ? "w-3 h-3" : "w-5 h-5"
+                    } text-white`}
+                  />
+                  <p
+                    className={`text-gray-300 ${
+                      !isMobile ? "text-xs" : "text-sm"
+                    }`}
+                  >
+                    esviemua@gmail.com
+                  </p>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Phone
+                    className={`${
+                      !isMobile ? "w-3 h-3" : "w-5 h-5"
+                    } text-white`}
+                  />
+                  <p
+                    className={`text-gray-300 ${
+                      !isMobile ? "text-xs" : "text-sm"
+                    }`}
+                  >
+                    +380508128888
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Language Switcher */}
+            {/* Language Switcher - фиксированный внизу */}
           <div
             className={`${
-              !isMobile ? "px-0 py-2 mt-6 flex justify-end w-full" : "p-6 mt-0 justify-normal"
-            } border-t border-slate-700 w-full`}
+              !isMobile
+                ? "px-0 py-2 flex justify-end w-full"
+                : "p-6 mt-0 justify-normal"
+            } border-t border-slate-700 w-full flex-shrink-0`}
           >
-            <div className="flex items-center space-x-2 bg-transparent rounded-full p-1 w-fit">
+            <div className="flex items-center space-x-1 bg-transparent rounded-full p-1 w-fit">
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleLangChange("uk")}
-                className={`px-2 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
+                className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-110 ${
                   currentLang === "uk" ? "scale-110" : ""
                 }`}
@@ -451,14 +465,14 @@ export default function DashboardSidebar() {
                   width={14}
                   height={14}
                   className={`${
-                    !isMobile ? "w-5 h-3" : "w-7 h-4"
+                    !isMobile ? "w-4 h-3" : "w-7 h-4"
                   } object-cover`}
                 />
               </motion.button>
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleLangChange("en")}
-                className={`px-2 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
+                className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-110 ${
                   currentLang === "en" ? "scale-110" : ""
                 }`}
@@ -469,12 +483,15 @@ export default function DashboardSidebar() {
                   width={14}
                   height={14}
                   className={`${
-                    !isMobile ? "w-5 h-3" : "w-7 h-4"
+                    !isMobile ? "w-4 h-3" : "w-7 h-4"
                   } object-cover`}
                 />
               </motion.button>
             </div>
           </div>
+          </div>
+
+          
         </div>
       </motion.div>
     </>

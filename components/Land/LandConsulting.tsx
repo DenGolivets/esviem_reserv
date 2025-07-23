@@ -42,7 +42,7 @@ const LandConsulting = () => {
 
             <h2
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4 
-            items-center justify-center md:flex-row"
+            items-center justify-center md:flex-row font-greatVibes leading-relaxed"
             >
               <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
                 Земельний
