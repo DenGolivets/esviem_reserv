@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import {
   Geist,
   Geist_Mono,
-  Goldman,
-  Great_Vibes,
-  Vollkorn,
-  Oleo_Script,
+  Inter,
+  Playfair_Display,
+  Oswald,
+  Montserrat,
   Poppins,
 } from "next/font/google";
 import "./globals.css";
@@ -22,28 +22,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const goldman = Goldman({
-  variable: "--font-goldman",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-const greatVibes = Great_Vibes({
-  variable: "--font-great-vibes",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const vollkorn = Vollkorn({
-  variable: "--font-vollkorn",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const oleoScript = Oleo_Script({
-  variable: "--font-oleo-script",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 const poppins = Poppins({
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${goldman.variable} ${greatVibes.variable} ${vollkorn.variable} ${oleoScript.variable} ${poppins.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${playfair.variable} ${oswald.variable} ${montserrat.variable} ${poppins.variable} antialiased`}
       >
         <Provider>
           <LoadingScreen />

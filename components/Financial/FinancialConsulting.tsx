@@ -126,7 +126,7 @@ export default function FinancialConsulting() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-oleo-script">
-            <span className="bg-gradient-to-r mr-2 from-white via-gray-100 to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r mr-2 from-yellow-400 to-amber-500 bg-clip-text text-transparent">
               Фінансовий
             </span>
 
@@ -135,7 +135,7 @@ export default function FinancialConsulting() {
             </span>
           </h2>
 
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -154,7 +154,7 @@ export default function FinancialConsulting() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full shadow-lg"
-          />
+          /> */}
         </motion.div>
         <FinancialConsultingWrapper />
       </div>

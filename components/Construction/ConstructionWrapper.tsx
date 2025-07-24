@@ -325,10 +325,10 @@ export default function ConstructionWrapper() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center space-x-4 mb-8"
+            className="flex items-start space-x-4 mb-8"
           >
             <div
-              className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-2xl flex items-center justify-center`}
+              className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-2xl flex items-center justify-center flex-shrink-0`}
             >
               <Icon className="w-8 h-8 text-white" />
             </div>
@@ -394,7 +394,7 @@ export default function ConstructionWrapper() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -408,20 +408,20 @@ export default function ConstructionWrapper() {
                 onHoverEnd={() => setHoveredService(null)}
                 onClick={() => handleServiceClick(service.id)}
                 className="group"
-                style={{ perspective: "1000px" }}
               >
                 <motion.div
                   animate={{
-                    rotateY: hoveredService === index ? 8 : 0,
-                    rotateX: hoveredService === index ? -3 : 0,
-                    scale: hoveredService === index ? 1.03 : 1,
-                    z: hoveredService === index ? 30 : 0,
+                    scale:
+                      hoveredService === index &&
+                      typeof window !== "undefined" &&
+                      window.innerWidth >= 768
+                        ? 1.05
+                        : 1,
                   }}
                   transition={{ duration: 0.4 }}
-                  style={{ transformStyle: "preserve-3d" }}
-                  className="h-full min-h-[200px] cursor-pointer"
+                  className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
                 >
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-2xl border border-slate-600 h-full relative overflow-hidden">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
                     <motion.div
                       animate={{
@@ -432,15 +432,14 @@ export default function ConstructionWrapper() {
                     />
 
                     <div className="relative z-10">
-                      {/* Service Number */}
-                      <div className="flex items-start justify-between mb-4">
+                      {/* Service Icon */}
+                      <div className="mb-4">
                         <motion.div
                           animate={{
-                            rotateY: hoveredService === index ? 360 : 0,
                             scale: hoveredService === index ? 1.1 : 1,
                           }}
                           transition={{ duration: 0.6 }}
-                          className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center shadow-lg`}
+                          className={`w-10 h-10 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center shadow-lg`}
                           style={{
                             boxShadow:
                               hoveredService === index
@@ -448,13 +447,8 @@ export default function ConstructionWrapper() {
                                 : "0 0 10px rgba(0,0,0,0.3)",
                           }}
                         >
-                          <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-5 h-5 text-white" />
                         </motion.div>
-                        <div className="w-8 h-8 bg-orange-500/20 border border-orange-400/30 rounded-full flex items-center justify-center">
-                          <span className="text-orange-400 font-bold text-sm">
-                            {service.id}
-                          </span>
-                        </div>
                       </div>
 
                       <motion.h3
@@ -462,7 +456,7 @@ export default function ConstructionWrapper() {
                           color:
                             hoveredService === index ? "#fb923c" : "#ffffff",
                         }}
-                        className="text-lg md:text-xl font-bold mb-3 leading-tight font-vollkorn"
+                        className="text-base md:text-lg font-bold mb-3 leading-tight font-vollkorn"
                       >
                         {service.title}
                       </motion.h3>
@@ -471,21 +465,11 @@ export default function ConstructionWrapper() {
                           color:
                             hoveredService === index ? "#d1d5db" : "#9ca3af",
                         }}
-                        className="leading-relaxed text-sm md:text-base"
+                        className="leading-relaxed text-xs md:text-sm"
                       >
                         {service.description}
                       </motion.p>
                     </div>
-
-                    {/* 3D Border Effect */}
-                    <div
-                      className="absolute inset-0 rounded-2xl border border-slate-500 opacity-20"
-                      style={{
-                        transform: "translateZ(-5px)",
-                        background:
-                          "linear-gradient(135deg, rgba(255,255,255,0.05), transparent)",
-                      }}
-                    />
                   </div>
                 </motion.div>
               </motion.div>

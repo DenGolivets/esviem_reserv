@@ -30,10 +30,10 @@
   --color-light: var(--color-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-goldman: var(--font-goldman);
-  --font-greatVibes: var(--font-great-vibes);
-  --font-vollkorn: var(--font-vollkorn);
-  --font-oleo-script: var(--font-oleo-script);
+  --font-inter: var(--font-inter);
+  --font-playfair: var(--font-playfair);
+  --font-oswald: var(--font-oswald);
+  --font-montserrat: var(--font-montserrat);
   --font-poppins: var(--font-poppins);
 }
 
@@ -57,12 +57,12 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #324158; /* Цвет фона дорожки */
+  background-color: #1d293d; /* Цвет фона дорожки */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: #182237;
-  border-radius: 4px;
+  background-color: #404e63;
+  border-radius: 6px;
 }
 
 @layer utilities {

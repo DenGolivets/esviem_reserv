@@ -41,8 +41,8 @@ const services = [
     `,
     examples: [
       "/financial/accounting-doc1.jpg",
-      "/financial/accounting-doc2.jpg"
-    ]
+      "/financial/accounting-doc2.jpg",
+    ],
   },
   {
     id: 2,
@@ -67,14 +67,15 @@ const services = [
     `,
     examples: [
       "/financial/tax-planning-doc1.jpg",
-      "/financial/tax-planning-doc2.jpg"
-    ]
+      "/financial/tax-planning-doc2.jpg",
+    ],
   },
   {
     id: 3,
     icon: BarChart3,
     title: "Аналіз фінансової звітності",
-    description: "за 2024 рік та за 1 квартал 2025 року для розробки стратегії та плану розвитку підприємства",
+    description:
+      "за 2024 рік та за 1 квартал 2025 року для розробки стратегії та плану розвитку підприємства",
     color: "from-purple-500 to-blue-500",
     detailedDescription: `
       Комплексний аналіз фінансового стану підприємства для прийняття стратегічних рішень.
@@ -94,8 +95,8 @@ const services = [
     `,
     examples: [
       "/financial/financial-analysis-doc1.jpg",
-      "/financial/financial-analysis-doc2.jpg"
-    ]
+      "/financial/financial-analysis-doc2.jpg",
+    ],
   },
   {
     id: 4,
@@ -121,14 +122,15 @@ const services = [
     `,
     examples: [
       "/financial/cost-optimization-doc1.jpg",
-      "/financial/cost-optimization-doc2.jpg"
-    ]
+      "/financial/cost-optimization-doc2.jpg",
+    ],
   },
   {
     id: 5,
     icon: PieChart,
     title: "Проведення аналізу 20 рахунків",
-    description: "бухгалтерського обліку та надання рекомендацій для ефективного використання матеріальних ресурсів",
+    description:
+      "бухгалтерського обліку та надання рекомендацій для ефективного використання матеріальних ресурсів",
     color: "from-orange-500 to-red-500",
     detailedDescription: `
       Детальний аналіз рахунків бухгалтерського обліку для оптимізації використання ресурсів.
@@ -148,14 +150,15 @@ const services = [
     `,
     examples: [
       "/financial/accounts-analysis-doc1.jpg",
-      "/financial/accounts-analysis-doc2.jpg"
-    ]
+      "/financial/accounts-analysis-doc2.jpg",
+    ],
   },
   {
     id: 6,
     icon: FileText,
     title: "Збір установчих документів",
-    description: "фінансових, бухгалтерських документів відповідно до положень Господарського кодексу України",
+    description:
+      "фінансових, бухгалтерських документів відповідно до положень Господарського кодексу України",
     color: "from-indigo-500 to-purple-500",
     detailedDescription: `
       Повний комплекс послуг з підготовки та оформлення документації відповідно до законодавства України.
@@ -175,8 +178,8 @@ const services = [
     `,
     examples: [
       "/financial/documents-doc1.jpg",
-      "/financial/documents-doc2.jpg"
-    ]
+      "/financial/documents-doc2.jpg",
+    ],
   },
 ];
 
@@ -197,12 +200,12 @@ export default function FinancialConsultingWrapper() {
     setSelectedService(null);
   };
 
-  const currentService = services.find(s => s.id === selectedService);
+  const currentService = services.find((s) => s.id === selectedService);
 
   // Детальна сторінка сервісу
   if (selectedService && currentService) {
     const Icon = currentService.icon;
-    
+
     return (
       <div className="h-full w-full overflow-hidden bg-transparent">
         <div className="container mx-auto px-0 md:px-4 relative z-10">
@@ -221,12 +224,16 @@ export default function FinancialConsultingWrapper() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center space-x-4 mb-8"
+            className="flex items-start space-x-4 mb-8"
           >
-            <div className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-2xl flex items-center justify-center`}>
+            <div
+              className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-2xl flex items-center justify-center flex-shrink-0`}
+            >
               <Icon className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white">{currentService.title}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-white">
+              {currentService.title}
+            </h1>
           </motion.div>
 
           {/* Детальний опис */}
@@ -250,7 +257,9 @@ export default function FinancialConsultingWrapper() {
             transition={{ delay: 0.4 }}
             className="mb-8"
           >
-            <h2 className="text-2xl font-bold text-white mb-6">Приклади документів</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">
+              Приклади документів
+            </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {currentService.examples.map((imagePath, index) => (
                 <motion.div
@@ -262,7 +271,9 @@ export default function FinancialConsultingWrapper() {
                 >
                   <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
                     <FileText className="w-16 h-16 text-slate-400" />
-                    <span className="ml-2 text-slate-400">Приклад документа {index + 1}</span>
+                    <span className="ml-2 text-slate-400">
+                      Приклад документа {index + 1}
+                    </span>
                   </div>
                 </motion.div>
               ))}
@@ -282,7 +293,7 @@ export default function FinancialConsultingWrapper() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -296,20 +307,20 @@ export default function FinancialConsultingWrapper() {
                 onHoverEnd={() => setHoveredService(null)}
                 onClick={() => handleServiceClick(service.id)}
                 className="group"
-                style={{ perspective: "1000px" }}
               >
                 <motion.div
                   animate={{
-                    rotateY: hoveredService === index ? 8 : 0,
-                    rotateX: hoveredService === index ? -3 : 0,
-                    scale: hoveredService === index ? 1.03 : 1,
-                    z: hoveredService === index ? 30 : 0,
+                    scale:
+                      hoveredService === index &&
+                      typeof window !== "undefined" &&
+                      window.innerWidth >= 768
+                        ? 1.05
+                        : 1,
                   }}
                   transition={{ duration: 0.4 }}
-                  style={{ transformStyle: "preserve-3d" }}
-                  className="h-full min-h-[200px] cursor-pointer"
+                  className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
                 >
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-2xl border border-slate-600 h-full relative overflow-hidden">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
                     <motion.div
                       animate={{
@@ -318,29 +329,16 @@ export default function FinancialConsultingWrapper() {
                       }}
                       className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
                     />
-                    {/* Floating money animation on hover */}
-                    <motion.div
-                      animate={{
-                        opacity: hoveredService === index ? 1 : 0,
-                        scale: hoveredService === index ? 1 : 0,
-                        rotate: hoveredService === index ? 360 : 0,
-                      }}
-                      transition={{ duration: 0.6 }}
-                      className="absolute top-2 right-2 text-yellow-400"
-                    >
-                      💰
-                    </motion.div>
 
                     <div className="relative z-10">
-                      {/* Service Number */}
+                      {/* Service Icon */}
                       <div className="flex items-start justify-between mb-4">
                         <motion.div
                           animate={{
-                            rotateY: hoveredService === index ? 360 : 0,
                             scale: hoveredService === index ? 1.1 : 1,
                           }}
                           transition={{ duration: 0.6 }}
-                          className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center shadow-lg relative`}
+                          className={`w-10 h-10 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center shadow-lg relative`}
                           style={{
                             boxShadow:
                               hoveredService === index
@@ -348,7 +346,7 @@ export default function FinancialConsultingWrapper() {
                                 : "0 0 10px rgba(0,0,0,0.3)",
                           }}
                         >
-                          <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-5 h-5 text-white" />
                           {/* Sparkle effect */}
                           {hoveredService === index && (
                             <motion.div
@@ -361,11 +359,6 @@ export default function FinancialConsultingWrapper() {
                             />
                           )}
                         </motion.div>
-                        <div className="w-8 h-8 bg-yellow-500/20 border border-yellow-400/30 rounded-full flex items-center justify-center">
-                          <span className="text-yellow-400 font-bold text-sm">
-                            {service.id}
-                          </span>
-                        </div>
                       </div>
 
                       <motion.h3
@@ -373,7 +366,7 @@ export default function FinancialConsultingWrapper() {
                           color:
                             hoveredService === index ? "#fbbf24" : "#ffffff",
                         }}
-                        className="text-lg md:text-xl font-bold mb-3 leading-tight font-oleo-script"
+                        className="text-base md:text-lg font-bold mb-3 leading-tight font-oleo-script"
                       >
                         {service.title}
                       </motion.h3>
@@ -382,21 +375,11 @@ export default function FinancialConsultingWrapper() {
                           color:
                             hoveredService === index ? "#d1d5db" : "#9ca3af",
                         }}
-                        className="leading-relaxed text-sm md:text-base"
+                        className="leading-relaxed text-xs md:text-sm"
                       >
                         {service.description}
                       </motion.p>
                     </div>
-
-                    {/* 3D Border Effect */}
-                    <div
-                      className="absolute inset-0 rounded-2xl border border-slate-500 opacity-20"
-                      style={{
-                        transform: "translateZ(-5px)",
-                        background:
-                          "linear-gradient(135deg, rgba(255,255,255,0.05), transparent)",
-                      }}
-                    />
                   </div>
                 </motion.div>
               </motion.div>
@@ -414,8 +397,6 @@ export default function FinancialConsultingWrapper() {
             boxShadow: "0 0 20px rgba(234, 179, 8, 0.3)",
           }}
         >
-          
-
           <div className="relative z-10">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-4">

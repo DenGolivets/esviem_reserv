@@ -39,7 +39,7 @@ export default function ConstructionConsulting() {
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-vollkorn">
-            <span className="bg-gradient-to-r mr-2 from-white via-gray-100 to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r mr-2 from-orange-400 to-red-500 bg-clip-text text-transparent">
               Будівельний
             </span>
             <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
@@ -47,7 +47,7 @@ export default function ConstructionConsulting() {
             </span>
           </h2>
 
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -66,7 +66,7 @@ export default function ConstructionConsulting() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 mx-auto rounded-full shadow-lg"
-          />
+          /> */}
         </motion.div>
 
         <ConstructionWrapper />

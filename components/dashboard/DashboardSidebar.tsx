@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
@@ -8,9 +9,7 @@ import {
   Building,
   DollarSign,
   Scale,
-  MessageCircle,
   Phone,
-  Send,
   Menu,
   Mail,
 } from "lucide-react";
@@ -23,22 +22,24 @@ import DashboardContent from "./DashboardContent";
 interface MenuItem {
   id: string;
   title: string;
-  icon: LucideIcon;
+  icon: string | LucideIcon;
   color: string;
   textColor: string;
   textColorActive: string;
   borderActive: string;
+  font: string;
 }
 
 export const menuItems: MenuItem[] = [
   {
     id: "about",
-    title: "Про нас",
+    title: "Про Нас",
     icon: Users,
     color: "from-blue-500 to-blue-600",
     textColor: "text-blue-500",
     textColorActive: "from-blue-500 to-blue-600",
     borderActive: "from-blue-500 to-yellow-600",
+    font: "font-inter",
   },
   {
     id: "land",
@@ -48,6 +49,7 @@ export const menuItems: MenuItem[] = [
     textColor: "text-green-500",
     textColorActive: "from-green-500 to-green-600",
     borderActive: "from-green-500 to-yellow-600",
+    font: "font-playfair",
   },
   {
     id: "construction",
@@ -57,6 +59,7 @@ export const menuItems: MenuItem[] = [
     textColor: "text-orange-500",
     textColorActive: "from-orange-500 to-orange-600",
     borderActive: "from-orange-500 to-yellow-600",
+    font: "font-oswald",
   },
   {
     id: "financial",
@@ -66,6 +69,7 @@ export const menuItems: MenuItem[] = [
     textColor: "text-yellow-500",
     textColorActive: "from-yellow-500 to-yellow-600",
     borderActive: "from-yellow-500 to-yellow-600",
+    font: "font-montserrat",
   },
   {
     id: "legal",
@@ -75,31 +79,32 @@ export const menuItems: MenuItem[] = [
     textColor: "text-purple-500",
     textColorActive: "from-purple-500 to-purple-600",
     borderActive: "from-purple-500 to-yellow-600",
+    font: "font-poppins",
   },
 ];
 
 const contactItems = [
   {
     id: "whatsapp",
-    icon: MessageCircle,
+    icon: "/dash/whatsapp96.svg",
     color: "from-green-500 to-green-600",
     href: "https://wa.me/+1234567890",
   },
   {
     id: "viber",
-    icon: Phone,
+    icon: "/dash/viber.svg",
     color: "from-purple-500 to-purple-600",
     href: "viber://chat?number=+1234567890",
   },
   {
     id: "telegram",
-    icon: Send,
+    icon: "/dash/telegram96.svg",
     color: "from-blue-500 to-blue-600",
     href: "https://t.me/username",
   },
   {
     id: "signal",
-    icon: MessageCircle,
+    icon: "/dash/signal.svg",
     color: "from-blue-500 to-blue-600",
     href: "https://signal.me/#p/+1234567890",
   },
@@ -186,7 +191,7 @@ export default function DashboardSidebar() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5 }}
           onClick={handleToggleSidebar}
-          className="fixed top-0 md:top-6 left-0 md:left-6 z-50 w-12 h-12 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 border border-yellow-400/30"
+          className="fixed top-2 md:top-6 left-2 md:left-6 z-50 w-12 h-12 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 border border-yellow-400/30"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -268,7 +273,7 @@ export default function DashboardSidebar() {
 
         <div
           className={`relative z-10 flex flex-col h-full ${
-            !isMobile ? "pl-8 pr-12 pt-4 pb-3" : ""
+            !isMobile ? "pl-8 pr-8 pt-4 pb-3" : ""
           }`}
         >
           {/* Close button for mobile */}
@@ -303,14 +308,15 @@ export default function DashboardSidebar() {
                 className={`block ${!isMobile ? "w-20 h-6" : "w-35 h-10"}`}
               />
             </Link>
+            <h2 className="mt-1 text-[#072a40] select-none">Consulting</h2>
           </div>
 
           {/* Скроллируемый контент */}
           <div className="flex-1 overflow-y-auto overflow-x-hidden">
             {/* Menu Items */}
-            <div className={`${!isMobile ? "px-0 py-3 mt-4" : "p-6 mt-0"}`}>
-              <div className="space-y-1">
-                {menuItems.map((item, index) => {
+            <div className={`${!isMobile ? "px-0 py-0 md:py-3" : "p-6 mt-0"}`}>
+              <div className="space-y-1 select-none ">
+                {menuItems.map((item) => {
                   const isActive = manualActiveMenu === item.id;
 
                   // Маппинг для group-hover цвета
@@ -338,19 +344,16 @@ export default function DashboardSidebar() {
                         !isMobile ? "px-2" : "px-8"
                       } rounded-lg group ${
                         !isMobile ? "h-6" : "h-16"
-                      } min-h-10 overflow-hidden ${
-                        isActive && index % 2 === 0
-                          ? `active-gradient-border ${item.borderActive} bg-slate-700/70`
-                          : "hover:bg-slate-700/50 border border-transparent"
-                      }`}
+                      } min-h-10 overflow-hidden
+                      `}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       <div className="text-left">
                         <h4
-                          className={`font-medium transition-colors font-poppins ${
-                            !isMobile ? "text-sm" : "text-lg md:text-base"
-                          } uppercase ${
+                          className={`font-medium transition-colors ${
+                            item.font
+                          } ${!isMobile ? "text-sm" : "text-lg md:text-base"} ${
                             isActive
                               ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
                               : `text-white ${groupHoverColor}`
@@ -366,17 +369,18 @@ export default function DashboardSidebar() {
             </div>
 
             {/* Contact Section */}
-            <div className={`${!isMobile ? "px-0 py-2 mt-1" : "p-6 mt-0"}`}>
+            <div className={`${!isMobile ? "px-0 py-2" : "p-6 mt-0"}`}>
               <h3
                 className={`text-gray-400 ${
                   !isMobile ? "text-xs mb-2" : "text-sm mb-0"
                 } font-semibold mb-1 uppercase tracking-wider`}
               >
-                Контакти
+                Напишіть нам
               </h3>
               <div className="flex space-x-1">
                 {contactItems.map((contact, index) => {
-                  const Icon = contact.icon;
+                  const isImage = typeof contact.icon === "string";
+                  const IconComponent = contact.icon;
                   return (
                     <motion.a
                       key={contact.id}
@@ -385,24 +389,33 @@ export default function DashboardSidebar() {
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.6 + index * 0.1 }}
-                      whileHover={{
-                        scale: 1.1,
-                        rotateY: 10,
-                        boxShadow: "0 0 20px rgba(255, 193, 7, 0.4)",
-                      }}
+                      transition={{ delay: 0.6 + index * 0.1, duration: 0.2 }}
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className={`${
                         !isMobile ? "w-6 h-6" : "w-12 h-12"
-                      } rounded-lg bg-gradient-to-r ${
+                      } rounded-lg bg-transparent ${
                         contact.color
-                      } flex items-center justify-center shadow-lg transition-all duration-300`}
+                      } flex items-center justify-center shadow-lg`}
                     >
-                      <Icon
-                        className={`${
-                          !isMobile ? "w-3 h-3" : "w-5 h-5"
-                        } text-white`}
-                      />
+                      {isImage && IconComponent ? (
+                        <Image
+                          src={contact.icon as string}
+                          alt={contact.id}
+                          width={isMobile ? 20 : 20}
+                          height={isMobile ? 20 : 20}
+                          className="w-20 h-20"
+                        />
+                      ) : IconComponent ? (
+                        React.createElement(
+                          IconComponent as unknown as LucideIcon,
+                          {
+                            className: `${
+                              !isMobile ? "w-3 h-3" : "w-5 h-5"
+                            } text-white`,
+                          }
+                        )
+                      ) : null}
                     </motion.a>
                   );
                 })}
@@ -443,55 +456,57 @@ export default function DashboardSidebar() {
               </div>
             </div>
             {/* Language Switcher - фиксированный внизу */}
-          <div
-            className={`${
-              !isMobile
-                ? "px-0 py-2 flex justify-end w-full"
-                : "p-6 mt-0 justify-normal"
-            } border-t border-slate-700 w-full flex-shrink-0`}
-          >
-            <div className="flex items-center space-x-1 bg-transparent rounded-full p-1 w-fit">
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => handleLangChange("uk")}
-                className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
+            <div
+              className={`${
+                !isMobile
+                  ? "px-0 py-2 flex justify-end w-full"
+                  : "p-6 mt-0 justify-normal"
+              } border-t border-slate-700 w-full flex-shrink-0`}
+            >
+              <div className="flex items-center space-x-1 bg-transparent rounded-full p-1 w-fit">
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => handleLangChange("uk")}
+                  className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-110 ${
-                  currentLang === "uk" ? "scale-110" : ""
+                  currentLang === "uk"
+                    ? "scale-110 hover:scale-120"
+                    : "hover:scale-120"
                 }`}
-              >
-                <Image
-                  src="/ukraine-xs.gif"
-                  alt="Ukrainian Flag"
-                  width={14}
-                  height={14}
-                  className={`${
-                    !isMobile ? "w-4 h-3" : "w-7 h-4"
-                  } object-cover`}
-                />
-              </motion.button>
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => handleLangChange("en")}
-                className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
+                >
+                  <Image
+                    src="/ukrainian2.gif"
+                    alt="Ukrainian Flag"
+                    width={14}
+                    height={14}
+                    className={`${
+                      !isMobile ? "w-4 h-3" : "w-7 h-4"
+                    } object-cover`}
+                  />
+                </motion.button>
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => handleLangChange("en")}
+                  className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
                 duration-300 cursor-pointer hover:scale-110 ${
-                  currentLang === "en" ? "scale-110" : ""
+                  currentLang === "en"
+                    ? "scale-110 hover:scale-120"
+                    : "hover:scale-120"
                 }`}
-              >
-                <Image
-                  src="/united-states-xs.gif"
-                  alt="USA Flag"
-                  width={14}
-                  height={14}
-                  className={`${
-                    !isMobile ? "w-4 h-3" : "w-7 h-4"
-                  } object-cover`}
-                />
-              </motion.button>
+                >
+                  <Image
+                    src="/britain.gif"
+                    alt="USA Flag"
+                    width={14}
+                    height={14}
+                    className={`${
+                      !isMobile ? "w-4 h-3" : "w-7 h-4"
+                    } object-cover`}
+                  />
+                </motion.button>
+              </div>
             </div>
           </div>
-          </div>
-
-          
         </div>
       </motion.div>
     </>

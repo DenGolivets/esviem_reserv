@@ -44,14 +44,14 @@ const LandConsulting = () => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4 
             items-center justify-center md:flex-row font-greatVibes leading-relaxed"
             >
-              <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
                 Земельний
               </span>
               <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
                 Консалтинг
               </span>
             </h2>
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -65,13 +65,13 @@ const LandConsulting = () => {
               <h3 className="text-2xl md:text-3xl xl:text-4xl font-bold text-green-400 mt-0 md:mt-14 md:mb-6">
                 ВИДИ ПОСЛУГ В ГАЛУЗІ ЗЕМЕЛЬНИХ ВІДНОСИН
               </h3>
-            </div>
-            <motion.div
+            </div> */}
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto rounded-full shadow-lg"
-            />
+            /> */}
           </motion.div>
           <LandConsultingWrapper />
         </div>
