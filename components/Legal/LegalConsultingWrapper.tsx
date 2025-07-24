@@ -434,36 +434,6 @@ export default function LegalConsultingWrapper() {
               </pre>
             </div>
           </motion.div>
-
-          {/* Приклади документів */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mb-8"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">
-              Приклади документів
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {currentService.examples.map((imagePath, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
-                  className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
-                >
-                  <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
-                    <FileText className="w-16 h-16 text-slate-400" />
-                    <span className="ml-2 text-slate-400">
-                      Приклад документа {index + 1}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     );

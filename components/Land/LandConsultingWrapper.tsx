@@ -295,83 +295,48 @@ const LandConsultingWrapper = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 mb-8 border border-slate-600"
+            className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 mb-8 border border-slate-600 relative"
           >
             <div className="prose prose-lg prose-invert max-w-none">
               <pre className="whitespace-pre-wrap text-gray-300 font-sans leading-relaxed">
                 {currentService.detailedDescription}
               </pre>
             </div>
-          </motion.div>
 
-          {/* Приклади документів */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mb-8"
-          >
-            <h2 className="text-2xl font-bold text-white mb-6">
-              Приклади документів
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {currentService.examples.map((imagePath, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3 + index * 0.05 }}
-                  className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-4 border border-slate-600"
-                >
-                  <div className="aspect-[4/3] bg-slate-600 rounded-xl flex items-center justify-center">
-                    <FileText className="w-16 h-16 text-slate-400" />
-                    <span className="ml-2 text-slate-400">
-                      Приклад документа {index + 1}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Контактна секція в правому нижньому куті */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6 }}
-            className="fixed bottom-6 right-6 z-50"
-          >
-            <div className="bg-gradient-to-br from-slate-800/90 to-slate-700/90 backdrop-blur-sm rounded-2xl p-4 border border-slate-600/50 shadow-2xl">
-              <div className="text-center mb-3">
-                <p className="text-white text-sm font-medium">
-                  Зв{"'"}яжіться з нами
-                </p>
+            {/* Контактна секція в правому нижньому куті блоку */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6 }}
+              className="absolute bottom-4 right-4"
+            >
+              <div className="rounded-xl p-3">
+                <div className="text-center mb-2">
+                  <p className="text-white text-xs font-medium">
+                    Зв{"'"}яжіться з нами
+                  </p>
+                </div>
+                <div className="flex space-x-2">
+                  {contactItems.map((contact) => (
+                    <a
+                      key={contact.id}
+                      href={contact.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-8 h-8 rounded-lg bg-gradient-to-r ${contact.color} flex items-center justify-center shadow-md hover:shadow-lg hover:scale-105 transition-transform`}
+                    >
+                      <Image
+                        src={contact.icon}
+                        alt={contact.id}
+                        width={16}
+                        height={16}
+                        className="w-4 h-4"
+                      />
+                    </a>
+                  ))}
+                </div>
               </div>
-              <div className="flex space-x-2">
-                {contactItems.map((contact, index) => (
-                  <motion.a
-                    key={contact.id}
-                    href={contact.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.7 + index * 0.1, duration: 0.2 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-10 h-10 rounded-xl bg-gradient-to-r ${contact.color} flex items-center justify-center shadow-lg hover:shadow-xl`}
-                  >
-                    <Image
-                      src={contact.icon}
-                      alt={contact.id}
-                      width={20}
-                      height={20}
-                      className="w-5 h-5"
-                    />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
