@@ -11,11 +11,10 @@ import {
   Building,
   Scale,
   Compass,
-  Phone,
-  Mail,
-  MessageCircle,
 } from "lucide-react";
 import { MdArrowCircleLeft } from "react-icons/md";
+import { FaWhatsapp, FaViber, FaTelegramPlane } from "react-icons/fa";
+import { FaSignalMessenger } from "react-icons/fa6";
 
 const services = [
   {
@@ -215,25 +214,25 @@ const contactItems = [
     id: "whatsapp",
     icon: "/dash/whatsapp96.svg",
     color: "from-green-500 to-green-600",
-    href: "https://wa.me/+1234567890",
+    href: "https://wa.me/+380508128888",
   },
   {
     id: "viber",
     icon: "/dash/viber.svg",
     color: "from-purple-500 to-purple-600",
-    href: "viber://chat?number=+1234567890",
+    href: "https://viber.com",
   },
   {
     id: "telegram",
     icon: "/dash/telegram96.svg",
     color: "from-blue-500 to-blue-600",
-    href: "https://t.me/username",
+    href: "https://t.me/+380508128888",
   },
   {
     id: "signal",
     icon: "/dash/signal.svg",
     color: "from-blue-500 to-blue-600",
-    href: "https://signal.me/#p/+1234567890",
+    href: "https://signal.me/#p/+380508128888",
   },
 ];
 
@@ -363,7 +362,7 @@ const LandConsultingWrapper = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-1 xs-responsive sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-1 xs-responsive sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -457,10 +456,10 @@ const LandConsultingWrapper = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-6">
-              <div className="relative group">
+            <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 xs:gap-3 sm:gap-6">
+              <div className="flex flex-col items-center">
                 <motion.a
-                  href="https://wa.me/+1234567890"
+                  href="https://wa.me/+380508128888"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{
@@ -469,49 +468,43 @@ const LandConsultingWrapper = () => {
                     boxShadow: "0 0 25px rgba(255,255,255,0.2)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3 group relative"
                 >
-                  <MessageCircle className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
-                  <span className="font-semibold hidden sm:inline text-sm">
+                  <FaWhatsapp className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm md:text-xs lg:text-xs xl:text-sm">
                     WhatsApp
                   </span>
                 </motion.a>
-                {/* Mobile tooltip */}
-                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
-                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                    WhatsApp
-                  </div>
-                </div>
+                {/* Mobile label */}
+                <span className="text-white text-xs mt-1 sm:hidden">
+                  WhatsApp
+                </span>
               </div>
 
-              <div className="relative group">
+              <div className="flex flex-col items-center">
                 <motion.a
-                  href="viber://chat?number=+1234567890"
+                  href="https://viber.com"
                   whileHover={{
                     scale: 1.05,
                     rotateY: 5,
                     boxShadow: "0 0 25px rgba(255,255,255,0.2)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3 group relative"
                   style={{ perspective: "1000px" }}
                 >
-                  <Phone className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
-                  <span className="font-semibold hidden sm:inline text-sm">
+                  <FaViber className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm md:text-xs lg:text-xs xl:text-sm">
                     Viber
                   </span>
                 </motion.a>
-                {/* Mobile tooltip */}
-                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
-                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                    Viber
-                  </div>
-                </div>
+                {/* Mobile label */}
+                <span className="text-white text-xs mt-1 sm:hidden">Viber</span>
               </div>
 
-              <div className="relative group">
+              <div className="flex flex-col items-center">
                 <motion.a
-                  href="https://t.me/username"
+                  href="https://t.me/+380508128888"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{
@@ -520,24 +513,22 @@ const LandConsultingWrapper = () => {
                     boxShadow: "0 0 25px rgba(255,255,255,0.2)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3 group relative"
                 >
-                  <Mail className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
-                  <span className="font-semibold hidden sm:inline text-sm">
+                  <FaTelegramPlane className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm md:text-xs lg:text-xs xl:text-sm">
                     Telegram
                   </span>
                 </motion.a>
-                {/* Mobile tooltip */}
-                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
-                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                    Telegram
-                  </div>
-                </div>
+                {/* Mobile label */}
+                <span className="text-white text-xs mt-1 sm:hidden">
+                  Telegram
+                </span>
               </div>
 
-              <div className="relative group">
+              <div className="flex flex-col items-center">
                 <motion.a
-                  href="https://signal.me/#p/+1234567890"
+                  href="https://signal.me/#p/+380508128888"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{
@@ -546,19 +537,17 @@ const LandConsultingWrapper = () => {
                     boxShadow: "0 0 25px rgba(255,255,255,0.2)",
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3 group relative"
                 >
-                  <MessageCircle className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
-                  <span className="font-semibold hidden sm:inline text-sm">
+                  <FaSignalMessenger className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm md:text-xs lg:text-xs xl:text-sm">
                     Signal
                   </span>
                 </motion.a>
-                {/* Mobile tooltip */}
-                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
-                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                    Signal
-                  </div>
-                </div>
+                {/* Mobile label */}
+                <span className="text-white text-xs mt-1 sm:hidden">
+                  Signal
+                </span>
               </div>
             </div>
           </div>

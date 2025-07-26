@@ -3,9 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Users, MapPin, Building, DollarSign, Scale, Menu, Phone, Mail } from "lucide-react";
+import { Users, MapPin, Building, DollarSign, Scale, Menu } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import Link from "next/link";
 import { i18n } from "@lingui/core";
 import Image from "next/image";
 import DashboardContent from "./DashboardContent";
@@ -24,7 +23,7 @@ interface MenuItem {
 export const menuItems: MenuItem[] = [
   {
     id: "about",
-    title: "Про Компанію",
+    title: "Про компанію",
     icon: Users,
     color: "from-blue-500 to-blue-600",
     textColor: "text-blue-500",
@@ -79,25 +78,25 @@ const contactItems = [
     id: "whatsapp",
     icon: "/dash/whatsapp96.svg",
     color: "from-green-500 to-green-600",
-    href: "https://wa.me/+1234567890",
+    href: "https://wa.me/+380508128888",
   },
   {
     id: "viber",
     icon: "/dash/viber.svg",
     color: "from-purple-500 to-purple-600",
-    href: "viber://chat?number=+1234567890",
+    href: "https://viber.com",
   },
   {
     id: "telegram",
     icon: "/dash/telegram96.svg",
     color: "from-blue-500 to-blue-600",
-    href: "https://t.me/username",
+    href: "https://t.me/+380508128888",
   },
   {
     id: "signal",
     icon: "/dash/signal.svg",
     color: "from-blue-500 to-blue-600",
-    href: "https://signal.me/#p/+1234567890",
+    href: "https://signal.me/#p/+380508128888",
   },
 ];
 
@@ -314,9 +313,9 @@ export default function DashboardSidebar() {
               paddingBottom: "12px",
             }}
           >
-            <Link
-              href="/"
-              className="text-2xl font-bold"
+            <button
+              onClick={() => handleMenuClick("about")}
+              className="text-2xl font-bold cursor-pointer"
               style={{
                 background: "linear-gradient(90deg, #fbbf24, #f59e0b)",
                 WebkitBackgroundClip: "text",
@@ -336,7 +335,7 @@ export default function DashboardSidebar() {
                   height: !isMobile ? "24px" : "40px",
                 }}
               />
-            </Link>
+            </button>
             <h2
               className="mt-1 select-none"
               style={{
@@ -420,103 +419,69 @@ export default function DashboardSidebar() {
                 style={{
                   color: "#ffffff",
                   fontSize: !isMobile ? "12px" : "14px",
-                  marginBottom: !isMobile ? "8px" : "0",
+                  marginBottom: !isMobile ? "8px" : "12px",
                   fontFamily:
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
               >
-                Напишіть Нам
+                Напишіть нам
               </h3>
               <div className="flex space-x-1 h-full">
                 {contactItems.map((contact) => {
                   const isImage = typeof contact.icon === "string";
                   const IconComponent = contact.icon;
                   return (
-                    <motion.a
-                      key={contact.id}
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="rounded-lg flex items-center justify-center shadow-lg"
-                      style={{
-                        width: !isMobile ? "24px" : "48px",
-                        height: !isMobile ? "24px" : "48px",
-                        background: "transparent",
-                      }}
-                    >
-                      {isImage && IconComponent ? (
-                        <Image
-                          src={contact.icon as string}
-                          alt={contact.id}
-                          width={isMobile ? 20 : 20}
-                          height={isMobile ? 20 : 20}
-                          className="w-20 h-20"
-                        />
-                      ) : IconComponent ? (
-                        React.createElement(
-                          IconComponent as unknown as LucideIcon,
-                          {
-                            className: !isMobile ? "w-3 h-3" : "w-5 h-5",
-                            style: { color: "#ffffff" },
-                          }
-                        )
-                      ) : null}
-                    </motion.a>
+                    <div key={contact.id} className="relative group">
+                      <motion.a
+                        href={contact.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="rounded-lg flex items-center justify-center shadow-lg"
+                        style={{
+                          width: !isMobile ? "24px" : "48px",
+                          height: !isMobile ? "24px" : "48px",
+                          background: "transparent",
+                        }}
+                      >
+                        {isImage && IconComponent ? (
+                          <Image
+                            src={contact.icon as string}
+                            alt={contact.id}
+                            width={isMobile ? 20 : 20}
+                            height={isMobile ? 20 : 20}
+                            className="w-20 h-20"
+                          />
+                        ) : IconComponent ? (
+                          React.createElement(
+                            IconComponent as unknown as LucideIcon,
+                            {
+                              className: !isMobile ? "w-3 h-3" : "w-5 h-5",
+                              style: { color: "#ffffff" },
+                            }
+                          )
+                        ) : null}
+                      </motion.a>
+                      {/* Tooltip */}
+                      <div
+                        className={`absolute -bottom-8 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none ${
+                          contact.id === "whatsapp"
+                            ? "left-0 transform translate-x-0"
+                            : "left-1/2 transform -translate-x-1/2"
+                        }`}
+                      >
+                        <div className="bg-gray-600 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                          {contact.id.charAt(0).toUpperCase() +
+                            contact.id.slice(1)}
+                        </div>
+                      </div>
+                    </div>
                   );
                 })}
               </div>
-              {isMobile && (
-                <div
-                  className="flex flex-col"
-                  style={{
-                    marginTop: !isMobile ? "16px" : "40px",
-                    gap: !isMobile ? "8px" : "4px",
-                  }}
-                >
-                  <div className="flex items-center gap-1">
-                    <Mail
-                      style={{
-                        width: !isMobile ? "12px" : "20px",
-                        height: !isMobile ? "12px" : "20px",
-                        color: "#ffffff",
-                      }}
-                    />
-                    <p
-                      style={{
-                        color: "#d1d5db",
-                        fontSize: !isMobile ? "12px" : "14px",
-                        fontFamily:
-                          "Montserrat, Inter, system-ui, -apple-system, sans-serif",
-                      }}
-                    >
-                      esviemua@gmail.com
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Phone
-                      style={{
-                        width: !isMobile ? "12px" : "20px",
-                        height: !isMobile ? "12px" : "20px",
-                        color: "#ffffff",
-                      }}
-                    />
-                    <p
-                      style={{
-                        color: "#d1d5db",
-                        fontSize: !isMobile ? "12px" : "14px",
-                        fontFamily:
-                          "Montserrat, Inter, system-ui, -apple-system, sans-serif",
-                      }}
-                    >
-                      +380508128888
-                    </p>
-                  </div>
-                </div>
-              )}
               {/* Language Switcher - фиксированный внизу */}
               <div
                 className="w-full flex-shrink-0 border-t border-slate-800"
@@ -559,8 +524,8 @@ export default function DashboardSidebar() {
                       height={14}
                       className="object-cover"
                       style={{
-                        width: !isMobile ? "16px" : "28px",
-                        height: !isMobile ? "12px" : "16px",
+                        width: !isMobile ? "21px" : "28px",
+                        height: !isMobile ? "15px" : "16px",
                       }}
                     />
                   </motion.button>
@@ -588,8 +553,8 @@ export default function DashboardSidebar() {
                       height={14}
                       className="object-cover"
                       style={{
-                        width: !isMobile ? "16px" : "28px",
-                        height: !isMobile ? "12px" : "16px",
+                        width: !isMobile ? "21px" : "28px",
+                        height: !isMobile ? "15px" : "16px",
                       }}
                     />
                   </motion.button>

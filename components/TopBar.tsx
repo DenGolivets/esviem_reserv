@@ -16,7 +16,7 @@ const TopBar = ({ inView }: TopBarProps) => {
         initial={{ opacity: 0, x: 20 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex justify-end mb-18 md:mb-12"
+        className="flex justify-end mb-16 md:mb-0"
       >
         <div
           className="relative"
@@ -78,7 +78,7 @@ const TopBar = ({ inView }: TopBarProps) => {
               className="transform hover:rotate-40 duration-500 transition-all cursor-pointer relative block"
             >
               <Image
-                src="/topbar/phone2.png"
+                src="/topbar/iphone.png"
                 alt="Phone"
                 width={150}
                 height={150}

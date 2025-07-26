@@ -49,6 +49,17 @@ const AboutUs = () => {
                 priority
                 className="mx-auto w-auto h-16 md:h-20"
               />
+              <h2
+                className="mt-1 select-none"
+                style={{
+                  color: "#072a40",
+                  fontFamily:
+                    "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                  fontSize: "24px",
+                }}
+              >
+                Consulting
+              </h2>
             </motion.div>
 
             <h2
@@ -102,7 +113,7 @@ const AboutUs = () => {
                 fontWeight: "700",
               }}
             >
-              Наші Партнери
+              Наші Клієнти
             </h3>
           </motion.div>
 
