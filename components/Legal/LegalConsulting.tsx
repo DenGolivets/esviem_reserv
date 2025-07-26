@@ -64,7 +64,7 @@ export default function LegalConsulting() {
             </span>
 
             <span className="bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">
-              Послуги
+              послуги
             </span>
           </h2>
         </motion.div>

@@ -49,7 +49,7 @@ export default function ConstructionConsulting() {
               Будівельний
             </span>
             <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-              Консалтинг
+              консалтинг
             </span>
           </h2>
 

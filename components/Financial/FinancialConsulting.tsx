@@ -64,7 +64,7 @@ export default function FinancialConsulting() {
             </span>
 
             <span className="bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
-              Консалтинг
+              консалтинг
             </span>
           </h2>
         </motion.div>

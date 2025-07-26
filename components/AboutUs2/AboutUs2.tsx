@@ -72,7 +72,7 @@ const AboutUs = () => {
               }}
             >
               <span>Про</span>
-              <span>Нас</span>
+              <span>нас</span>
             </h2>
 
             <motion.p
@@ -113,7 +113,7 @@ const AboutUs = () => {
                 fontWeight: "700",
               }}
             >
-              Наші Клієнти
+              Наші клієнти
             </h3>
           </motion.div>
 
@@ -146,12 +146,12 @@ const AboutUs = () => {
               {
                 icon: Target,
                 text: "Найскладніші задачі",
-                color: "linear-gradient(135deg, #f87171, #ef4444)",
+                color: "linear-gradient(135deg, #4ade80, #22c55e)",
               },
               {
                 icon: Heart,
                 text: "Індивідуальний підхід",
-                color: "linear-gradient(135deg, #4ade80, #22c55e)",
+                color: "linear-gradient(135deg, #f87171, #ef4444)",
               },
             ].map((item, index) => {
               const Icon = item.icon;

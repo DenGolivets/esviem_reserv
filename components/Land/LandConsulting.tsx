@@ -54,7 +54,7 @@ items-center justify-center md:flex-row leading-relaxed"
                 Земельний
               </span>
               <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-                Консалтинг
+                консалтинг
               </span>
             </h2>
           </motion.div>
