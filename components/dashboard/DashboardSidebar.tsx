@@ -287,20 +287,24 @@ export default function DashboardSidebar() {
           }}
         >
           {/* Close button for mobile */}
-          <div className="md:hidden absolute top-4 right-4">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center"
-              style={{
-                background: "rgb(55, 65, 81)",
-                color: "#ffffff",
-              }}
-            >
-              ×
-            </motion.button>
-          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            onClick={onClose}
+            className="md:hidden absolute top-4 right-4 z-50"
+            style={{
+              color: "#fbbf24",
+              fontSize: "24px",
+              fontWeight: "bold",
+              textShadow:
+                "0 2px 4px rgba(0,0,0,0.5), 0 0 8px rgba(251, 191, 36, 0.3)",
+              filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
+              cursor: "pointer",
+            }}
+          >
+            ✕
+          </motion.button>
 
           {/* Logo - фиксированный */}
           <div
