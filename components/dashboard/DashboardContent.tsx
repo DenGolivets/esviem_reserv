@@ -44,6 +44,7 @@ export default function DashboardContent({
           exit={{ x: "100%", opacity: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
           className={`fixed inset-0 z-30 ${isMobile ? "" : "ml-[280px]"}`}
+          style={{ background: "transparent" }}
         >
           {/* Content */}
           <div className="h-full overflow-y-auto overflow-x-hidden">

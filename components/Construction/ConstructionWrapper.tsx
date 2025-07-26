@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
+import Image from "next/image";
 import {
   Building,
   FileText,
@@ -17,8 +18,8 @@ import {
   Zap,
   Home,
   MapPin,
-  ArrowLeft,
 } from "lucide-react";
+import { MdArrowCircleLeft } from "react-icons/md";
 
 const services = [
   {
@@ -284,6 +285,33 @@ const services = [
   },
 ];
 
+const contactItems = [
+  {
+    id: "whatsapp",
+    icon: "/dash/whatsapp96.svg",
+    color: "from-green-500 to-green-600",
+    href: "https://wa.me/+1234567890",
+  },
+  {
+    id: "viber",
+    icon: "/dash/viber.svg",
+    color: "from-purple-500 to-purple-600",
+    href: "viber://chat?number=+1234567890",
+  },
+  {
+    id: "telegram",
+    icon: "/dash/telegram96.svg",
+    color: "from-blue-500 to-blue-600",
+    href: "https://t.me/username",
+  },
+  {
+    id: "signal",
+    icon: "/dash/signal.svg",
+    color: "from-blue-500 to-blue-600",
+    href: "https://signal.me/#p/+1234567890",
+  },
+];
+
 export default function ConstructionWrapper() {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -315,10 +343,9 @@ export default function ConstructionWrapper() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={handleBackClick}
-            className="flex items-center space-x-2 mb-8 text-orange-400 hover:text-orange-300 transition-colors"
+            className="flex cursor-pointer items-center space-x-2 mb-8 text-orange-400 hover:text-orange-300 transition-colors"
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Назад до списку</span>
+            <MdArrowCircleLeft className="w-10 h-10" />
           </motion.button>
 
           {/* Заголовок */}
@@ -342,13 +369,60 @@ export default function ConstructionWrapper() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 mb-8 border border-slate-600"
+            className="rounded-2xl p-8 mb-8 border border-slate-600 flex flex-col"
+            style={{
+              background:
+                "linear-gradient(to right, var(--main-slate-dark) 0%, var(--main-slate700) 100%)",
+            }}
           >
-            <div className="prose prose-lg prose-invert max-w-none">
-              <pre className="whitespace-pre-wrap text-gray-300 font-sans leading-relaxed">
+            <div className="prose prose-lg prose-invert max-w-none px-0 md:px-4 flex-1">
+              <pre className="whitespace-pre-wrap text-gray-300 leading-relaxed">
                 {currentService.detailedDescription}
               </pre>
             </div>
+
+            {/* Контактна секція внизу блоку справа */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6 }}
+              className="flex justify-end mt-6"
+            >
+              <div className="rounded-xl p-3">
+                <div className="text-center mb-2">
+                  <p className="text-white text-xs font-medium">
+                    Зв{"'"}яжіться з нами
+                  </p>
+                </div>
+                <div className="flex">
+                  {contactItems.map((contact) => (
+                    <div key={contact.id} className="relative group">
+                      <a
+                        href={contact.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-transparent flex items-center justify-center hover:scale-105 transition-transform"
+                      >
+                        <Image
+                          src={contact.icon}
+                          alt={contact.id}
+                          width={20}
+                          height={20}
+                          className="w-7 h-7"
+                        />
+                      </a>
+                      {/* Tooltip */}
+                      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                        <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                          {contact.id.charAt(0).toUpperCase() +
+                            contact.id.slice(1)}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -364,7 +438,7 @@ export default function ConstructionWrapper() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
+          className="grid xs-responsive md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -391,7 +465,7 @@ export default function ConstructionWrapper() {
                   transition={{ duration: 0.4 }}
                   className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
                 >
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
                     <motion.div
                       animate={{
@@ -409,15 +483,9 @@ export default function ConstructionWrapper() {
                             scale: hoveredService === index ? 1.1 : 1,
                           }}
                           transition={{ duration: 0.6 }}
-                          className={`w-10 h-10 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center shadow-lg`}
-                          style={{
-                            boxShadow:
-                              hoveredService === index
-                                ? "0 0 25px rgba(249, 115, 22, 0.5)"
-                                : "0 0 10px rgba(0,0,0,0.3)",
-                          }}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r ${service.color} rounded-lg md:rounded-xl flex items-center justify-center shadow-lg`}
                         >
-                          <Icon className="w-5 h-5 text-white" />
+                          <Icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                         </motion.div>
                       </div>
 
@@ -426,7 +494,7 @@ export default function ConstructionWrapper() {
                           color:
                             hoveredService === index ? "#fb923c" : "#ffffff",
                         }}
-                        className="text-base md:text-lg font-bold mb-3 leading-tight font-vollkorn"
+                        className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-2 sm:mb-3 leading-tight"
                       >
                         {service.title}
                       </motion.h3>
@@ -435,7 +503,7 @@ export default function ConstructionWrapper() {
                           color:
                             hoveredService === index ? "#d1d5db" : "#9ca3af",
                         }}
-                        className="leading-relaxed text-xs md:text-sm"
+                        className="leading-relaxed text-xs sm:text-xs md:text-xs lg:text-xs"
                       >
                         {service.description}
                       </motion.p>
@@ -459,59 +527,110 @@ export default function ConstructionWrapper() {
         >
           <div className="relative z-10">
             <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Готові розпочати роботу?
-              </h2>
               <p className="text-lg md:text-xl opacity-90">
                 Зв{"'"}яжіться з нами для отримання професійної консультації
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <motion.a
-                href="tel:+1234567890"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 0 25px rgba(255,255,255,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center space-x-3 bg-white/20 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/30 transition-all duration-300 border border-white/20"
-                style={{ perspective: "1000px" }}
-              >
-                <Phone className="w-6 h-6" />
-                <span className="font-semibold">Подзвонити</span>
-              </motion.a>
+            <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-6">
+              <div className="relative group">
+                <motion.a
+                  href="https://wa.me/+1234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                >
+                  <MessageCircle className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    WhatsApp
+                  </span>
+                </motion.a>
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    WhatsApp
+                  </div>
+                </div>
+              </div>
 
-              <motion.a
-                href="mailto:info@esviem.com"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 0 25px rgba(255,255,255,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center space-x-3 bg-white/20 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/30 transition-all duration-300 border border-white/20"
-              >
-                <Mail className="w-6 h-6" />
-                <span className="font-semibold">Email</span>
-              </motion.a>
+              <div className="relative group">
+                <motion.a
+                  href="viber://chat?number=+1234567890"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                  style={{ perspective: "1000px" }}
+                >
+                  <Phone className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    Viber
+                  </span>
+                </motion.a>
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Viber
+                  </div>
+                </div>
+              </div>
 
-              <motion.a
-                href="https://wa.me/+1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 0 25px rgba(255,255,255,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center space-x-3 bg-white/20 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/30 transition-all duration-300 border border-white/20"
-              >
-                <MessageCircle className="w-6 h-6" />
-                <span className="font-semibold">WhatsApp</span>
-              </motion.a>
+              <div className="relative group">
+                <motion.a
+                  href="https://t.me/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                >
+                  <Mail className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    Telegram
+                  </span>
+                </motion.a>
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Telegram
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <motion.a
+                  href="https://signal.me/#p/+1234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                >
+                  <MessageCircle className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    Signal
+                  </span>
+                </motion.a>
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Signal
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

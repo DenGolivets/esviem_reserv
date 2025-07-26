@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Building } from "lucide-react";
 import ConstructionWrapper from "./ConstructionWrapper";
+import TopBar from "../TopBar";
 
 export default function ConstructionConsulting() {
   const [ref, inView] = useInView({
@@ -14,9 +15,14 @@ export default function ConstructionConsulting() {
     <section
       id="construction-section"
       ref={ref}
-      className="relative w-full min-h-screen overflow-hidden "
+      className="relative w-full min-h-screen overflow-hidden"
+      style={{
+        minHeight: "100vh",
+      }}
     >
-      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div className="container mx-auto px-4 py-4 relative z-10">
+        {/* Contact Info Block - верхний правый угол */}     
+          <TopBar inView={inView}/>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +44,7 @@ export default function ConstructionConsulting() {
             <Building className="w-10 h-10 text-white" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-vollkorn">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             <span className="bg-gradient-to-r mr-2 from-orange-400 to-red-500 bg-clip-text text-transparent">
               Будівельний
             </span>
@@ -57,7 +63,7 @@ export default function ConstructionConsulting() {
             супроводу
           </motion.p>
           <div className="flex items-center text-center justify-center">
-            <h3 className="font-vollkorn text-2xl md:text-3xl xl:text-4xl font-bold text-orange-400 mt-0 md:mt-14 md:mb-6">
+                          <h3 className="text-2xl md:text-3xl xl:text-4xl font-bold text-orange-400 mt-0 md:mt-14 md:mb-6">
               ВИДИ ПОСЛУГ В ГАЛУЗІ БУДІВНИЦТВА
             </h3>
           </div>

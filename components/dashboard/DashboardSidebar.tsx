@@ -3,16 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import {
-  Users,
-  MapPin,
-  Building,
-  DollarSign,
-  Scale,
-  Phone,
-  Menu,
-  Mail,
-} from "lucide-react";
+import { Users, MapPin, Building, DollarSign, Scale, Menu, Phone, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { i18n } from "@lingui/core";
@@ -33,13 +24,13 @@ interface MenuItem {
 export const menuItems: MenuItem[] = [
   {
     id: "about",
-    title: "Про Нас",
+    title: "Про Компанію",
     icon: Users,
     color: "from-blue-500 to-blue-600",
     textColor: "text-blue-500",
     textColorActive: "from-blue-500 to-blue-600",
     borderActive: "from-blue-500 to-yellow-600",
-    font: "font-inter",
+    font: "font-montserrat",
   },
   {
     id: "land",
@@ -49,7 +40,7 @@ export const menuItems: MenuItem[] = [
     textColor: "text-green-500",
     textColorActive: "from-green-500 to-green-600",
     borderActive: "from-green-500 to-yellow-600",
-    font: "font-playfair",
+    font: "font-montserrat",
   },
   {
     id: "construction",
@@ -59,7 +50,7 @@ export const menuItems: MenuItem[] = [
     textColor: "text-orange-500",
     textColorActive: "from-orange-500 to-orange-600",
     borderActive: "from-orange-500 to-yellow-600",
-    font: "font-oswald",
+    font: "font-montserrat",
   },
   {
     id: "financial",
@@ -79,7 +70,7 @@ export const menuItems: MenuItem[] = [
     textColor: "text-purple-500",
     textColorActive: "from-purple-500 to-purple-600",
     borderActive: "from-purple-500 to-yellow-600",
-    font: "font-poppins",
+    font: "font-montserrat",
   },
 ];
 
@@ -179,7 +170,8 @@ export default function DashboardSidebar() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 z-30 md:hidden"
+          style={{ background: "rgba(0,0,0,0.5)" }}
           onClick={onClose}
         />
       )}
@@ -191,18 +183,26 @@ export default function DashboardSidebar() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5 }}
           onClick={handleToggleSidebar}
-          className="fixed top-2 md:top-6 left-2 md:left-6 z-50 w-12 h-12 bg-slate-800/80 backdrop-blur-sm hover:bg-slate-700 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 border border-yellow-400/30"
+          className="fixed top-2 md:top-6 left-2 md:left-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
+          style={{
+            background: "rgba(30, 41, 59, 0.8)",
+            backdropFilter: "blur(8px)",
+            border: "1px solid rgba(251, 191, 36, 0.3)",
+          }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Menu className="w-6 h-6 text-yellow-400" />
+          <Menu className="w-6 h-6" style={{ color: "#fbbf24" }} />
         </motion.button>
       )}
 
+      {/* Page Content Container */}
       <div
-        className={`min-h-screen transition-all duration-300  ${
-          isMobile ? "" : "ml-60"
-        }`}
+        style={{
+          minHeight: "100vh",
+          marginLeft: isMobile ? "0" : "240px",
+          transition: "margin-left 0.3s ease",
+        }}
       >
         {/* Page Content */}
         {manualActiveMenu && (
@@ -214,9 +214,16 @@ export default function DashboardSidebar() {
         )}
       </div>
 
+      {/* Sidebar */}
       <motion.div
-        initial={{ x: -240 }}
-        animate={{ x: isSidebarOpen ? 0 : -240 }}
+        initial={{
+          x: -240,
+          y: !isMobile ? "-50%" : "0",
+        }}
+        animate={{
+          x: isSidebarOpen ? 0 : -240,
+          y: !isMobile ? "-50%" : "0",
+        }}
         transition={{
           type: "tween",
           damping: 25,
@@ -224,17 +231,17 @@ export default function DashboardSidebar() {
           duration: 0.7,
           ease: "easeOut",
         }}
-        className={`fixed ${
-          !isMobile ? "left-10 top-1/2 -translate-y-1/2" : "left-0 top-0"
-        } ${!isMobile ? "w-60" : "w-80"} z-40 flex flex-col ${
-          isMobile && !isSidebarOpen ? "hidden" : ""
-        }`}
+        className="fixed z-40 flex flex-col"
         style={{
+          left: !isMobile ? "40px" : "0",
+          top: !isMobile ? "50%" : "0",
+          width: !isMobile ? "240px" : "320px",
           height: !isMobile ? "550px" : "100vh",
           maxHeight: !isMobile ? "550px" : "100vh",
           filter: !isMobile
             ? "drop-shadow(8px 8px 16px rgba(0,0,0,0.4))"
             : "none",
+          display: isMobile && !isSidebarOpen ? "none" : "flex",
         }}
       >
         {/* Кастомная SVG форма для десктопа */}
@@ -272,9 +279,13 @@ export default function DashboardSidebar() {
         )}
 
         <div
-          className={`relative z-10 flex flex-col h-full ${
-            !isMobile ? "pl-8 pr-8 pt-4 pb-3" : ""
-          }`}
+          className="relative z-10 flex flex-col h-full"
+          style={{
+            paddingLeft: !isMobile ? "32px" : "0",
+            paddingRight: !isMobile ? "32px" : "0",
+            paddingTop: !isMobile ? "16px" : "0",
+            paddingBottom: !isMobile ? "12px" : "0",
+          }}
         >
           {/* Close button for mobile */}
           <div className="md:hidden absolute top-4 right-4">
@@ -282,7 +293,11 @@ export default function DashboardSidebar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={onClose}
-              className="w-8 h-8 bg-slate-700 hover:bg-slate-600 rounded-full flex items-center justify-center text-white"
+              className="w-8 h-8 rounded-full flex items-center justify-center"
+              style={{
+                background: "rgb(55, 65, 81)",
+                color: "#ffffff",
+              }}
             >
               ×
             </motion.button>
@@ -290,14 +305,24 @@ export default function DashboardSidebar() {
 
           {/* Logo - фиксированный */}
           <div
-            className={`${
-              !isMobile ? "px-0 pt-6 pb-3" : "p-6"
-            } border-b w-fit border-slate-700 flex-shrink-0`}
+            className="border-b w-fit flex-shrink-0"
+            style={{
+              borderColor: "rgb(55, 65, 81)",
+              paddingLeft: !isMobile ? "0" : "24px",
+              paddingRight: !isMobile ? "0" : "24px",
+              paddingTop: !isMobile ? "24px" : "24px",
+              paddingBottom: "12px",
+            }}
           >
             <Link
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text 
-            text-transparent"
+              className="text-2xl font-bold"
+              style={{
+                background: "linear-gradient(90deg, #fbbf24, #f59e0b)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
             >
               <Image
                 src="/esviem2.png"
@@ -305,29 +330,41 @@ export default function DashboardSidebar() {
                 width={500}
                 height={500}
                 priority
-                className={`block ${!isMobile ? "w-20 h-6" : "w-35 h-10"}`}
+                className="block"
+                style={{
+                  width: !isMobile ? "80px" : "140px",
+                  height: !isMobile ? "24px" : "40px",
+                }}
               />
             </Link>
-            <h2 className="mt-1 text-[#072a40] select-none">Consulting</h2>
+            <h2
+              className="mt-1 select-none"
+              style={{
+                color: "#072a40",
+                fontFamily:
+                  "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                fontSize: "12px",
+              }}
+            >
+              Consulting
+            </h2>
           </div>
 
           {/* Скроллируемый контент */}
           <div className="flex-1 overflow-y-auto overflow-x-hidden">
             {/* Menu Items */}
-            <div className={`${!isMobile ? "px-0 py-0 md:py-3" : "p-6 mt-0"}`}>
-              <div className="space-y-1 select-none ">
+            <div
+              style={{
+                paddingLeft: !isMobile ? "0" : "24px",
+                paddingRight: !isMobile ? "0" : "24px",
+                paddingTop: !isMobile ? "6px" : "24px",
+                paddingBottom: !isMobile ? "12px" : "24px",
+                marginTop: !isMobile ? "0" : "0",
+              }}
+            >
+              <div className="space-y-1 select-none">
                 {menuItems.map((item) => {
                   const isActive = manualActiveMenu === item.id;
-
-                  // Маппинг для group-hover цвета
-                  const groupHoverColor =
-                    {
-                      "text-blue-500": "group-hover:text-blue-500",
-                      "text-green-500": "group-hover:text-green-500",
-                      "text-orange-500": "group-hover:text-orange-500",
-                      "text-yellow-500": "group-hover:text-yellow-500",
-                      "text-purple-500": "group-hover:text-purple-500",
-                    }[item.textColor] || "";
 
                   return (
                     <motion.button
@@ -340,12 +377,12 @@ export default function DashboardSidebar() {
                       }}
                       onHoverStart={() => setHoveredItem(item.id)}
                       onHoverEnd={() => setHoveredItem(null)}
-                      className={`w-full z-[2] flex relative items-center space-x-2 py-1 ${
-                        !isMobile ? "px-2" : "px-8"
-                      } rounded-lg group ${
-                        !isMobile ? "h-6" : "h-16"
-                      } min-h-10 overflow-hidden
-                      `}
+                      className="w-full z-[2] flex relative items-center space-x-2 rounded-lg group overflow-hidden"
+                      style={{
+                        padding: !isMobile ? "4px 8px" : "16px 32px",
+                        height: !isMobile ? "24px" : "64px",
+                        minHeight: "40px",
+                      }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -356,7 +393,7 @@ export default function DashboardSidebar() {
                           } ${!isMobile ? "text-sm" : "text-lg md:text-base"} ${
                             isActive
                               ? `bg-gradient-to-r ${item.textColorActive} bg-clip-text text-transparent`
-                              : `text-white ${groupHoverColor}`
+                              : `text-white hover:${item.textColor}`
                           }`}
                         >
                           {item.title}
@@ -369,16 +406,29 @@ export default function DashboardSidebar() {
             </div>
 
             {/* Contact Section */}
-            <div className={`${!isMobile ? "px-0 py-2" : "p-6 mt-0"}`}>
+            <div
+              style={{
+                paddingLeft: !isMobile ? "0" : "24px",
+                paddingRight: !isMobile ? "0" : "24px",
+                paddingTop: !isMobile ? "8px" : "24px",
+                paddingBottom: !isMobile ? "8px" : "24px",
+                marginTop: !isMobile ? "20px" : "0",
+              }}
+            >
               <h3
-                className={`text-gray-400 ${
-                  !isMobile ? "text-xs mb-2" : "text-sm mb-0"
-                } font-semibold mb-1 uppercase tracking-wider`}
+                className="font-semibold mb-1 tracking-wider"
+                style={{
+                  color: "#ffffff",
+                  fontSize: !isMobile ? "12px" : "14px",
+                  marginBottom: !isMobile ? "8px" : "0",
+                  fontFamily:
+                    "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                }}
               >
-                Напишіть нам
+                Напишіть Нам
               </h3>
-              <div className="flex space-x-1">
-                {contactItems.map((contact, index) => {
+              <div className="flex space-x-1 h-full">
+                {contactItems.map((contact) => {
                   const isImage = typeof contact.icon === "string";
                   const IconComponent = contact.icon;
                   return (
@@ -389,14 +439,14 @@ export default function DashboardSidebar() {
                       rel="noopener noreferrer"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.6 + index * 0.1, duration: 0.2 }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`${
-                        !isMobile ? "w-6 h-6" : "w-12 h-12"
-                      } rounded-lg bg-transparent ${
-                        contact.color
-                      } flex items-center justify-center shadow-lg`}
+                      className="rounded-lg flex items-center justify-center shadow-lg"
+                      style={{
+                        width: !isMobile ? "24px" : "48px",
+                        height: !isMobile ? "24px" : "48px",
+                        background: "transparent",
+                      }}
                     >
                       {isImage && IconComponent ? (
                         <Image
@@ -410,9 +460,8 @@ export default function DashboardSidebar() {
                         React.createElement(
                           IconComponent as unknown as LucideIcon,
                           {
-                            className: `${
-                              !isMobile ? "w-3 h-3" : "w-5 h-5"
-                            } text-white`,
+                            className: !isMobile ? "w-3 h-3" : "w-5 h-5",
+                            style: { color: "#ffffff" },
                           }
                         )
                       ) : null}
@@ -420,90 +469,131 @@ export default function DashboardSidebar() {
                   );
                 })}
               </div>
+              {isMobile && (
+                <div
+                  className="flex flex-col"
+                  style={{
+                    marginTop: !isMobile ? "16px" : "40px",
+                    gap: !isMobile ? "8px" : "4px",
+                  }}
+                >
+                  <div className="flex items-center gap-1">
+                    <Mail
+                      style={{
+                        width: !isMobile ? "12px" : "20px",
+                        height: !isMobile ? "12px" : "20px",
+                        color: "#ffffff",
+                      }}
+                    />
+                    <p
+                      style={{
+                        color: "#d1d5db",
+                        fontSize: !isMobile ? "12px" : "14px",
+                        fontFamily:
+                          "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                      }}
+                    >
+                      esviemua@gmail.com
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Phone
+                      style={{
+                        width: !isMobile ? "12px" : "20px",
+                        height: !isMobile ? "12px" : "20px",
+                        color: "#ffffff",
+                      }}
+                    />
+                    <p
+                      style={{
+                        color: "#d1d5db",
+                        fontSize: !isMobile ? "12px" : "14px",
+                        fontFamily:
+                          "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                      }}
+                    >
+                      +380508128888
+                    </p>
+                  </div>
+                </div>
+              )}
+              {/* Language Switcher - фиксированный внизу */}
               <div
-                className={`flex flex-col ${
-                  !isMobile ? "mt-4 gap-2" : "mt-10 gap-1"
-                }`}
+                className="w-full flex-shrink-0 border-t border-slate-800"
+                style={{
+                  borderColor: "rgb(55, 65, 81)",
+                  paddingLeft: !isMobile ? "0" : "24px",
+                  paddingRight: !isMobile ? "0" : "24px",
+                  paddingTop: "8px",
+                  paddingBottom: !isMobile ? "8px" : "24px",
+                  marginTop: !isMobile ? "20px" : "50px",
+                  display: "flex",
+                  justifyContent: !isMobile ? "flex-end" : "flex-end",
+                }}
               >
-                <div className="flex items-center gap-1">
-                  <Mail
-                    className={`${
-                      !isMobile ? "w-3 h-3" : "w-5 h-5"
-                    } text-white`}
-                  />
-                  <p
-                    className={`text-gray-300 ${
-                      !isMobile ? "text-xs" : "text-sm"
-                    }`}
-                  >
-                    esviemua@gmail.com
-                  </p>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Phone
-                    className={`${
-                      !isMobile ? "w-3 h-3" : "w-5 h-5"
-                    } text-white`}
-                  />
-                  <p
-                    className={`text-gray-300 ${
-                      !isMobile ? "text-xs" : "text-sm"
-                    }`}
-                  >
-                    +380508128888
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Language Switcher - фиксированный внизу */}
-            <div
-              className={`${
-                !isMobile
-                  ? "px-0 py-2 flex justify-end w-full"
-                  : "p-6 mt-0 justify-normal"
-              } border-t border-slate-700 w-full flex-shrink-0`}
-            >
-              <div className="flex items-center space-x-1 bg-transparent rounded-full p-1 w-fit">
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleLangChange("uk")}
-                  className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
-                duration-300 cursor-pointer hover:scale-110 ${
-                  currentLang === "uk"
-                    ? "scale-110 hover:scale-120"
-                    : "hover:scale-120"
-                }`}
+                <div
+                  className="flex items-center space-x-1 rounded-full p-1 w-fit"
+                  style={{ background: "transparent" }}
                 >
-                  <Image
-                    src="/ukrainian2.gif"
-                    alt="Ukrainian Flag"
-                    width={14}
-                    height={14}
-                    className={`${
-                      !isMobile ? "w-4 h-3" : "w-7 h-4"
-                    } object-cover`}
-                  />
-                </motion.button>
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleLangChange("en")}
-                  className={`px-1 py-1 text-sm font-medium text-gray-300 rounded-full transition-all 
-                duration-300 cursor-pointer hover:scale-110 ${
-                  currentLang === "en"
-                    ? "scale-110 hover:scale-120"
-                    : "hover:scale-120"
-                }`}
-                >
-                  <Image
-                    src="/britain.gif"
-                    alt="USA Flag"
-                    width={14}
-                    height={14}
-                    className={`${
-                      !isMobile ? "w-4 h-3" : "w-7 h-4"
-                    } object-cover`}
-                  />
-                </motion.button>
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleLangChange("uk")}
+                    className="px-1 py-1 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer"
+                    style={{
+                      color: "#d1d5db",
+                      transform:
+                        currentLang === "uk" ? "scale(1.1)" : "scale(1)",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.transform =
+                        currentLang === "uk" ? "scale(1.1)" : "scale(1)")
+                    }
+                  >
+                    <Image
+                      src="/ukrainian2.gif"
+                      alt="Ukrainian Flag"
+                      width={14}
+                      height={14}
+                      className="object-cover"
+                      style={{
+                        width: !isMobile ? "16px" : "28px",
+                        height: !isMobile ? "12px" : "16px",
+                      }}
+                    />
+                  </motion.button>
+                  <motion.button
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleLangChange("en")}
+                    className="px-1 py-1 text-sm font-medium rounded-full transition-all duration-300 cursor-pointer"
+                    style={{
+                      color: "#d1d5db",
+                      transform:
+                        currentLang === "en" ? "scale(1.1)" : "scale(1)",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.transform =
+                        currentLang === "en" ? "scale(1.1)" : "scale(1)")
+                    }
+                  >
+                    <Image
+                      src="/britain.gif"
+                      alt="USA Flag"
+                      width={14}
+                      height={14}
+                      className="object-cover"
+                      style={{
+                        width: !isMobile ? "16px" : "28px",
+                        height: !isMobile ? "12px" : "16px",
+                      }}
+                    />
+                  </motion.button>
+                </div>
               </div>
             </div>
           </div>

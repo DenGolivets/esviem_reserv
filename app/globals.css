@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Preload fonts for better performance */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 :root {
   --background: #0a0a0a;
   --foreground: #ffffff;
@@ -18,6 +21,11 @@
   --hero-gold: #cca000;
   --hero-yellow: #e49b0f;
   --hero-card: #0a1830;
+  /* Main wrapper colors - ваши оригинальные цвета */
+  --main-slate-light: #45556c;
+  --main-gray: #364153;
+  --main-slate-dark: #1d293d;
+  --main-slate700: #314158;
 }
 
 @theme inline {
@@ -35,6 +43,8 @@
   --font-oswald: var(--font-oswald);
   --font-montserrat: var(--font-montserrat);
   --font-poppins: var(--font-poppins);
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,13 +54,48 @@
   }
 }
 
-body,
-html {
-  background: var(--hero-bg);
-  font-family: Arial, Helvetica, sans-serif;
-  scroll-behavior: smooth;
+/* Universal font fallbacks for cross-platform compatibility */
+* {
+  font-family: "Montserrat", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+body,
+html {
+  background: linear-gradient(
+    to right,
+    var(--main-slate-light) 0%,
+    var(--main-gray) 80%,
+    var(--main-slate-dark) 100%
+  );
+  font-family: "Montserrat", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure consistent box-sizing across browsers */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Fix for webkit rendering issues on macOS */
+input,
+button,
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Improved scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px; /* Для горизонтального скролла */
@@ -65,7 +110,19 @@ html {
   border-radius: 6px;
 }
 
+/* Firefox scrollbar */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #404e63 #1d293d;
+}
+
 @layer utilities {
+  /* Force hardware acceleration for better performance */
+  .gpu-acceleration {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
   .hero-gradient {
     background: linear-gradient(
       135deg,
@@ -93,10 +150,13 @@ html {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent; /* Fallback for browsers that don't support background-clip: text */
   }
 
+  /* Better cross-browser support for menu styling */
   .menu-circle {
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     background: rgba(10, 24, 48, 0.8);
     border: 2px solid rgba(204, 160, 0, 0.3);
     box-shadow: 0 0 30px rgba(204, 160, 0, 0.2);
@@ -159,6 +219,22 @@ html {
   .clip-v-bronze {
     clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0% 100%);
   }
+
+  /* Cross-browser flex fixes */
+  .safe-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .safe-flex-center {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
 }
 
 @keyframes fadeIn {
@@ -218,6 +294,34 @@ html {
   }
 }
 
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+/* Cross-browser color utilities with important to override Tailwind */
+.safe-text-white {
+  color: #ffffff !important;
+}
+
+.safe-text-yellow {
+  color: #fbbf24 !important;
+}
+
+.safe-text-gray {
+  color: #9ca3af !important;
+}
+
+.safe-bg-gradient {
+  background: linear-gradient(
+    right,
+    #45556c 0%,
+    #364153 80%,
+    #1d293d 150%
+  ) !important;
+}
+
 /* Custom group-hover:text-* для динамических цветов */
 .group:hover .group-hover\:text-blue-500 {
   color: #3b82f6 !important;
@@ -232,6 +336,23 @@ html {
   color: #eab308 !important;
 }
 .group:hover .group-hover\:text-purple-500 {
+  color: #a855f7 !important;
+}
+
+/* Hover colors for menu items */
+.hover\:text-blue-500:hover {
+  color: #3b82f6 !important;
+}
+.hover\:text-green-500:hover {
+  color: #22c55e !important;
+}
+.hover\:text-orange-500:hover {
+  color: #f97316 !important;
+}
+.hover\:text-yellow-500:hover {
+  color: #eab308 !important;
+}
+.hover\:text-purple-500:hover {
   color: #a855f7 !important;
 }
 
@@ -266,8 +387,46 @@ html {
   background: linear-gradient(90deg, #a855f7, #eab308);
 }
 
+/* macOS specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 1.25) {
+  body {
+    font-weight: 400;
+  }
+}
+
 @media (min-width: 768px) {
   .custom-clip {
     clip: rect(30px, 30px, 20px, 20px);
+  }
+}
+
+/* Custom xs breakpoint for very small screens (360px+) */
+@media (min-width: 360px) {
+  .xs\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .xs\:gap-3 {
+    gap: 0.75rem;
+  }
+  .xs\:h-12 {
+    height: 3rem;
+  }
+  .xs\:w-5 {
+    width: 1.25rem;
+  }
+  .xs\:h-5 {
+    height: 1.25rem;
+  }
+  .xs\:rounded-2xl {
+    border-radius: 1rem;
+  }
+  .xs\:-top-8 {
+    top: -2rem;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 640px) {
+  .xs-responsive {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }

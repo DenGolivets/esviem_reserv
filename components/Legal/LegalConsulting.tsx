@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Scale } from "lucide-react";
 import LegalConsultingWrapper from "./LegalConsultingWrapper";
+import TopBar from "../TopBar";
 
 export default function LegalConsulting() {
   const [ref, inView] = useInView({
@@ -16,20 +17,13 @@ export default function LegalConsulting() {
       id="legal-section"
       ref={ref}
       className="relative min-h-screen w-full overflow-hidden"
+      style={{
+        minHeight: "100vh",
+      }}
     >
-      {/* 3D Legal Grid Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b5cf6' fill-opacity='0.3'%3E%3Cpath d='M30 0l15 15-15 15-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            transform: "perspective(1000px) rotateX(20deg)",
-            transformOrigin: "center bottom",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+      <div className="container mx-auto px-4 py-4 relative z-10">
+        {/* Contact Info Block - верхний правый угол */}     
+          <TopBar inView={inView}/>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -64,7 +58,7 @@ export default function LegalConsulting() {
             />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white font-oleo-script">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             <span className="bg-gradient-to-r mr-2 from-purple-400 to-indigo-500 bg-clip-text text-transparent">
               Юридичні
             </span>

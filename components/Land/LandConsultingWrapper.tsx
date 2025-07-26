@@ -14,8 +14,8 @@ import {
   Phone,
   Mail,
   MessageCircle,
-  ArrowLeft,
 } from "lucide-react";
+import { MdArrowCircleLeft } from "react-icons/md";
 
 const services = [
   {
@@ -25,22 +25,22 @@ const services = [
     description: "(технічна документація, проєкт)",
     color: "from-blue-500 to-blue-600",
     detailedDescription: `
-      Повний супровід процедури приватизації земельних ділянок з підготовкою всієї необхідної документації.
+Повний супровід процедури приватизації земельних ділянок з підготовкою всієї необхідної документації.
       
-      Етапи роботи:
-      1. Аналіз правового статусу ділянки
-      2. Підготовка технічної документації
-      3. Розробка проєкту землеустрою
-      4. Подача документів до відповідних органів
-      5. Отримання державного акта на право власності
+Етапи роботи:
+1. Аналіз правового статусу ділянки
+2. Підготовка технічної документації
+3. Розробка проєкту землеустрою
+4. Подача документів до відповідних органів
+5. Отримання державного акта на право власності
       
-      Необхідні документи:
-      - Документи на право користування землею
-      - Технічний паспорт ділянки
-      - Довідка про відсутність заборон
-      - Кадастрова карта
+Необхідні документи:
+- Документи на право користування землею
+- Технічний паспорт ділянки
+- Довідка про відсутність заборон
+- Кадастрова карта
       
-      Термін виконання: 30-45 робочих днів
+Термін виконання: 30-45 робочих днів
     `,
     examples: ["/land/privatization-doc1.jpg", "/land/privatization-doc2.jpg"],
   },
@@ -51,22 +51,22 @@ const services = [
     description: "земельної ділянки",
     color: "from-green-500 to-green-600",
     detailedDescription: `
-      Професійний супровід процедури зміни цільового призначення земельної ділянки відповідно до потреб клієнта.
+Професійний супровід процедури зміни цільового призначення земельної ділянки відповідно до потреб клієнта.
       
-      Етапи роботи:
-      1. Аналіз поточного статусу ділянки
-      2. Визначення можливості зміни призначення
-      3. Підготовка обґрунтування зміни
-      4. Погодження з місцевими органами
-      5. Внесення змін до кадастру
+Етапи роботи:
+1. Аналіз поточного статусу ділянки
+2. Визначення можливості зміни призначення
+3. Підготовка обґрунтування зміни
+4. Погодження з місцевими органами
+5. Внесення змін до кадастру
       
-      Можливі зміни:
-      - З сільськогосподарського на житлове будівництво
-      - З житлового на комерційне
-      - Під промислове будівництво
-      - Під рекреаційні цілі
+Можливі зміни:
+- З сільськогосподарського на житлове будівництво
+- З житлового на комерційне
+- Під промислове будівництво
+- Під рекреаційні цілі
       
-      Термін виконання: 20-30 робочих днів
+Термін виконання: 20-30 робочих днів
     `,
     examples: [
       "/land/purpose-change-doc1.jpg",
@@ -80,23 +80,23 @@ const services = [
     description: "при існуючому праві власності на землю і без нього",
     color: "from-purple-500 to-purple-600",
     detailedDescription: `
-      Внесення або зміна коду цільового призначення земельної ділянки в Державному земельному кадастрі.
+Внесення або зміна коду цільового призначення земельної ділянки в Державному земельному кадастрі.
       
-      Етапи роботи:
-      1. Аналіз документів на земельну ділянку
-      2. Визначення відповідного коду призначення
-      3. Підготовка пакета документів
-      4. Подача заяви до органів кадастру
-      5. Отримання витягу з оновленими даними
+Етапи роботи:
+1. Аналіз документів на земельну ділянку
+2. Визначення відповідного коду призначення
+3. Підготовка пакета документів
+4. Подача заяви до органів кадастру
+5. Отримання витягу з оновленими даними
       
-      Коди призначення:
-      - 01 - Землі сільськогосподарського призначення
-      - 02 - Землі житлової та громадської забудови  
-      - 03 - Землі природно-заповідного фонду
-      - 04 - Землі історико-культурного призначення
-      - 05 - Землі лісогосподарського призначення
+Коди призначення:
+- 01 - Землі сільськогосподарського призначення
+- 02 - Землі житлової та громадської забудови  
+- 03 - Землі природно-заповідного фонду
+- 04 - Землі історико-культурного призначення
+- 05 - Землі лісогосподарського призначення
       
-      Термін виконання: 15-20 робочих днів
+Термін виконання: 15-20 робочих днів
     `,
     examples: ["/land/purpose-code-doc1.jpg", "/land/purpose-code-doc2.jpg"],
   },
@@ -107,23 +107,23 @@ const services = [
     description: "в Держгеокадастр",
     color: "from-red-500 to-red-600",
     detailedDescription: `
-      Виправлення технічних та реєстраційних помилок у Державному земельному кадастрі.
+Виправлення технічних та реєстраційних помилок у Державному земельному кадастрі.
       
-      Етапи роботи:
-      1. Виявлення та документування помилок
-      2. Підготовка обґрунтування виправлень
-      3. Збір підтверджуючих документів
-      4. Подача заяви про виправлення
-      5. Контроль внесення змін
+Етапи роботи:
+1. Виявлення та документування помилок
+2. Підготовка обґрунтування виправлень
+3. Збір підтверджуючих документів
+4. Подача заяви про виправлення
+5. Контроль внесення змін
       
-      Види помилок що виправляємо:
-      - Неправильні координати меж ділянки
-      - Помилки в площі ділянки
-      - Неточності в адресі розташування
-      - Помилки в кодах призначення
-      - Реєстраційні помилки
+Види помилок що виправляємо:
+- Неправильні координати меж ділянки
+- Помилки в площі ділянки
+- Неточності в адресі розташування
+- Помилки в кодах призначення
+- Реєстраційні помилки
       
-      Термін виконання: 10-15 робочих днів
+Термін виконання: 10-15 робочих днів
     `,
     examples: ["/land/corrections-doc1.jpg", "/land/corrections-doc2.jpg"],
   },
@@ -134,23 +134,23 @@ const services = [
     description: "в натуру",
     color: "from-yellow-500 to-yellow-600",
     detailedDescription: `
-      Професійне винесення меж земельної ділянки в натуру з встановленням межових знаків.
+Професійне винесення меж земельної ділянки в натуру з встановленням межових знаків.
       
-      Етапи роботи:
-      1. Аналіз кадастрових даних ділянки
-      2. Польові геодезичні роботи
-      3. Винесення координат меж на місцевість
-      4. Встановлення межових знаків
-      5. Складання акта винесення меж
+Етапи роботи:
+1. Аналіз кадастрових даних ділянки
+2. Польові геодезичні роботи
+3. Винесення координат меж на місцевість
+4. Встановлення межових знаків
+5. Складання акта винесення меж
+
+Включено в послугу:
+- Геодезичні вимірювання
+- Встановлення межових знаків
+- GPS-координування меж
+- Акт винесення меж в натуру
+- Схема розташування ділянки
       
-      Включено в послугу:
-      - Геодезичні вимірювання
-      - Встановлення межових знаків
-      - GPS-координування меж
-      - Акт винесення меж в натуру
-      - Схема розташування ділянки
-      
-      Термін виконання: 3-5 робочих днів
+Термін виконання: 3-5 робочих днів
     `,
     examples: ["/land/boundaries-doc1.jpg", "/land/boundaries-doc2.jpg"],
   },
@@ -161,23 +161,23 @@ const services = [
     description: "(в разі самовільного зайняття земельної ділянки та інш)",
     color: "from-indigo-500 to-indigo-600",
     detailedDescription: `
-      Комплексна підготовка документації для судового захисту земельних прав та інтересів.
+Комплексна підготовка документації для судового захисту земельних прав та інтересів.
       
-      Етапи роботи:
-      1. Аналіз правової ситуації
-      2. Збір доказової бази
-      3. Підготовка процесуальних документів
-      4. Експертна оцінка земельної ділянки
-      5. Представництво інтересів у суді
+Етапи роботи:
+1. Аналіз правової ситуації
+2. Збір доказової бази
+3. Підготовка процесуальних документів
+4. Експертна оцінка земельної ділянки
+5. Представництво інтересів у суді
       
-      Готуємо документи для:
-      - Спорів щодо меж земельних ділянок
-      - Випадків самовільного зайняття землі
-      - Визнання права власності на землю
-      - Спорів щодо сервітутів
-      - Відшкодування збитків
+Готуємо документи для:
+- Спорів щодо меж земельних ділянок
+- Випадків самовільного зайняття землі
+- Визнання права власності на землю
+- Спорів щодо сервітутів
+- Відшкодування збитків
       
-      Термін виконання: 15-30 робочих днів
+Термін виконання: 15-30 робочих днів
     `,
     examples: ["/land/court-doc1.jpg", "/land/court-doc2.jpg"],
   },
@@ -188,23 +188,23 @@ const services = [
     description: "з усіма необхідними погодженнями",
     color: "from-teal-500 to-teal-600",
     detailedDescription: `
-      Комплексна топографічна зйомка земельної ділянки з отриманням всіх необхідних погоджень.
+Комплексна топографічна зйомка земельної ділянки з отриманням всіх необхідних погоджень.
       
-      Етапи роботи:
-      1. Попереднє обстеження ділянки
-      2. Польові топографічні роботи
-      3. Камеральна обробка даних
-      4. Погодження з службами та організаціями
-      5. Виготовлення топографічного плану
+Етапи роботи:
+1. Попереднє обстеження ділянки
+2. Польові топографічні роботи
+3. Камеральна обробка даних
+4. Погодження з службами та організаціями
+5. Виготовлення топографічного плану
       
-      Погодження з:
-      - Енергопостачальними організаціями
-      - Газопостачальними службами
-      - Водоканалом та каналізацією
-      - Телекомунікаційними операторами
-      - Органами охорони природи
+Погодження з:
+- Енергопостачальними організаціями
+- Газопостачальними службами
+- Водоканалом та каналізацією
+- Телекомунікаційними операторами
+- Органами охорони природи
       
-      Термін виконання: 10-20 робочих днів
+Термін виконання: 10-20 робочих днів
     `,
     examples: ["/land/topography-doc1.jpg", "/land/topography-doc2.jpg"],
   },
@@ -268,10 +268,9 @@ const LandConsultingWrapper = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             onClick={handleBackClick}
-            className="flex items-center space-x-2 mb-8 text-green-400 hover:text-green-300 transition-colors"
+            className="flex items-center cursor-pointer space-x-2 mb-8 text-green-400 hover:text-green-300 transition-colors"
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Назад до списку</span>
+            <MdArrowCircleLeft className="w-10 h-10" />
           </motion.button>
 
           {/* Заголовок */}
@@ -295,20 +294,24 @@ const LandConsultingWrapper = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 mb-8 border border-slate-600 relative"
+            className="rounded-2xl p-8 mb-8 border border-slate-600 flex flex-col"
+            style={{
+              background:
+                "linear-gradient(to right, var(--main-slate-dark) 0%, var(--main-slate700) 100%)",
+            }}
           >
-            <div className="prose prose-lg prose-invert max-w-none">
-              <pre className="whitespace-pre-wrap text-gray-300 font-sans leading-relaxed">
+            <div className="prose prose-lg prose-invert max-w-none px-0 md:px-4 flex-1">
+              <pre className="whitespace-pre-wrap text-gray-300 leading-relaxed">
                 {currentService.detailedDescription}
               </pre>
             </div>
 
-            {/* Контактна секція в правому нижньому куті блоку */}
+            {/* Контактна секція внизу блоку справа */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6 }}
-              className="absolute bottom-4 right-4"
+              className="flex justify-end mt-6"
             >
               <div className="rounded-xl p-3">
                 <div className="text-center mb-2">
@@ -316,23 +319,31 @@ const LandConsultingWrapper = () => {
                     Зв{"'"}яжіться з нами
                   </p>
                 </div>
-                <div className="flex space-x-2">
+                <div className="flex">
                   {contactItems.map((contact) => (
-                    <a
-                      key={contact.id}
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`w-8 h-8 rounded-lg bg-gradient-to-r ${contact.color} flex items-center justify-center shadow-md hover:shadow-lg hover:scale-105 transition-transform`}
-                    >
-                      <Image
-                        src={contact.icon}
-                        alt={contact.id}
-                        width={16}
-                        height={16}
-                        className="w-4 h-4"
-                      />
-                    </a>
+                    <div key={contact.id} className="relative group">
+                      <a
+                        href={contact.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 rounded-lg bg-transparent flex items-center justify-center hover:scale-105 transition-transform"
+                      >
+                        <Image
+                          src={contact.icon}
+                          alt={contact.id}
+                          width={20}
+                          height={20}
+                          className="w-7 h-7"
+                        />
+                      </a>
+                      {/* Tooltip */}
+                      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                        <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                          {contact.id.charAt(0).toUpperCase() +
+                            contact.id.slice(1)}
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -352,7 +363,7 @@ const LandConsultingWrapper = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-1 xs-responsive sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -379,7 +390,7 @@ const LandConsultingWrapper = () => {
                   transition={{ duration: 0.4 }}
                   className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
                 >
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
                     {/* Animated glow */}
                     <motion.div
                       animate={{
@@ -397,15 +408,9 @@ const LandConsultingWrapper = () => {
                             scale: hoveredService === index ? 1.1 : 1,
                           }}
                           transition={{ duration: 0.6 }}
-                          className={`w-10 h-10 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center shadow-lg`}
-                          style={{
-                            boxShadow:
-                              hoveredService === index
-                                ? "0 0 25px rgba(16, 185, 129, 0.5)"
-                                : "0 0 10px rgba(0,0,0,0.3)",
-                          }}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r ${service.color} rounded-lg md:rounded-xl flex items-center justify-center shadow-lg`}
                         >
-                          <Icon className="w-5 h-5 text-white" />
+                          <Icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                         </motion.div>
                       </div>
 
@@ -414,7 +419,7 @@ const LandConsultingWrapper = () => {
                           color:
                             hoveredService === index ? "#34d399" : "#ffffff",
                         }}
-                        className="text-base md:text-lg font-bold mb-3 leading-tight"
+                        className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-2 sm:mb-3 leading-tight"
                       >
                         {service.title}
                       </motion.h3>
@@ -423,7 +428,7 @@ const LandConsultingWrapper = () => {
                           color:
                             hoveredService === index ? "#d1d5db" : "#9ca3af",
                         }}
-                        className="leading-relaxed text-xs md:text-sm"
+                        className="leading-relaxed text-xs sm:text-xs md:text-xs lg:text-xs"
                       >
                         {service.description}
                       </motion.p>
@@ -447,59 +452,114 @@ const LandConsultingWrapper = () => {
         >
           <div className="relative z-10">
             <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Чи готові почати роботу?
-              </h2>
               <p className="text-lg md:text-xl opacity-90">
                 Зв{"’"}яжіться з нами для отримання професійної консультації
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <motion.a
-                href="tel:+1234567890"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 0 25px rgba(255,255,255,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center space-x-3 bg-white/20 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/30 transition-all duration-300 border border-white/20"
-                style={{ perspective: "1000px" }}
-              >
-                <Phone className="w-6 h-6" />
-                <span className="font-semibold">Зателефонувати</span>
-              </motion.a>
+            <div className="grid grid-cols-2 xs:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-6">
+              <div className="relative group">
+                <motion.a
+                  href="https://wa.me/+1234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                >
+                  <MessageCircle className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    WhatsApp
+                  </span>
+                </motion.a>
+                {/* Mobile tooltip */}
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    WhatsApp
+                  </div>
+                </div>
+              </div>
 
-              <motion.a
-                href="mailto:info@esviem.com"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 0 25px rgba(255,255,255,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center space-x-3 bg-white/20 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/30 transition-all duration-300 border border-white/20"
-              >
-                <Mail className="w-6 h-6" />
-                <span className="font-semibold">Email</span>
-              </motion.a>
+              <div className="relative group">
+                <motion.a
+                  href="viber://chat?number=+1234567890"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                  style={{ perspective: "1000px" }}
+                >
+                  <Phone className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    Viber
+                  </span>
+                </motion.a>
+                {/* Mobile tooltip */}
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Viber
+                  </div>
+                </div>
+              </div>
 
-              <motion.a
-                href="https://wa.me/+1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  boxShadow: "0 0 25px rgba(255,255,255,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center space-x-3 bg-white/20 backdrop-blur-sm rounded-2xl p-4 hover:bg-white/30 transition-all duration-300 border border-white/20"
-              >
-                <MessageCircle className="w-6 h-6" />
-                <span className="font-semibold">WhatsApp</span>
-              </motion.a>
+              <div className="relative group">
+                <motion.a
+                  href="https://t.me/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                >
+                  <Mail className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    Telegram
+                  </span>
+                </motion.a>
+                {/* Mobile tooltip */}
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Telegram
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative group">
+                <motion.a
+                  href="https://signal.me/#p/+1234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-lg xs:rounded-2xl hover:bg-white/30 transition-all duration-300 border border-white/20 w-full h-10 xs:h-12 sm:h-auto sm:p-4 sm:space-x-3"
+                >
+                  <MessageCircle className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
+                  <span className="font-semibold hidden sm:inline text-sm">
+                    Signal
+                  </span>
+                </motion.a>
+                {/* Mobile tooltip */}
+                <div className="absolute -top-6 xs:-top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none sm:hidden">
+                  <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                    Signal
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
