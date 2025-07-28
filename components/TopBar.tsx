@@ -133,10 +133,10 @@ const TopBar = ({ inView }: TopBarProps) => {
             >
               <h2
                 style={{
-                  fontSize: "13px",
+                  fontSize: "12px",
                 }}
               >
-                Телефон для справок:
+                Телефон для консультацій:
               </h2>
             </div>
             <div

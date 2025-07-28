@@ -26,8 +26,8 @@ export const menuItems: MenuItem[] = [
     title: "Про компанію",
     icon: Users,
     color: "from-blue-500 to-blue-600",
-    textColor: "text-blue-500",
-    textColorActive: "from-blue-500 to-blue-600",
+    textColor: "text-blue-400",
+    textColorActive: "from-blue-300 to-blue-400",
     borderActive: "from-blue-500 to-yellow-600",
     font: "font-montserrat",
   },
@@ -78,25 +78,25 @@ const contactItems = [
     id: "whatsapp",
     icon: "/dash/whatsapp96.svg",
     color: "from-green-500 to-green-600",
-    href: "https://wa.me/+380508128888",
+    href: `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
   },
   {
     id: "viber",
     icon: "/dash/viber.svg",
     color: "from-purple-500 to-purple-600",
-    href: "https://viber.com",
+    href: `viber://chat?number=${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
   },
   {
     id: "telegram",
     icon: "/dash/telegram96.svg",
     color: "from-blue-500 to-blue-600",
-    href: "https://t.me/+380508128888",
+    href: `https://t.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
   },
   {
     id: "signal",
     icon: "/dash/signal.svg",
     color: "from-blue-500 to-blue-600",
-    href: "https://signal.me/#p/+380508128888",
+    href: `https://signal.me/#p/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
   },
 ];
 
@@ -407,7 +407,41 @@ export default function DashboardSidebar() {
                 })}
               </div>
             </div>
-
+            {/* Graphic work */}
+            <div
+              className="flex flex-col"
+              style={{
+                paddingLeft: !isMobile ? "0" : "24px",
+                paddingRight: !isMobile ? "0" : "24px",
+                paddingTop: !isMobile ? "0px" : "24px",
+                paddingBottom: !isMobile ? "0px" : "24px",
+                marginTop: !isMobile ? "0px" : "0",
+              }}
+            >
+              <h3
+                className="font-semibold mb-1 tracking-wider"
+                style={{
+                  color: "#ffffff",
+                  fontSize: !isMobile ? "12px" : "14px",
+                  marginBottom: !isMobile ? "8px" : "12px",
+                  fontFamily:
+                    "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                }}
+              >
+                Графік роботи
+              </h3>
+              <p
+                style={{
+                  color: "#ffffff",
+                  fontSize: !isMobile ? "12px" : "14px",
+                  marginBottom: !isMobile ? "0px" : "12px",
+                  fontFamily:
+                    "Montserrat, Inter, system-ui, -apple-system, sans-serif",
+                }}
+              >
+                Пн-Пт: 9:00 - 19:00
+              </p>
+            </div>
             {/* Contact Section */}
             <div
               style={{
@@ -415,7 +449,7 @@ export default function DashboardSidebar() {
                 paddingRight: !isMobile ? "0" : "24px",
                 paddingTop: !isMobile ? "8px" : "24px",
                 paddingBottom: !isMobile ? "8px" : "24px",
-                marginTop: !isMobile ? "20px" : "0",
+                marginTop: !isMobile ? "0px" : "0",
               }}
             >
               <h3

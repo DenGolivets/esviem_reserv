@@ -19,7 +19,7 @@ export const partners = [
   },
   {
     id: 4,
-    image: "/partners/inkas2.png",
+    image: "/partners/ink.png",
     width: "w-48", // широкая для inkas
     height: "h-40", // высокая для inkas
   },
