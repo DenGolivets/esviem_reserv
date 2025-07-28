@@ -16,9 +16,8 @@ import {
   Home,
   MapPin,
 } from "lucide-react";
-import { MdArrowCircleLeft } from "react-icons/md";
 import { FaWhatsapp, FaViber, FaTelegramPlane } from "react-icons/fa";
-import { FaSignalMessenger } from "react-icons/fa6";
+import { FaLeftLong, FaSignalMessenger } from "react-icons/fa6";
 
 const services = [
   {
@@ -311,7 +310,13 @@ const contactItems = [
   },
 ];
 
-export default function ConstructionWrapper() {
+interface ConstructionWrapperProps {
+  scrollToTop?: () => void;
+}
+
+export default function ConstructionWrapper({
+  scrollToTop,
+}: ConstructionWrapperProps) {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -322,6 +327,12 @@ export default function ConstructionWrapper() {
 
   const handleServiceClick = (serviceId: number) => {
     setSelectedService(serviceId);
+    // Принудительный скролл вверх
+    if (scrollToTop) {
+      setTimeout(() => {
+        scrollToTop();
+      }, 100);
+    }
   };
 
   const handleBackClick = () => {
@@ -335,7 +346,13 @@ export default function ConstructionWrapper() {
     const Icon = currentService.icon;
 
     return (
-      <div className="h-full w-full">
+      <div
+        className="h-full w-full overflow-y-auto detail-page"
+        style={{
+          overscrollBehavior: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
         <div className="container mx-auto px-0 md:px-4 relative z-10">
           {/* Кнопка назад */}
           <motion.button
@@ -344,7 +361,7 @@ export default function ConstructionWrapper() {
             onClick={handleBackClick}
             className="flex cursor-pointer items-center space-x-2 mb-8 text-orange-400 hover:text-orange-300 transition-colors"
           >
-            <MdArrowCircleLeft className="w-10 h-10" />
+            <FaLeftLong className="w-10 h-10" />
           </motion.button>
 
           {/* Заголовок */}

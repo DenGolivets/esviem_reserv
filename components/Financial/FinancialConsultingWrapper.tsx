@@ -12,9 +12,8 @@ import {
   FileText,
   Target,
 } from "lucide-react";
-import { MdArrowCircleLeft } from "react-icons/md";
 import { FaWhatsapp, FaViber, FaTelegramPlane } from "react-icons/fa";
-import { FaSignalMessenger } from "react-icons/fa6";
+import { FaLeftLong, FaSignalMessenger } from "react-icons/fa6";
 
 const services = [
   {
@@ -210,7 +209,13 @@ const contactItems = [
   },
 ];
 
-export default function FinancialConsultingWrapper() {
+interface FinancialConsultingWrapperProps {
+  scrollToTop?: () => void;
+}
+
+export default function FinancialConsultingWrapper({
+  scrollToTop,
+}: FinancialConsultingWrapperProps) {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -221,6 +226,12 @@ export default function FinancialConsultingWrapper() {
 
   const handleServiceClick = (serviceId: number) => {
     setSelectedService(serviceId);
+    // Принудительный скролл вверх
+    if (scrollToTop) {
+      setTimeout(() => {
+        scrollToTop();
+      }, 100);
+    }
   };
 
   const handleBackClick = () => {
@@ -234,7 +245,13 @@ export default function FinancialConsultingWrapper() {
     const Icon = currentService.icon;
 
     return (
-      <div className="h-full w-full overflow-hidden bg-transparent">
+      <div
+        className="h-full w-full overflow-y-auto detail-page"
+        style={{
+          overscrollBehavior: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
         <div className="container mx-auto px-0 md:px-4 relative z-10">
           {/* Кнопка назад */}
           <motion.button
@@ -243,7 +260,7 @@ export default function FinancialConsultingWrapper() {
             onClick={handleBackClick}
             className="flex items-center cursor-pointer space-x-2 mb-8 text-yellow-400 hover:text-yellow-300 transition-colors"
           >
-            <MdArrowCircleLeft className="w-10 h-10" />
+            <FaLeftLong className="w-10 h-10" />
           </motion.button>
 
           {/* Заголовок */}

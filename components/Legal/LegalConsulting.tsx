@@ -6,7 +6,11 @@ import { Scale } from "lucide-react";
 import LegalConsultingWrapper from "./LegalConsultingWrapper";
 import TopBar from "../TopBar";
 
-export default function LegalConsulting() {
+interface LegalConsultingProps {
+  scrollToTop?: () => void;
+}
+
+export default function LegalConsulting({ scrollToTop }: LegalConsultingProps) {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -22,8 +26,8 @@ export default function LegalConsulting() {
       }}
     >
       <div className="container mx-auto px-4 py-4 relative z-10">
-        {/* Contact Info Block - верхний правый угол */}     
-          <TopBar inView={inView}/>
+        {/* Contact Info Block - верхний правый угол */}
+        <TopBar inView={inView} />
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -68,7 +72,7 @@ export default function LegalConsulting() {
             </span>
           </h2>
         </motion.div>
-        <LegalConsultingWrapper />
+        <LegalConsultingWrapper scrollToTop={scrollToTop} />
       </div>
     </section>
   );

@@ -148,6 +148,36 @@ select {
     z-index: -1;
     pointer-events: none;
   }
+
+  /* Disable pull-to-refresh on detail pages */
+  .detail-page {
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    height: 100vh;
+    position: relative;
+  }
+
+  /* Prevent pull-to-refresh */
+  .detail-page::-webkit-scrollbar {
+    display: none;
+  }
+
+  .detail-page {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Force scroll to top for iOS */
+  .detail-page * {
+    overscroll-behavior: none;
+  }
+
+  /* Prevent bounce effect */
+  .detail-page {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
 }
 
 @layer utilities {

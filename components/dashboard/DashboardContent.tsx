@@ -12,24 +12,26 @@ interface DashboardContentProps {
   isMobile: boolean;
   onNavigateToPage?: () => void;
   handleShowComponent?: (component: string) => void;
+  scrollToTop?: () => void;
 }
 
 export default function DashboardContent({
   activeMenu,
   isMobile,
+  scrollToTop,
 }: DashboardContentProps) {
   const renderContent = () => {
     switch (activeMenu) {
       case "about":
         return <AboutUs />;
       case "land":
-        return <LandConsulting />;
+        return <LandConsulting scrollToTop={scrollToTop} />;
       case "construction":
-        return <ConstructionConsulting />;
+        return <ConstructionConsulting scrollToTop={scrollToTop} />;
       case "financial":
-        return <FinancialConsulting />;
+        return <FinancialConsulting scrollToTop={scrollToTop} />;
       case "legal":
-        return <LegalConsulting />;
+        return <LegalConsulting scrollToTop={scrollToTop} />;
       default:
         return null;
     }

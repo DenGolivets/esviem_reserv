@@ -209,6 +209,26 @@ export default function DashboardSidebar() {
             activeMenu={manualActiveMenu}
             isMobile={isMobile}
             onNavigateToPage={handleCloseContent}
+            scrollToTop={() => {
+              // Скролл родительского контейнера
+              const contentContainer = document.querySelector(
+                ".h-full.overflow-y-auto.overflow-x-hidden"
+              );
+              if (contentContainer) {
+                contentContainer.scrollTo({ top: 0, behavior: "smooth" });
+              }
+              // Дополнительный скролл для iOS
+              if (typeof window !== "undefined") {
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  document.documentElement.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                  document.body.scrollTo({ top: 0, behavior: "smooth" });
+                }, 50);
+              }
+            }}
           />
         )}
       </div>
@@ -413,8 +433,8 @@ export default function DashboardSidebar() {
               style={{
                 paddingLeft: !isMobile ? "0" : "24px",
                 paddingRight: !isMobile ? "0" : "24px",
-                paddingTop: !isMobile ? "0px" : "24px",
-                paddingBottom: !isMobile ? "0px" : "24px",
+                paddingTop: !isMobile ? "0px" : "4px",
+                paddingBottom: !isMobile ? "0px" : "4px",
                 marginTop: !isMobile ? "0px" : "0",
               }}
             >
@@ -447,9 +467,9 @@ export default function DashboardSidebar() {
               style={{
                 paddingLeft: !isMobile ? "0" : "24px",
                 paddingRight: !isMobile ? "0" : "24px",
-                paddingTop: !isMobile ? "8px" : "24px",
-                paddingBottom: !isMobile ? "8px" : "24px",
-                marginTop: !isMobile ? "0px" : "0",
+                paddingTop: !isMobile ? "8px" : "4px",
+                paddingBottom: !isMobile ? "8px" : "4px",
+                marginTop: !isMobile ? "0px" : "0px",
               }}
             >
               <h3
@@ -457,7 +477,7 @@ export default function DashboardSidebar() {
                 style={{
                   color: "#ffffff",
                   fontSize: !isMobile ? "12px" : "14px",
-                  marginBottom: !isMobile ? "8px" : "12px",
+                  marginBottom: !isMobile ? "8px" : "4px",
                   fontFamily:
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
@@ -480,8 +500,8 @@ export default function DashboardSidebar() {
                         whileTap={{ scale: 0.95 }}
                         className="rounded-lg flex items-center justify-center shadow-lg"
                         style={{
-                          width: !isMobile ? "24px" : "48px",
-                          height: !isMobile ? "24px" : "48px",
+                          width: !isMobile ? "24px" : "32px",
+                          height: !isMobile ? "24px" : "32px",
                           background: "transparent",
                         }}
                       >
@@ -489,15 +509,15 @@ export default function DashboardSidebar() {
                           <Image
                             src={contact.icon as string}
                             alt={contact.id}
-                            width={isMobile ? 20 : 20}
-                            height={isMobile ? 20 : 20}
+                            width={isMobile ? 20 : 15}
+                            height={isMobile ? 20 : 15}
                             className="w-20 h-20"
                           />
                         ) : IconComponent ? (
                           React.createElement(
                             IconComponent as unknown as LucideIcon,
                             {
-                              className: !isMobile ? "w-3 h-3" : "w-5 h-5",
+                              className: !isMobile ? "w-3 h-3" : "w-4 h-4",
                               style: { color: "#ffffff" },
                             }
                           )

@@ -6,7 +6,11 @@ import { MapPin } from "lucide-react";
 import LandConsultingWrapper from "./LandConsultingWrapper";
 import TopBar from "../TopBar";
 
-const LandConsulting = () => {
+interface LandConsultingProps {
+  scrollToTop?: () => void;
+}
+
+const LandConsulting = ({ scrollToTop }: LandConsultingProps) => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -23,8 +27,8 @@ const LandConsulting = () => {
     >
       <div className="relative w-full h-full">
         <div className="container mx-auto px-4 py-4 relative z-10">
-          {/* Contact Info Block - верхний правый угол */}     
-          <TopBar inView={inView}/>
+          {/* Contact Info Block - верхний правый угол */}
+          <TopBar inView={inView} />
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -58,7 +62,7 @@ items-center justify-center md:flex-row leading-relaxed"
               </span>
             </h2>
           </motion.div>
-          <LandConsultingWrapper />
+          <LandConsultingWrapper scrollToTop={scrollToTop} />
         </div>
       </div>
     </section>

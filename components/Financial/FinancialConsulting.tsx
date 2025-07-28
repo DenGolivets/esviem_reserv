@@ -6,7 +6,13 @@ import { DollarSign } from "lucide-react";
 import FinancialConsultingWrapper from "./FinancialConsultingWrapper";
 import TopBar from "../TopBar";
 
-export default function FinancialConsulting() {
+interface FinancialConsultingProps {
+  scrollToTop?: () => void;
+}
+
+export default function FinancialConsulting({
+  scrollToTop,
+}: FinancialConsultingProps) {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -22,8 +28,8 @@ export default function FinancialConsulting() {
       }}
     >
       <div className="container mx-auto px-4 py-4 relative z-10">
-        {/* Contact Info Block - верхний правый угол */}     
-          <TopBar inView={inView}/>
+        {/* Contact Info Block - верхний правый угол */}
+        <TopBar inView={inView} />
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -68,7 +74,7 @@ export default function FinancialConsulting() {
             </span>
           </h2>
         </motion.div>
-        <FinancialConsultingWrapper />
+        <FinancialConsultingWrapper scrollToTop={scrollToTop} />
       </div>
     </section>
   );
