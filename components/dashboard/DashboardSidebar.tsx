@@ -403,7 +403,7 @@ export default function DashboardSidebar() {
                       className="w-full z-[2] flex relative items-center space-x-2 rounded-lg group overflow-hidden"
                       style={{
                         padding: !isMobile ? "4px 8px" : "16px 32px",
-                        height: !isMobile ? "24px" : "64px",
+                        height: !isMobile ? "24px" : "45px",
                         minHeight: "40px",
                       }}
                       whileHover={{ scale: 1.02 }}
