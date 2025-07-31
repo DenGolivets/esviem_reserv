@@ -214,8 +214,8 @@ export default function DashboardSidebar() {
           left: !isMobile ? "40px" : "0",
           top: !isMobile ? "50%" : "0",
           width: !isMobile ? "240px" : "320px",
-          height: !isMobile ? "550px" : "80vh",
-          maxHeight: !isMobile ? "550px" : "80vh",
+          height: !isMobile ? "550px" : "82vh",
+          maxHeight: !isMobile ? "550px" : "82vh",
           filter: !isMobile
             ? "drop-shadow(8px 8px 16px rgba(0,0,0,0.4))"
             : "none",
