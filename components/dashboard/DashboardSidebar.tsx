@@ -395,7 +395,7 @@ export default function DashboardSidebar() {
                 paddingRight: !isMobile ? "0" : "24px",
                 paddingTop: !isMobile ? "0px" : "4px",
                 paddingBottom: !isMobile ? "0px" : "4px",
-                marginTop: !isMobile ? "0px" : "30px",
+                marginTop: !isMobile ? "0px" : "16px",
               }}
             >
               <h3
@@ -438,7 +438,7 @@ export default function DashboardSidebar() {
                   color: "#fbbf24",
                   fontSize: !isMobile ? "12px" : "14px",
                   marginBottom: !isMobile ? "8px" : "4px",
-                  marginTop: !isMobile ? "0px" : "12px",
+                  marginTop: !isMobile ? "0px" : "8px",
                   fontFamily:
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
