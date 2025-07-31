@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { useLingui } from "@lingui/react";
 
-interface MenuItem {
+export interface MenuItem {
   id: string;
   title: string;
   icon: string | LucideIcon;
