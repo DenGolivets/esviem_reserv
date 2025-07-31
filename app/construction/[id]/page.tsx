@@ -22,6 +22,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import { useRouter } from "next/navigation";
 import TopBar from "@/components/TopBar";
+import Title from "@/components/Title";
 
 const services = [
   {
@@ -45,7 +46,7 @@ const services = [
 - Технічний паспорт об'єкта
 - Заява на амністію
 - Довідка про відсутність заборон
-    `
+    `,
   },
   {
     id: "getting_an_intent_schema",
@@ -64,7 +65,7 @@ const services = [
 5. Отримання затвердженої схеми
       
 Термін виготовлення: 15-20 робочих днів
-    `
+    `,
   },
   {
     id: "construction_documents",
@@ -84,7 +85,7 @@ const services = [
 5. Свідоцтво про прийняття в експлуатацію
       
 Супроводжуємо весь процес від початку до кінця.
-    `
+    `,
   },
   {
     id: "urban_planning_conditions",
@@ -103,7 +104,7 @@ const services = [
 5. Отримання затверджених умов
       
 Термін виготовлення: 10-15 робочих днів
-    `
+    `,
   },
   {
     id: "detailed_plans_of_territories",
@@ -122,7 +123,7 @@ const services = [
 5. Отримання затверджених планів
       
 Термін виготовлення: 20-25 робочих днів
-    `
+    `,
   },
   {
     id: "construction_projects",
@@ -142,7 +143,7 @@ const services = [
 5. Виготовлення проекту
       
 Термін виготовлення: 30-40 робочих днів
-    `
+    `,
   },
   {
     id: "sketchy_intentions",
@@ -162,7 +163,7 @@ const services = [
 5. Отримання затвердження
       
 Термін виготовлення: 10-15 робочих днів
-    `
+    `,
   },
   {
     id: "technical_data_sheets",
@@ -220,7 +221,7 @@ const services = [
 5. Отримання затвердження
       
 Термін виготовлення: 15-20 робочих днів
-    `
+    `,
   },
   {
     id: "share_participation",
@@ -239,8 +240,8 @@ const services = [
 5. Розподіл прибутків та збитків
       
 Термін виготовлення: 20-25 робочих днів
-    `
-  }
+    `,
+  },
 ];
 
 const contactItems = [
@@ -307,45 +308,20 @@ export default function ConstructionDetailPage() {
       <DashboardSidebar />
       <div className="ml-0 md:ml-[280px]">
         <div className="h-full w-full">
-          <div
-            className="container mx-auto px-4 py-4 relative z-10"
-            ref={ref}
-          >
+          <div className="container mx-auto px-4 py-4 relative z-10" ref={ref}>
             {/* Contact Info Block - верхний правый угол */}
             <TopBar inView={inView} />
             {/* Header */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 1.2, delay: 0.2 }}
-              className="text-center mb-16"
-            >
-              <motion.div
-                initial={{ scale: 0.8, rotateY: -180 }}
-                animate={inView ? { scale: 1, rotateY: 0 } : {}}
-                transition={{ duration: 1.2, delay: 0.2 }}
-                className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-8 shadow-2xl"
-                style={{
-                  boxShadow:
-                    "0 0 40px rgba(249, 115, 22, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
-                  transform: "perspective(1000px)",
-                }}
-              >
-                <Building className="w-10 h-10 text-white" />
-              </motion.div>
-
-              <h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4
-              items-center justify-center md:flex-row leading-relaxed"
-              >
-                <span className="bg-gradient-to-r mr-2 from-orange-400 to-red-500 bg-clip-text text-transparent">
-                  Будівельний
-                </span>
-                <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                  консалтинг
-                </span>
-              </h2>
-            </motion.div>
+            <Title
+              inView={inView}
+              icon={<Building className="w-10 h-10 text-white" />}
+              titleParts={["Будівельний", "консалтинг"]}
+              textGradientClasses={[
+                "bg-gradient-to-r from-orange-400 to-red-500",
+                "bg-gradient-to-r from-orange-400 to-red-500",
+              ]}
+              iconGradientClasses="bg-gradient-to-r from-orange-400 to-red-500"
+            />
             {/* Кнопка назад */}
             <motion.button
               initial={{ opacity: 0, x: -60 }}
