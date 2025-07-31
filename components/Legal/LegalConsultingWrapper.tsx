@@ -18,8 +18,8 @@ import {
   BookOpen,
   Home,
 } from "lucide-react";
-import { FaWhatsapp, FaViber, FaTelegramPlane } from "react-icons/fa";
-import { FaLeftLong, FaSignalMessenger } from "react-icons/fa6";
+import { FaWhatsapp, FaViber, FaTelegramPlane, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaSignalMessenger } from "react-icons/fa6";
 
 const services = [
   {
@@ -445,7 +445,7 @@ export default function LegalConsultingWrapper({
             onClick={handleBackClick}
             className="flex items-center cursor-pointer space-x-2 mb-8 text-purple-400 hover:text-purple-300 transition-colors"
           >
-            <FaLeftLong className="w-10 h-10" />
+            <FaArrowAltCircleLeft className="w-10 h-10" />
           </motion.button>
 
           {/* Заголовок */}

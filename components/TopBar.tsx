@@ -136,7 +136,7 @@ const TopBar = ({ inView }: TopBarProps) => {
                   fontSize: "12px",
                 }}
               >
-                Телефон для консультацій:
+                Контакти для консультацій:
               </h2>
             </div>
             <div

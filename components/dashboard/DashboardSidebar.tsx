@@ -441,7 +441,7 @@ export default function DashboardSidebar() {
               <h3
                 className="font-semibold mb-1 tracking-wider"
                 style={{
-                  color: "#ffffff",
+                  color: "#fbbf24",
                   fontSize: !isMobile ? "12px" : "14px",
                   marginBottom: !isMobile ? "8px" : "12px",
                   fontFamily:
@@ -475,7 +475,7 @@ export default function DashboardSidebar() {
               <h3
                 className="font-semibold mb-1 tracking-wider"
                 style={{
-                  color: "#ffffff",
+                  color: "#fbbf24",
                   fontSize: !isMobile ? "12px" : "14px",
                   marginBottom: !isMobile ? "8px" : "4px",
                   fontFamily:
