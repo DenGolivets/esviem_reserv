@@ -108,6 +108,18 @@ export default function DashboardSidebar() {
   const [currentLang, setCurrentLang] = useState<"uk" | "en">("uk");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isIos, setIsIos] = useState(false);
+
+  useEffect(() => {
+  // Простая проверка iOS
+  if (
+    typeof window !== "undefined" &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    !(window as any).MSStream
+  ) {
+    setIsIos(true);
+  }
+}, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -142,7 +154,7 @@ export default function DashboardSidebar() {
       localStorage.setItem("lang", lang);
       setCurrentLang(lang);
       i18n.activate(lang);
-      window.location.reload();
+      // window.location.reload();
     }
   };
 
@@ -339,7 +351,7 @@ export default function DashboardSidebar() {
               style={{
                 paddingLeft: !isMobile ? "0" : "0",
                 paddingRight: !isMobile ? "0" : "24px",
-                paddingTop: !isMobile ? "6px" : "0",
+                paddingTop: !isMobile ? "6px" : isMobile && isIos ? "40px" : "0",
                 paddingBottom: !isMobile ? "12px" : "0",
                 marginTop: !isMobile ? "0" : "0",
               }}

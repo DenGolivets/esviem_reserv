@@ -16,6 +16,7 @@ const getInitialLocale = () => {
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const [locale, setLocale] = useState<string>("uk");
   const [isReady, setIsReady] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
     i18n.load("uk", ukMessages);
@@ -23,16 +24,21 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
     const initialLocale = getInitialLocale();
     setLocale(initialLocale);
-
     i18n.activate(initialLocale);
-    setIsReady(true);
+
+    const timer = setTimeout(() => {
+      setIsReady(true);
+      setInitialLoad(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    if (locale && isReady) {
+    if (!initialLoad && locale) {
       i18n.activate(locale);
     }
-  }, [locale, isReady]);
+  }, [locale, initialLoad]);
 
   useEffect(() => {
     const onStorage = () => {

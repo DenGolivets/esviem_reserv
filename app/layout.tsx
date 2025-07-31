@@ -10,7 +10,6 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
-import LoadingScreen from "@/components/LoadingScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -133,7 +132,6 @@ export default function RootLayout({
         }}
       >
         <Provider>
-          <LoadingScreen />
           {children}
         </Provider>
       </body>
