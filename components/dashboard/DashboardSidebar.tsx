@@ -334,7 +334,7 @@ export default function DashboardSidebar() {
               paddingLeft: !isMobile ? "0" : "24px",
               paddingRight: !isMobile ? "0" : "24px",
               paddingTop: !isMobile ? "24px" : "24px",
-              paddingBottom: "12px",
+              paddingBottom: "0",
             }}
           >
             <button
@@ -374,14 +374,14 @@ export default function DashboardSidebar() {
           </div>
 
           {/* Скроллируемый контент */}
-          <div className="flex-1 overflow-y-auto overflow-x-hidden">
+          <div className="flex-1 overflow-y-hidden overflow-x-hidden">
             {/* Menu Items */}
             <div
               style={{
-                paddingLeft: !isMobile ? "0" : "24px",
+                paddingLeft: !isMobile ? "0" : "0",
                 paddingRight: !isMobile ? "0" : "24px",
-                paddingTop: !isMobile ? "6px" : "24px",
-                paddingBottom: !isMobile ? "12px" : "24px",
+                paddingTop: !isMobile ? "6px" : "0",
+                paddingBottom: !isMobile ? "12px" : "0",
                 marginTop: !isMobile ? "0" : "0",
               }}
             >
