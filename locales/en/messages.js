@@ -1,1 +1,1 @@
-/*eslint-disable*/module.exports={messages:JSON.parse("{}")};
+/*eslint-disable*/module.exports={messages:JSON.parse("{\"Про компанію\":[\"About company\"],\"Земельний\":[\"Land\"],\"Будівельний\":[\"Construction\"],\"Фінансовий\":[\"Financial\"],\"Юридичний\":[\"Legal\"],\"Графік роботи\":[\"Work schedule\"],\"Пн-Пт\":[\"Mon-Fri\"],\"Напишіть нам\":[\"Write to us\"]}")};

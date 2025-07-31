@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Users, MapPin, Building, DollarSign, Scale, Menu } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { i18n } from "@lingui/core";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
+import { useLingui } from "@lingui/react";
 
 interface MenuItem {
   id: string;
@@ -19,59 +19,6 @@ interface MenuItem {
   borderActive: string;
   font: string;
 }
-
-export const menuItems: MenuItem[] = [
-  {
-    id: "about",
-    title: "Про компанію",
-    icon: Users,
-    color: "from-blue-500 to-blue-600",
-    textColor: "text-blue-400",
-    textColorActive: "from-blue-300 to-blue-400",
-    borderActive: "from-blue-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "land",
-    title: "Земельний",
-    icon: MapPin,
-    color: "from-green-500 to-green-600",
-    textColor: "text-green-500",
-    textColorActive: "from-green-500 to-green-600",
-    borderActive: "from-green-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "construction",
-    title: "Будівельний",
-    icon: Building,
-    color: "from-orange-500 to-orange-600",
-    textColor: "text-orange-500",
-    textColorActive: "from-orange-500 to-orange-600",
-    borderActive: "from-orange-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "financial",
-    title: "Фінансовий",
-    icon: DollarSign,
-    color: "from-yellow-500 to-yellow-600",
-    textColor: "text-yellow-500",
-    textColorActive: "from-yellow-500 to-yellow-600",
-    borderActive: "from-yellow-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "legal",
-    title: "Юридичний",
-    icon: Scale,
-    color: "from-purple-500 to-purple-600",
-    textColor: "text-purple-500",
-    textColorActive: "from-purple-500 to-purple-600",
-    borderActive: "from-purple-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-];
 
 const contactItems = [
   {
@@ -109,6 +56,61 @@ export default function DashboardSidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isIos, setIsIos] = useState(false);
+
+  const { i18n } = useLingui();
+
+  const menuItems: MenuItem[] = [
+  {
+    id: "about",
+    title: i18n._("Про компанію"),
+    icon: Users,
+    color: "from-blue-500 to-blue-600",
+    textColor: "text-blue-400",
+    textColorActive: "from-blue-300 to-blue-400",
+    borderActive: "from-blue-500 to-yellow-600",
+    font: "font-montserrat",
+  },
+  {
+    id: "land",
+    title: i18n._("Земельний"),
+    icon: MapPin,
+    color: "from-green-500 to-green-600",
+    textColor: "text-green-500",
+    textColorActive: "from-green-500 to-green-600",
+    borderActive: "from-green-500 to-yellow-600",
+    font: "font-montserrat",
+  },
+  {
+    id: "construction",
+    title: i18n._("Будівельний"),
+    icon: Building,
+    color: "from-orange-500 to-orange-600",
+    textColor: "text-orange-500",
+    textColorActive: "from-orange-500 to-orange-600",
+    borderActive: "from-orange-500 to-yellow-600",
+    font: "font-montserrat",
+  },
+  {
+    id: "financial",
+    title: i18n._("Фінансовий"),
+    icon: DollarSign,
+    color: "from-yellow-500 to-yellow-600",
+    textColor: "text-yellow-500",
+    textColorActive: "from-yellow-500 to-yellow-600",
+    borderActive: "from-yellow-500 to-yellow-600",
+    font: "font-montserrat",
+  },
+  {
+    id: "legal",
+    title: i18n._("Юридичний"),
+    icon: Scale,
+    color: "from-purple-500 to-purple-600",
+    textColor: "text-purple-500",
+    textColorActive: "from-purple-500 to-purple-600",
+    borderActive: "from-purple-500 to-yellow-600",
+    font: "font-montserrat",
+  },
+];
 
   useEffect(() => {
   // Простая проверка iOS
@@ -420,7 +422,7 @@ export default function DashboardSidebar() {
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
               >
-                Графік роботи
+                {i18n._("Графік роботи")}
               </h3>
               <p
                 style={{
@@ -431,7 +433,7 @@ export default function DashboardSidebar() {
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
               >
-                Пн-Пт: 9:00 - 19:00
+                {i18n._("Пн-Пт")}: 9:00 - 19:00
               </p>
             </div>
             {/* Contact Section */}
@@ -455,7 +457,7 @@ export default function DashboardSidebar() {
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
               >
-                Напишіть нам
+                {i18n._("Напишіть нам")}
               </h3>
               <div className="flex space-x-1 h-full">
                 {contactItems.map((contact) => {
