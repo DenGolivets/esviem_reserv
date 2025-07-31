@@ -427,8 +427,8 @@ export default function DashboardSidebar() {
               style={{
                 paddingLeft: !isMobile ? "0" : "24px",
                 paddingRight: !isMobile ? "0" : "24px",
-                paddingTop: !isMobile ? "8px" : "4px",
-                paddingBottom: !isMobile ? "8px" : "4px",
+                paddingTop: !isMobile ? "8px" : "0px",
+                paddingBottom: !isMobile ? "8px" : "0px",
                 marginTop: !isMobile ? "0px" : "0px",
               }}
             >
@@ -438,7 +438,7 @@ export default function DashboardSidebar() {
                   color: "#fbbf24",
                   fontSize: !isMobile ? "12px" : "14px",
                   marginBottom: !isMobile ? "8px" : "4px",
-                  marginTop: !isMobile ? "0px" : "8px",
+                  marginTop: !isMobile ? "0px" : "0px",
                   fontFamily:
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}
