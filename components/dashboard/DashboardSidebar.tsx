@@ -7,7 +7,7 @@ import { Users, MapPin, Building, DollarSign, Scale, Menu } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { i18n } from "@lingui/core";
 import Image from "next/image";
-import DashboardContent from "./DashboardContent";
+import { useRouter, usePathname } from "next/navigation";
 
 interface MenuItem {
   id: string;
@@ -101,12 +101,13 @@ const contactItems = [
 ];
 
 export default function DashboardSidebar() {
+  const router = useRouter();
+  const pathname = usePathname();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState<"uk" | "en">("uk");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [manualActiveMenu, setManualActiveMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -132,14 +133,6 @@ export default function DashboardSidebar() {
     }
   }, []);
 
-  useEffect(() => {
-    setManualActiveMenu("about");
-  }, []);
-
-  const handleCloseContent = () => {
-    setManualActiveMenu(null);
-  };
-
   const handleToggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -154,7 +147,11 @@ export default function DashboardSidebar() {
   };
 
   const handleMenuClick = (menuId: string) => {
-    setManualActiveMenu(menuId);
+    if (menuId === "about") {
+      router.push("/");
+    } else {
+      router.push(`/${menuId}`);
+    }
   };
 
   const onClose = () => {
@@ -194,44 +191,6 @@ export default function DashboardSidebar() {
           <Menu className="w-6 h-6" style={{ color: "#fbbf24" }} />
         </motion.button>
       )}
-
-      {/* Page Content Container */}
-      <div
-        style={{
-          minHeight: "100vh",
-          marginLeft: isMobile ? "0" : "240px",
-          transition: "margin-left 0.3s ease",
-        }}
-      >
-        {/* Page Content */}
-        {manualActiveMenu && (
-          <DashboardContent
-            activeMenu={manualActiveMenu}
-            isMobile={isMobile}
-            onNavigateToPage={handleCloseContent}
-            scrollToTop={() => {
-              // Скролл родительского контейнера
-              const contentContainer = document.querySelector(
-                ".h-full.overflow-y-auto.overflow-x-hidden"
-              );
-              if (contentContainer) {
-                contentContainer.scrollTo({ top: 0, behavior: "smooth" });
-              }
-              // Дополнительный скролл для iOS
-              if (typeof window !== "undefined") {
-                setTimeout(() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                  document.documentElement.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                  });
-                  document.body.scrollTo({ top: 0, behavior: "smooth" });
-                }, 50);
-              }
-            }}
-          />
-        )}
-      </div>
 
       {/* Sidebar */}
       <motion.div
@@ -387,7 +346,8 @@ export default function DashboardSidebar() {
             >
               <div className="space-y-1 select-none">
                 {menuItems.map((item) => {
-                  const isActive = manualActiveMenu === item.id;
+                  const isActive =
+                    pathname === (item.id === "about" ? "/" : `/${item.id}`);
 
                   return (
                     <motion.button
@@ -435,7 +395,7 @@ export default function DashboardSidebar() {
                 paddingRight: !isMobile ? "0" : "24px",
                 paddingTop: !isMobile ? "0px" : "4px",
                 paddingBottom: !isMobile ? "0px" : "4px",
-                marginTop: !isMobile ? "0px" : "0",
+                marginTop: !isMobile ? "0px" : "30px",
               }}
             >
               <h3
@@ -478,6 +438,7 @@ export default function DashboardSidebar() {
                   color: "#fbbf24",
                   fontSize: !isMobile ? "12px" : "14px",
                   marginBottom: !isMobile ? "8px" : "4px",
+                  marginTop: !isMobile ? "0px" : "12px",
                   fontFamily:
                     "Montserrat, Inter, system-ui, -apple-system, sans-serif",
                 }}

@@ -6,11 +6,7 @@ import { Scale } from "lucide-react";
 import LegalConsultingWrapper from "./LegalConsultingWrapper";
 import TopBar from "../TopBar";
 
-interface LegalConsultingProps {
-  scrollToTop?: () => void;
-}
-
-export default function LegalConsulting({ scrollToTop }: LegalConsultingProps) {
+export default function LegalConsulting() {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -72,7 +68,7 @@ export default function LegalConsulting({ scrollToTop }: LegalConsultingProps) {
             </span>
           </h2>
         </motion.div>
-        <LegalConsultingWrapper scrollToTop={scrollToTop} />
+        <LegalConsultingWrapper />
       </div>
     </section>
   );

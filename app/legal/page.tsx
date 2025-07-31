@@ -1,7 +1,7 @@
-import React from "react";
-import DashboardSidebar from "./dashboard/DashboardSidebar";
+import LegalConsulting from "@/components/Legal/LegalConsulting";
+import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 
-const MainWrapper = () => {
+export default function LegalPage() {
   return (
     <div
       className="w-full h-full min-h-screen"
@@ -14,8 +14,9 @@ const MainWrapper = () => {
       }}
     >
       <DashboardSidebar />
+      <div className="ml-0 md:ml-[280px]">
+        <LegalConsulting />
+      </div>
     </div>
   );
-};
-
-export default MainWrapper;
+}

@@ -1,7 +1,7 @@
-import AboutUs from "@/components/AboutUs2/AboutUs2";
+import ConstructionConsulting from "@/components/Construction/ConstructionConsulting";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 
-export default function Home() {
+export default function ConstructionPage() {
   return (
     <div
       className="w-full h-full min-h-screen"
@@ -15,7 +15,7 @@ export default function Home() {
     >
       <DashboardSidebar />
       <div className="ml-0 md:ml-[280px]">
-        <AboutUs />
+        <ConstructionConsulting />
       </div>
     </div>
   );
