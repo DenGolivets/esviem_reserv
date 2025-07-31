@@ -21,9 +21,8 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const loaderDelay = setTimeout(() => {
-      // setShowLoader(true);
-      setShowLoader(false);
-    }, 5000);
+      setShowLoader(true);
+    }, 500);
 
     const loadTranslations = async () => {
       i18n.load("uk", ukMessages);
@@ -33,7 +32,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
       setLocale(initialLocale);
       i18n.activate(initialLocale);
 
-      // clearTimeout(loaderDelay);
+      clearTimeout(loaderDelay); // Успели до 300ms — лоадер не нужен
       setIsReady(true);
     };
 
@@ -51,7 +50,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  if (showLoader) {
+  if (!isReady && showLoader) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800">
         <CircularText
