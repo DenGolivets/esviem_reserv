@@ -5,6 +5,7 @@ import { I18nProvider } from "@lingui/react";
 import { i18n } from "@lingui/core";
 import { messages as ukMessages } from "../locales/uk/messages.js";
 import { messages as enMessages } from "../locales/en/messages.js";
+import CircularText from "@/components/ui/jsrepo/CircularText/CircularText";
 
 const getInitialLocale = () => {
   if (typeof window !== "undefined") {
@@ -16,29 +17,29 @@ const getInitialLocale = () => {
 const Provider = ({ children }: { children: React.ReactNode }) => {
   const [locale, setLocale] = useState<string>("uk");
   const [isReady, setIsReady] = useState(false);
-  const [initialLoad, setInitialLoad] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    i18n.load("uk", ukMessages);
-    i18n.load("en", enMessages);
+    const loaderDelay = setTimeout(() => {
+      setShowLoader(true);
+    }, 500);
 
-    const initialLocale = getInitialLocale();
-    setLocale(initialLocale);
-    i18n.activate(initialLocale);
+    const loadTranslations = async () => {
+      i18n.load("uk", ukMessages);
+      i18n.load("en", enMessages);
 
-    const timer = setTimeout(() => {
+      const initialLocale = getInitialLocale();
+      setLocale(initialLocale);
+      i18n.activate(initialLocale);
+
+      clearTimeout(loaderDelay); // Успели до 300ms — лоадер не нужен
       setIsReady(true);
-      setInitialLoad(false);
-    }, 2000);
+    };
 
-    return () => clearTimeout(timer);
+    loadTranslations();
+
+    return () => clearTimeout(loaderDelay);
   }, []);
-
-  useEffect(() => {
-    if (!initialLoad && locale) {
-      i18n.activate(locale);
-    }
-  }, [locale, initialLoad]);
 
   useEffect(() => {
     const onStorage = () => {
@@ -49,13 +50,20 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  if (!isReady) {
+  if (!isReady && showLoader) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-700 via-gray-800 to-slate-800">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500"></div>
+        <CircularText
+          text="ESVIEM*ESVIEM*ESVIEM*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="text-yellow-600"
+        />
       </div>
     );
   }
+
+  if (!isReady) return null;
 
   return (
     <I18nProvider i18n={i18n} key={locale}>

@@ -364,6 +364,28 @@ select {
   }
 }
 
+/* Анимации для CircularText */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spin 0.5s linear infinite;
+}
+
 /* Cross-browser color utilities with important to override Tailwind */
 .safe-text-white {
   color: #ffffff !important;

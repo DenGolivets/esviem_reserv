@@ -193,7 +193,8 @@ const services = [
     id: "representation_of_interests",
     icon: BookOpen,
     title: "Представництво інтересів",
-    description: "Захист фізичних та юридичних осіб в правоохоронних і судових органах",
+    description:
+      "Захист фізичних та юридичних осіб в правоохоронних і судових органах",
     color: "from-amber-500 to-yellow-500",
     detailedDescription: `
 Професійне представництво та захист інтересів у державних органах та судах.
@@ -271,7 +272,8 @@ const services = [
     id: "analysis_and_examination_of_legal_documents",
     icon: Briefcase,
     title: "Аналіз та експертиза юридичних документів",
-    description: "Підтримка фізичних та юридичних осіб в процесі розпізнавання правових документів",
+    description:
+      "Підтримка фізичних та юридичних осіб в процесі розпізнавання правових документів",
     color: "from-emerald-500 to-green-500",
     detailedDescription: `
 Детальний аналіз юридичних документів на предмет їх законності та ефективності.
@@ -413,17 +415,14 @@ export default function LegalDetailPage() {
       <DashboardSidebar />
       <div className="ml-0 md:ml-[280px]">
         <div className="h-full w-full">
-          <div
-            className="container mx-auto px-4 py-4 relative z-10"
-            ref={ref}
-          >
+          <div className="container mx-auto px-4 py-4 relative z-10" ref={ref}>
             {/* Contact Info Block - верхний правый угол */}
             <TopBar inView={inView} />
             {/* Header */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 60 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
               className="text-center mb-16"
             >
               <motion.div
@@ -468,8 +467,9 @@ export default function LegalDetailPage() {
             </motion.div>
             {/* Кнопка назад */}
             <motion.button
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.4 }}
               onClick={() => router.push("/legal")}
               className="flex items-center cursor-pointer space-x-2 mb-8 text-violet-500 hover:text-violet-400 transition-colors"
             >
@@ -478,8 +478,9 @@ export default function LegalDetailPage() {
 
             {/* Заголовок */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 160 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
               className="flex items-start space-x-4 mb-8"
             >
               <div
@@ -494,9 +495,9 @@ export default function LegalDetailPage() {
 
             {/* Детальний опис */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 180 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ duration: 1.2, delay: 0.6 }}
               className="rounded-2xl p-8 mb-8 border border-slate-600 flex flex-col"
               style={{
                 background:

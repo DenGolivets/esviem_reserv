@@ -26,9 +26,9 @@ export default function FinancialConsulting() {
         <TopBar inView={inView} />
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
           className="text-center mb-16"
         >
           <motion.div
@@ -58,8 +58,10 @@ export default function FinancialConsulting() {
             />
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4
-              items-center justify-center md:flex-row leading-relaxed">
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4
+              items-center justify-center md:flex-row leading-relaxed"
+          >
             <span className="bg-gradient-to-r mr-2 from-yellow-400 to-amber-500 bg-clip-text text-transparent">
               Фінансовий
             </span>

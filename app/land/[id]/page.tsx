@@ -276,9 +276,9 @@ export default function LandDetailPage() {
             <TopBar inView={inView} />
             {/* Header */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 60 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
               className="text-center mb-16"
             >
               <motion.div
@@ -309,8 +309,9 @@ export default function LandDetailPage() {
             </motion.div>
             {/* Кнопка назад */}
             <motion.button
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.4 }}
               onClick={() => router.push("/land")}
               className="flex items-center cursor-pointer space-x-2 mb-8 text-green-400 hover:text-green-300 transition-colors"
             >
@@ -319,8 +320,9 @@ export default function LandDetailPage() {
 
             {/* Заголовок */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 160 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.5 }}
               className="flex items-start space-x-4 mb-8"
             >
               <div
@@ -335,9 +337,9 @@ export default function LandDetailPage() {
 
             {/* Детальний опис */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 180 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ duration: 1.2, delay: 0.6 }}
               className="rounded-2xl p-8 mb-8 border border-slate-600 flex flex-col"
               style={{
                 background:

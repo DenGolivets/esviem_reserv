@@ -26,9 +26,9 @@ export default function LegalConsulting() {
         <TopBar inView={inView} />
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 60 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
           className="text-center mb-16"
         >
           <motion.div
