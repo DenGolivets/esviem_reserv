@@ -25,25 +25,25 @@ const contactItems = [
     id: "whatsapp",
     icon: "/dash/whatsapp96.svg",
     color: "from-green-500 to-green-600",
-    href: `https://wa.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
+    href: "https://wa.me/+380508128888",
   },
   {
     id: "viber",
     icon: "/dash/viber.svg",
     color: "from-purple-500 to-purple-600",
-    href: `viber://chat?number=${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
+    href: "viber://chat?number=+380508128888",
   },
   {
     id: "telegram",
     icon: "/dash/telegram96.svg",
     color: "from-blue-500 to-blue-600",
-    href: `https://t.me/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
+    href: "https://t.me/+380508128888",
   },
   {
     id: "signal",
     icon: "/dash/signal.svg",
     color: "from-blue-500 to-blue-600",
-    href: `https://signal.me/#p/${process.env.NEXT_PUBLIC_PHONE_NUMBER}`,
+    href: "https://signal.me/#p/+380508128888",
   },
 ];
 
