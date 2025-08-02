@@ -84,6 +84,7 @@ export const metadata: Metadata = {
     "фінансові",
     "будівельні",
     "земельні",
+    "esviem"
   ],
   robots: "index, follow",
   openGraph: {

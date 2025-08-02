@@ -38,7 +38,7 @@ const contactItems = [
     id: "viber",
     icon: "/dash/viber.svg",
     color: "from-purple-500 to-purple-600",
-    href: "https://viber.com",
+    href: "viber://chat?number=+380508128888",
   },
   {
     id: "telegram",

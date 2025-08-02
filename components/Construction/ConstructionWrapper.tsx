@@ -246,7 +246,7 @@ export default function ConstructionWrapper() {
 
               <div className="flex flex-col items-center">
                 <motion.a
-                  href="https://viber.com"
+                  href="viber://chat?number=+380508128888"
                   whileHover={{
                     scale: 1.05,
                     rotateY: 5,
