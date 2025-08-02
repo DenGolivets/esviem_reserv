@@ -218,10 +218,15 @@ const LandConsultingWrapper = () => {
         </motion.div>
 
         {/* Kyiv Services Grid */}
-        <motion.div
-          className="flex items-center justify-center gap-10 lg:flex-row flex-col my-14 sm:my-20"
-        >
-          <Image src="/land/kyiv.jpg" loading="lazy" alt="Kyiv" width={500} height={500} className="rounded-lg w-100 h-60" />
+        <motion.div className="flex items-center justify-center gap-10 lg:flex-row flex-col my-14 sm:my-20">
+          <Image
+            src="/land/kyiv.jpg"
+            loading="lazy"
+            alt="Kyiv"
+            width={500}
+            height={500}
+            className="rounded-lg w-100 h-60 shadow-xl"
+          />
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
