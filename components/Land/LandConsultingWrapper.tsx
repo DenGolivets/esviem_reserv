@@ -21,6 +21,7 @@ import {
 } from "react-icons/md";
 import { LuKeyRound } from "react-icons/lu";
 import { useLingui } from "@lingui/react";
+import Image from "next/image";
 
 const LandConsultingWrapper = () => {
   const { i18n } = useLingui();
@@ -217,15 +218,20 @@ const LandConsultingWrapper = () => {
         </motion.div>
 
         {/* Kyiv Services Grid */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-2xl sm:text-3xl md:text-4xl text-center font-bold my-14 sm:my-20 bg-gradient-to-r 
-          from-green-400 to-emerald-500 bg-clip-text text-transparent"
+        <motion.div
+          className="flex items-center justify-center gap-10 lg:flex-row flex-col my-14 sm:my-20"
         >
-          {i18n._("Оформлення земельних ділянок в м. Києві")}
-        </motion.h2>
+          <Image src="/land/kyiv.jpg" loading="lazy" alt="Kyiv" width={500} height={500} className="rounded-lg w-100 h-60" />
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-2xl sm:text-3xl md:text-4xl text-center font-bold bg-gradient-to-r 
+          from-green-400 to-emerald-500 bg-clip-text text-transparent"
+          >
+            {i18n._("Оформлення земельних ділянок в м. Києві")}
+          </motion.h2>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -320,7 +326,9 @@ const LandConsultingWrapper = () => {
           <div className="relative z-10">
             <div className="text-center mb-8">
               <p className="text-lg md:text-xl opacity-90">
-                {i18n._("Зв’яжіться з нами для отримання професійної консультації")}
+                {i18n._(
+                  "Зв’яжіться з нами для отримання професійної консультації"
+                )}
               </p>
             </div>
 
