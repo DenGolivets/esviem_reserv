@@ -156,7 +156,7 @@ export default function DashboardSidebar() {
       localStorage.setItem("lang", lang);
       setCurrentLang(lang);
       i18n.activate(lang);
-      // window.location.reload();
+      window.location.reload();
     }
   };
 

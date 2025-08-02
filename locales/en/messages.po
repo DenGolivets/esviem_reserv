@@ -14,14 +14,143 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: components/dashboard/DashboardSidebar.tsx:65
-msgid "Про компанію"
-msgstr "About company"
+#: components/TopBar.tsx:141
+msgid "Контакти для консультацій:"
+msgstr "Contacts for consultations:"
 
 #. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:33
+#: components/Land/LandConsultingWrapper.tsx:113
+#: app/land/[id]/page.tsx:123
+msgid "Приватизація земельних ділянок"
+msgstr "Privatization of land plots"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:34
+#: app/land/[id]/page.tsx:124
+msgid "з підготовкою всієї необхідної документації"
+msgstr "with the preparation of all necessary documentation"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:40
+msgid "Зміна цільового призначення земельної ділянки"
+msgstr "Change of purpose of land plot"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:41
+msgid "професійний супровід процедури"
+msgstr "professional support of the procedure"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:47
+msgid "Внесення коду цільового призначення"
+msgstr "Entering the destination code"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:48
+msgid "при існуючому праві власності на землю і без нього"
+msgstr "with and without existing land ownership rights"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:56
+msgid "Внесення виправлень помилок"
+msgstr "Making bug fixes"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:57
+msgid "в Держгеокадастр"
+msgstr "in the State Geocadastre"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:63
+msgid "Винесення меж земельної ділянки"
+msgstr "Marking the boundaries of a land plot"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:64
+msgid "в натуру"
+msgstr "in nature"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:70
+msgid "Підготовка документів для судового процесу"
+msgstr "Preparation of documents for legal proceedings"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:71
+msgid "(в разі самовільного зайняття земельної ділянки та інше)"
+msgstr "(in case of unauthorized occupation of a land plot, etc.)"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:79
+msgid "Топозйомка"
+msgstr "Topographic survey"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:80
+msgid "з усіма необхідними погодженнями"
+msgstr "with all necessary approvals"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:86
+msgid "Об’єднання земельних ділянок"
+msgstr "Land consolidation"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:87
+msgid "(шляхом злиття ділянок)"
+msgstr "(by merging sections)"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:93
+msgid "⁠Поділ земельних ділянок"
+msgstr "⁠Division of land plots"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:94
+msgid "для продажу, дарування чи забудови"
+msgstr "for sale, donation or development"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:106
+msgid "Інвентаризація"
+msgstr "Inventory"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:107
+msgid "даних про земельні ділянки"
+msgstr "data about land plots"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:114
+msgid "(за наявності об’єкта нерухомості)"
+msgstr "(if there is a real estate object)"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:227
+msgid "Оформлення земельних ділянок в м. Києві"
+msgstr "Registration of land plots in c. Kyiv"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsultingWrapper.tsx:323
+msgid "Зв’яжіться з нами для отримання професійної консультації"
+msgstr "Contact us for professional advice"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsulting.tsx:35
 #: components/dashboard/DashboardSidebar.tsx:75
 msgid "Земельний"
 msgstr "Land"
+
+#. js-lingui-explicit-id
+#: components/Land/LandConsulting.tsx:35
+msgid "консалтинг"
+msgstr "consulting"
+
+#. js-lingui-explicit-id
+#: components/dashboard/DashboardSidebar.tsx:65
+msgid "Про компанію"
+msgstr "About company"
 
 #. js-lingui-explicit-id
 #: components/dashboard/DashboardSidebar.tsx:85
@@ -52,3 +181,13 @@ msgstr "Mon-Fri"
 #: components/dashboard/DashboardSidebar.tsx:460
 msgid "Напишіть нам"
 msgstr "Write to us"
+
+#. js-lingui-explicit-id
+#: app/land/[id]/page.tsx:126
+msgid "Повний супровід процедури приватизації земельних ділянок з підготовкою всієї необхідної документації.\n\nЕтапи роботи:\n1. Аналіз правового статусу ділянки\n2. Розробка технічної документації/проекту землеустрою\n3. Реєстрація земельної ділянки в ДЗК (присвоєння кадастрового номеру)\n4. Реєстрація речових прав на земельну ділянку\n\nНеобхідні документи:\n- Право власності на об’єкт нерухомого майна (житлові /садибні забудови)\n- Схема розміщення земельної ділянки (за наявності)"
+msgstr "Full support for the privatization procedure of land plots with the preparation of all necessary documentation.\n\nStages of work:\n1. Analysis of the legal status of the plot\n2. Development of technical documentation/land management project\n3. Registration of the land plot in the State Land Registry (assignment of a cadastral number)\n4. Registration of property rights to the land plot/n/nRequired documents:\n- Ownership of the real estate object (residential / estate developments)\n- Layout of the land plot (if available)"
+
+#. js-lingui-explicit-id
+#: components/page.tsx:NaN
+#~ msgid "Приватизація земельних ділянок:"
+#~ msgstr "Privatization of land plots"

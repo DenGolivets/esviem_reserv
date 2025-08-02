@@ -4,12 +4,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
+import { useLingui } from "@lingui/react";
 
 interface TopBarProps {
   inView: boolean;
 }
 
 const TopBar = ({ inView }: TopBarProps) => {
+  const { i18n } = useLingui();
   return (
     <>
       <motion.div
@@ -136,7 +138,7 @@ const TopBar = ({ inView }: TopBarProps) => {
                   fontSize: "12px",
                 }}
               >
-                Контакти для консультацій:
+                {i18n._("Контакти для консультацій:")}
               </h2>
             </div>
             <div

@@ -42,6 +42,12 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
+    if (locale && isReady) {
+      i18n.activate(locale);
+    }
+  }, [locale, isReady]);
+
+  useEffect(() => {
     const onStorage = () => {
       const lang = localStorage.getItem("lang") || "uk";
       setLocale(lang);
