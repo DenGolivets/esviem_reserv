@@ -156,11 +156,175 @@ msgstr "Additional legal services for a comprehensive solution to legal issues.\
 msgid "Будівельний"
 msgstr "Constructional"
 
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:30
+msgid "Інженерні вишукування"
+msgstr "Engineering surveys"
 
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:31
+msgid "Вишукування науково-технічної діяльності"
+msgstr "Research of scientific and technical activities"
 
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:37
+msgid "Завдання на проектування"
+msgstr "Design tasks"
 
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:39
+msgid "(планувальних, архітектурних, інженерних і технологічних рішень об'єкта будівництва)"
+msgstr "(planning, architectural, engineering and technological solutions of the construction site)"
 
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:46
+msgid "Схеми намірів забудови земельної ділянки"
+msgstr "Schemes of land development intentions"
 
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:47
+msgid "(є необхідним для узаконення об’єкту нерухомості)"
+msgstr "(necessary for legalizing the real estate)"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:53
+msgid "Містобудівні умови і обмеження"
+msgstr "Urban planning conditions and restrictions"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:54
+msgid "Отримання містобудівних умов та обмежень"
+msgstr "Obtaining urban planning conditions and restrictions"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:60
+msgid "Детальні плани територій (ДПТ)"
+msgstr "Detailed plans of territories (DPOT)"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:61
+msgid "Розробка детальних планів територій"
+msgstr "Development of detailed plans for territories"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:70
+msgid "Розробка проектно-кошторисної документації"
+msgstr "Development of design and estimate documentation"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:71
+msgid "Проектно-кошторисна документація"
+msgstr "Design and estimate documentation"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:80
+msgid "Будівельна амністія"
+msgstr "Construction amnesty"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:81
+msgid "Спрощена процедура легалізації об’єкту"
+msgstr "Simplified procedure for legalizing an object"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:87
+msgid "Технічні паспорти"
+msgstr "Technical data sheets"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:88
+msgid "Оформлення та реєстрація технічних паспортів"
+msgstr "Preparation and registration of technical passports"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:94
+msgid "Поділ існуючого домоволодіння"
+msgstr "Division of existing home ownership"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:95
+msgid "Підготовка та реєстрація договору поділу домоволодіння"
+msgstr "Preparation and registration of a home ownership division agreement"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:104
+msgid "Архітектурна візуалізація та анімація"
+msgstr "Architectural visualization and animation"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:105
+msgid "Розробка концепцій архітектурних об’єктів"
+msgstr "Development of concepts for architectural objects"
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:61
+msgid "Інженерні вишукування для будівництва - це вид науково-технічної діяльності (згідно з Законом України 'Про наукову та науково-технічну діяльність'), що забезпечує вивчення природних і техногенних умов територій (ділянок) об'єктів будівництва, розроблення прогнозів взаємодії об'єктів будівництва з навколишнім середовищем, розроблення усіх видів проектів (у тому числі інженерної підготовки територій, захисту територій і об'єктів від небезпечних процесів).\n\nВиди інженерних вишукувань для будівництва:\n\n1. Інженерно-геодезичні\n2. Інженерно-геологічні\n3. Геотехнічні та інженерно-гідрогеологічні (у складі комплексних інженерно-геологічних вишукувань або окремо)\n4. Інженерно-гідрометеорологічні\n5. Вишукування для раціонального використання та охорони навколишнього середовища\n6. Спеціалізовані (умовно вишукувальні)\n\nТермін виконання: від 10 робочих днів."
+msgstr "Engineering surveys for construction are a type of scientific and technical activity (in accordance with the Law of Ukraine 'On Scientific and Scientific and Technical Activity'), which provides for the study of natural and technogenic conditions of territories (sites) of construction objects, the development of forecasts of the interaction of construction objects with the environment, the development of all types of projects (including engineering preparation of territories, protection of territories and objects from hazardous processes).\n\nTypes of engineering surveys for construction:\n\n1. Engineering and geodetic\n2. Engineering and geological\n3. Geotechnical and engineering and hydrogeological (as part of complex engineering and geological surveys or separately)\n4. Engineering and hydrometeorological\n5. Surveys for rational use and environmental protection\n6. Specialized (conditionally survey)\n\nPerformance period: from 10 working days."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:71
+msgid "Завдання на проектування - це вимоги замовника до планувальних, архітектурних, інженерних і технологічних рішень об'єкта будівництва та його основних параметрів.\n\nЕтапи складання завдання на проектування:\n\n1. Збір вихідних даних\n2. Аналіз вихідних даних та формування завдання на проектування\n\nТермін виконання: від 10 робочих днів."
+msgstr "Design tasks are the customer's requirements for planning, architectural, engineering and technological solutions for a construction site and its main parameters.\n\nStages of drawing up a design task:\n\n1. Collection of source data\n2. Analysis of source data and formation of a design task\n\nPerformance period: from 10 working days."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:79
+msgid "Схема намірів - це графічний документ, що визначає можливість розміщення об'єкта на конкретній ділянці та є необхідним для узаконення об’єкту нерухомості.\n\nЕтапи отримання схеми намірів забудови земельної ділянки:\n\n1. Збір та аналіз даних\n2. Топографічна зйомка\n3. Формування ескізних намірів забудови\n4. Реєстрація схеми намірів в ДАБК\n\nНеобхідні документи:\n\n- Правовстановлюючі документи на земельну ділянку\n- Успішне проходження аудиту\n- Копія паспорту громадянина України та РНОКПП\n\nТермін виконання: від 15-20 робочих днів."
+msgstr "A scheme of intentions is a graphic document that determines the possibility of placing an object on a specific site and is necessary for legalizing a real estate object.\n\nStages of obtaining a scheme of intentions for the development of a land plot:\n\n1. Data collection and analysis\n2. Topographic survey\n3. Formation of draft development intentions\n4. Registration of the scheme of intentions in the State Traffic Safety Administration\n\nRequired documents:\n\n- Title documents for the land plot\n- Successful completion of the audit\n- Copy of the passport of a citizen of Ukraine and the National Property Registration Certificate\n\nTime limit: from 15-20 working days."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:87
+msgid "Містобудівні умови і обмеження (МУО) – це документ, що містить комплекс планувальних та архітектурних вимог до проектування і будівництва і є одним із складових вихідних даних для проектування.\n\nЕтапи отримання МУО:\n\n1. Підготовка та формування заявки\n2. Технічний супровід при отриманні містобудівних умов і обмежень\n\nТермін виконання: від 15 робочих днів."
+msgstr "Urban planning conditions and restrictions (UPR) is a document containing a set of planning and architectural requirements for design and construction and is one of the components of the initial data for design.\n\nStages of obtaining UPR:\n\n1. Preparation and formation of the application\n2. Technical support when obtaining urban planning conditions and restrictions\n\nPerformance period: from 15 working days."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:95
+msgid "Детальний план території (ДПТ) – юридичний документ, який встановлює територіальні межі, призначення та особливості використання об’єкта, функціональне застосування окремих його елементів.\n\nЕтапи отримання ДПТ:\n\n1. Отримання дозволу органу місцевого самоврядування на розробку ДПТ\n2. Збір всіх необхідних даних\n3. Розробка детального плану територій\n4. Погодження з відповідними органами\n5. Затвердження ДПТ в органі місцевого самоврядування\n\nТермін виконання: від 3 місяців."
+msgstr "A detailed territorial plan (DTP) is a legal document that establishes the territorial boundaries, purpose and features of the use of the facility, and the functional application of its individual elements.\n\nStages of obtaining a DTP:\n\n1. Obtaining permission from a local government body to develop a DTP\n2. Collection of all necessary data\n3. Development of a detailed territorial plan\n4. Agreement with relevant authorities\n5. Approval of the DTP by the local government body\n\nTime frame: from 3 months."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:106
+msgid "Проектно-кошторисна документація – комплекс документів, що визначають місце будівництва (реконструкції) майбутнього об'єкта, його архітектурне, планувальне і конструктивне рішення, потребу в кадрах, будівельних матеріалах, машинах і обладнанні, коштах.\n\nВиди проектно-кошторисної документації:\n\n1. Архітектурні рішення (Стадія «П», «РД»)\n2. Конструктивні рішення (Стадія «П», «РД»)\n3. Інженерні рішення (внутрішні інженерні мережі, зовнішні інженерні рішення Стадії «П», «РД»)\n4. Технологічні карти\n5. Проекти Організації Виробництва\n6. Проекти енергоефективності\n7. Кошторисна документація\n\nТермін виконання (окремого розділу): від 7 робочих днів.\n\nПроходження експертизи в разі необхідності (окремого розділу): від 7 робочих днів."
+msgstr "Design and estimate documentation is a set of documents that determine the location of the construction (reconstruction) of the future facility, its architectural, planning and design solution, the need for personnel, building materials, machinery and equipment, and funds.\n\nTypes of design and estimate documentation:\n\n1. Architectural solutions (Stage "P", "RD")\n2. Structural solutions (Stage "P", "RD")\n3. Engineering solutions (internal engineering networks, external engineering solutions Stage "P", "RD")\n4. Technological maps\n5. Production Organization Projects\n6. Energy efficiency projects\n7. Estimated documentation\n\nPerformance period (separate section): from 7 working days.\n\nPassing an examination if necessary (separate section): from 7 working days."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:117
+msgid "Будівельна амністія — це спрощена процедура легалізації вже зведеного (реконструйованого) об’єкту в період з 05.08.1992 року до 09.04.2015 року.\n\nЕтапи процедури легалізації самовільно збудованих об’єктів:\n\n1. Збір та підготовка даних (технічний паспорт, звіт про технічне обстеження для будівель більше 100 м2, декларація, тощо)\n2. Перевірка ДАБК\n3. Реєстрація декларації\n4. Присвоєння поштової адреси\n5. Реєстрація права власності\n\nПакет документів:\n\n- Правовстановлюючі документи на земельну ділянку\n- Копія паспорту громадянина України та РНОКПП власника (або власників, якщо їх кілька)\n\nТермін виконання: від 1-го місяця."
+msgstr "Construction amnesty is a simplified procedure for legalizing an already constructed (reconstructed) facility in the period from 05.08.1992 to 09.04.2015.\n\nStages of the procedure for legalizing unauthorizedly constructed facilities:\n\n1. Collection and preparation of data (technical passport, technical inspection report for buildings over 100 m2, declaration, etc.)\n2. Verification by the State Traffic Safety Administration\n3. Registration of the declaration\n4. Assignment of a mailing address\n5. Registration of ownership\n\nPackage of documents:\n\n- Title documents for the land plot\n- Copy of the passport of a citizen of Ukraine and the RNOKPP of the owner (or owners, if there are several)\n\nPerformance period: from the 1st month."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:125
+msgid "Технічний паспорт – це технічний документ, який виготовляється на основі проведення комплексу робіт з інвентаризації об'єкту нерухомого майна.\n\nЕтапи виготовлення технічного паспорта:\n\n1. Обстеження та визначення технічних параметрів об’єкту нерухомого майна\n2. Обмірювання об’єкту нерухомого майна\n3. Оформлення технічного паспорту\n4. Реєстрація технічного паспорту\n\nТермін виготовлення: від 7 робочих днів."
+msgstr "A technical passport is a technical document that is produced on the basis of a set of works on inventorying a real estate object.\n\nStages of producing a technical passport:\n\n1. Inspection and determination of technical parameters of a real estate object\n2. Measurement of a real estate object\n3. Preparation of a technical passport\n4. Registration of a technical passport\n\nProduction period: from 7 working days."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:133
+msgid "Підготовка та реєстрація договору поділу домоволодіння.\n\nЕтапи роботи:\n\n1. Вивчення та аналіз вихідних даних\n2. Підготовка необхідних (недостаючих) документів\n3. Підготовка та реєстрація договору поділу домоволодіння у нотаріуса\n4. Отримання поштові адреси новоутворених домоволодінь\n5. Реєстрація речових прав на окремі домоволодіння\n\nНеобхідні документи:\n\n- Правовстановлюючі документи на об’єкт нерухомого майна\n- Правовстановлюючі документи на земельну ділянку\n- Копія паспорту громадянина України та РНОКПП власників\n\nТермін виконання: 1-2 місяці."
+msgstr "Preparation and registration of a homeownership division agreement.\n\nStages of work:\n\n1. Study and analysis of the initial data\n2. Preparation of the necessary (missing) documents\n3. Preparation and registration of a homeownership division agreement with a notary\n4. Obtaining mailing addresses of newly formed households\n5. Registration of property rights to individual households\n\nRequired documents:\n\n- Title documents for the real estate object\n- Title documents for the land plot\n- Copy of the passport of a citizen of Ukraine and the owners' RNOKPP\n\nPerformance period: 1-2 months."
+
+#. js-lingui-explicit-id
+#: app/construction/[id]/page.tsx:144
+msgid "Розробка концепцій архітектурних об’єктів.\n\nВиди послуг:\n\n1. Розробка концепцій архітектурних об’єктів будь-якої складності (крім промислових)\n2. 3D моделювання об’єктів архітектури\n3. Розробка фотореалістичних 3D-Візуалізацій\n4. Розробка 3D-Анімації об’єктів архітектури\n5. Розробка презентаційних матеріалів"
+msgstr "Development of concepts for architectural objects.\n\nTypes of services:\n\n1. Development of concepts for architectural objects of any complexity (except industrial)\n2. 3D modeling of architectural objects\n3. Development of photorealistic 3D visualizations\n4. Development of 3D animations of architectural objects\n5. Development of presentation materials"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:137
+msgid "Підготовка вихідних даних для проектування"
+msgstr "Preparation of initial data for design"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:230
+msgid "Розробка проектно-кошторисної документації"
+msgstr "Development of design and estimate documentation"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:321
+msgid "Робота з готовими об’єктами будівництва"
+msgstr "Working with finished construction sites"
+
+#. js-lingui-explicit-id
+#: components/ConstructionWrapper.tsx:412
+msgid "Архітектурна візуалізація та анімація"
+msgstr "Architectural visualization and animation"
 
 #. js-lingui-explicit-id
 #: components/TopBar.tsx:141
