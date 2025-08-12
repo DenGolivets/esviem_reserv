@@ -8,7 +8,6 @@ import Image from "next/image";
 import {
   Building,
   Compass,
-  FileText,
 } from "lucide-react";
 import { FaArrowAltCircleLeft, FaDraftingCompass, FaFileInvoice, FaMapMarkedAlt } from "react-icons/fa";
 
@@ -21,8 +20,6 @@ import { PiBlueprintLight } from "react-icons/pi";
 import { Md3dRotation, MdVerifiedUser } from "react-icons/md";
 import { BsPassport } from "react-icons/bs";
 import { RxBorderSplit } from "react-icons/rx";
-
-
 
 const contactItems = [
   {
