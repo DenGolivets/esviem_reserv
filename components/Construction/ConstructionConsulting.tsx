@@ -6,12 +6,15 @@ import ConstructionWrapper from "./ConstructionWrapper";
 import TopBar from "../TopBar";
 import Title from "../Title";
 import { Building } from "lucide-react";
+import { useLingui } from "@lingui/react";
 
 export default function ConstructionConsulting() {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const { i18n } = useLingui();
   return (
     <section
       id="construction-section"
@@ -28,7 +31,7 @@ export default function ConstructionConsulting() {
         <Title
           inView={inView}
           icon={<Building className="w-10 h-10 text-white" />}
-          titleParts={["Будівельний", "консалтинг"]}
+          titleParts={[i18n._("Будівельний"), i18n._("консалтинг")]}
           textGradientClasses={[
             "bg-gradient-to-r from-orange-400 to-red-500",
             "bg-gradient-to-r from-orange-400 to-red-500",

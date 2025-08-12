@@ -6,118 +6,79 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   Scale,
-  FileText,
-  Shield,
-  Gavel,
-  Building2,
   Users,
-  Search,
   HandHeart,
   UserCheck,
-  Briefcase,
-  BookOpen,
-  Home,
+  ShieldCheck,
+  House,
 } from "lucide-react";
 import { FaTelegramPlane, FaViber, FaWhatsapp } from "react-icons/fa";
 import { FaSignalMessenger } from "react-icons/fa6";
-
-const services = [
-  {
-    id: "representation_in_courts",
-    icon: Scale,
-    title: "Представництво в судах",
-    description: "Професійний захист ваших інтересів у всіх інстанціях",
-    color: "from-purple-500 to-indigo-500",
-  },
-  {
-    id: "drafting_contracts",
-    icon: FileText,
-    title: "Складання договорів",
-    description: "Розробка та перевірка договорів всіх видів",
-    color: "from-blue-500 to-purple-500",
-  },
-  {
-    id: "corporate_law",
-    icon: Building2,
-    title: "Корпоративне право",
-    description: "Супровід діяльності підприємств та корпорацій",
-    color: "from-indigo-500 to-blue-500",
-  },
-  {
-    id: "consumer_protection",
-    icon: Shield,
-    title: "Захист прав споживачів",
-    description: "Відстоювання прав у спорах зі споживчими послугами",
-    color: "from-green-500 to-blue-500",
-  },
-  {
-    id: "criminal_law",
-    icon: Gavel,
-    title: "Кримінальне право",
-    description: "Захист у кримінальних справах та адвокатське представництво",
-    color: "from-red-500 to-purple-500",
-  },
-  {
-    id: "family_law",
-    icon: Users,
-    title: "Сімейне право",
-    description: "Вирішення сімейних спорів та оформлення документів",
-    color: "from-pink-500 to-purple-500",
-  },
-  {
-    id: "analysis_of_legislation",
-    icon: Search,
-    title: "Аналіз законодавства",
-    description: "з наданням відповідних письмових консультацій",
-    color: "from-green-500 to-blue-500",
-  },
-  {
-    id: "representation_of_interests",
-    icon: BookOpen,
-    title: "Представництво інтересів",
-    description:
-      "фізичних та юридичних осіб в правоохоронних і судових органах",
-    color: "from-purple-600 to-indigo-600",
-  },
-  {
-    id: "legal_support_when_purchasing_real_estate",
-    icon: Home,
-    title: "Юридичний супровід при придбанні нерухомості",
-    description: "перевірка дозвільних документів, договорів тощо",
-    color: "from-teal-500 to-green-500",
-  },
-  {
-    id: "assistance_in_obtaining_permits",
-    icon: FileText,
-    title: "Допомога при отриманні дозвільних документів",
-    description:
-      "на будівництво, введення в експлуатацію, оформлення права власності",
-    color: "from-amber-500 to-orange-500",
-  },
-  {
-    id: "analysis_and_examination_of_legal_documents",
-    icon: Briefcase,
-    title: "Аналіз та експертиза юридичних документів",
-    description: "Професійна оцінка правових документів",
-    color: "from-cyan-500 to-blue-500",
-  },
-  {
-    id: "representation_in_enforcement_proceedings",
-    icon: UserCheck,
-    title: "Представництво у виконавчому провадженні",
-    description: "Захист інтересів фізичних та юридичних осіб",
-    color: "from-emerald-500 to-teal-500",
-  },
-  {
-    id: "other_types_of_legal_services",
-    icon: HandHeart,
-    title: "Інші види адвокатських послуг",
-    description: "Повний спектр юридичної підтримки",
-    color: "from-violet-500 to-purple-500",
-  },
-];
+import { useLingui } from "@lingui/react";
+import { MdGroups2 } from "react-icons/md";
 
 export default function LegalConsultingWrapper() {
+  const { i18n } = useLingui();
+
+  const services = [
+    {
+      id: "criminal_law",
+      icon: Scale,
+      title: i18n._("Кримінальне право"),
+      description: i18n._(
+        "Професійна правнича допомога в кримінальних справах"
+      ),
+      color: "from-indigo-800 to-purple-900",
+    },
+    {
+      id: "family_law",
+      icon: Users,
+      title: i18n._("Сімейне право"),
+      description: i18n._("Професійне вирішення сімейних спорів"),
+      color: "from-pink-500 to-purple-500",
+    },
+    {
+      id: "civil_law",
+      icon: MdGroups2,
+      title: i18n._("Цивільне право"),
+      description: i18n._(
+        "Професійне вирішення спорів пов’язаних з цивільним законодавством"
+      ),
+      color: "from-blue-700 to-sky-500",
+    },
+    {
+      id: "administrative_proceedings",
+      icon: ShieldCheck,
+      title: i18n._("Адміністративне судочинство"),
+      description: i18n._(
+        "Професійне вирішення справ, що відносяться до адміністративної юрисдикції"
+      ),
+      color: "from-emerald-600 to-indigo-700",
+    },
+    {
+      id: "legal_support",
+      icon: House,
+      title: i18n._("Юридичний супровід при придбанні нерухомості"),
+      description:
+        i18n._("Комплексний супровід угод з нерухомістю для безпечного придбання"),
+      color: "from-blue-700 to-emerald-600",
+    },
+    {
+      id: "representation_in_enforcement_proceedings",
+      icon: UserCheck,
+      title: i18n._("Представництво у виконавчому провадженні"),
+      description: i18n._("Професійний супровід на стадії виконання судових рішень"),
+      color: "from-emerald-500 to-teal-500",
+    },
+    {
+      id: "other_types_of_legal_services",
+      icon: HandHeart,
+      title: i18n._("Інші види адвокатських послуг"),
+      description: i18n._("Додаткові адвокатські послуги для комплексного вирішення правових питань"),
+      color: "from-violet-500 to-purple-500",
+    },
+  ];
+
   const router = useRouter();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -229,8 +190,9 @@ export default function LegalConsultingWrapper() {
           <div className="relative z-10">
             <div className="text-center mb-8">
               <p className="text-lg md:text-xl opacity-90">
-                Зв{"'"}яжіться з нами для отримання професійної юридичної
-                консультації
+                {i18n._(
+                  "Зв’яжіться з нами для отримання професійної юридичної консультації"
+                )}
               </p>
             </div>
 

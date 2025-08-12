@@ -4,106 +4,109 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Building, Compass } from "lucide-react";
 import {
-  Building,
-  FileText,
-  Hammer,
-  CheckCircle,
-  Scale,
-  Compass,
-  Shield,
-  Zap,
-  Home,
-  MapPin,
-} from "lucide-react";
-import { FaTelegramPlane, FaViber, FaWhatsapp } from "react-icons/fa";
+  FaDraftingCompass,
+  FaFileInvoice,
+  FaMapMarkedAlt,
+  FaTelegramPlane,
+  FaViber,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { FaSignalMessenger } from "react-icons/fa6";
-
-const services = [
-  {
-    id: "amnesty",
-    icon: Shield,
-    title: "Амністія",
-    description: "Повний супровід процедури амністії самовільного будівництва",
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    id: "getting_an_intent_schema",
-    icon: MapPin,
-    title: "Отримання схеми намірів",
-    description: "Підготовка та отримання схеми намірів розміщення об'єкта",
-    color: "from-amber-500 to-orange-500",
-  },
-  {
-    id: "construction_documents",
-    icon: FileText,
-    title: "Документи на будівництво",
-    description:
-      "Отримання документів на початок будівельних робіт та на введення в експлуатацію",
-    color: "from-red-500 to-pink-500",
-  },
-  {
-    id: "urban_planning_conditions",
-    icon: Building,
-    title: "Містобудівні умови",
-    description: "Отримання містобудівних умов та обмежень",
-    color: "from-orange-600 to-red-600",
-  },
-  {
-    id: "detailed_plans_of_territories",
-    icon: Compass,
-    title: "Детальні плани територій",
-    description: "Розробка детальних планів територій",
-    color: "from-yellow-500 to-orange-500",
-  },
-  {
-    id: "construction_projects",
-    icon: Hammer,
-    title: "Проекти будівництва",
-    description:
-      "Виготовлення проектів будівництва та проходження їх експертизи",
-    color: "from-red-500 to-orange-500",
-  },
-  {
-    id: "sketchy_intentions",
-    icon: Home,
-    title: "Ескізні наміри",
-    description:
-      "Виготовлення ескізних намірів забудови або будівельних паспортів",
-    color: "from-orange-500 to-amber-500",
-  },
-  {
-    id: "technical_data_sheets",
-    icon: FileText,
-    title: "Технічні паспорти",
-    description: "Виготовлення технічних паспортів на об'єкт будівництва",
-    color: "from-amber-500 to-yellow-500",
-  },
-  {
-    id: "object_registration",
-    icon: CheckCircle,
-    title: "Реєстрація об'єкту",
-    description: "Реєстрація нового об'єкту будівництва під ключ",
-    color: "from-red-600 to-orange-600",
-  },
-  {
-    id: "division_of_household_ownership",
-    icon: Scale,
-    title: "Поділ домоволодіння",
-    description:
-      "Поділ домоволодіння між співвласниками з присвоєнням поштових адрес",
-    color: "from-orange-500 to-red-500",
-  },
-  {
-    id: "share_participation",
-    icon: Zap,
-    title: "Пайова участь",
-    description: "Отримання пайової участі",
-    color: "from-yellow-500 to-red-500",
-  },
-];
+import { PiBlueprintLight } from "react-icons/pi";
+import { Md3dRotation, MdVerifiedUser } from "react-icons/md";
+import { BsPassport } from "react-icons/bs";
+import { RxBorderSplit } from "react-icons/rx";
+import { useLingui } from "@lingui/react";
 
 export default function ConstructionWrapper() {
+  const { i18n } = useLingui();
+
+  const serviceFirst = [
+    {
+      id: "construction_engineering_surveys",
+      icon: FaDraftingCompass,
+      title: i18n._("Інженерні вишукування"),
+      description: i18n._("Вишукування науково-технічної діяльності"),
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      id: "construction_design_tasks",
+      icon: PiBlueprintLight,
+      title: i18n._("Завдання на проектування"),
+      description: i18n._(
+        "(планувальних, архітектурних, інженерних і технологічних рішень об'єкта будівництва)"
+      ),
+      color: "from-amber-500 to-orange-500",
+    },
+    {
+      id: "construction_schemes_of_land_development_intentions",
+      icon: FaMapMarkedAlt,
+      title: i18n._("Схеми намірів забудови земельної ділянки"),
+      description: i18n._("(є необхідним для узаконення об’єкту нерухомості)"),
+      color: "from-red-500 to-pink-500",
+    },
+    {
+      id: "construction_urban_planning_conditions",
+      icon: Building,
+      title: i18n._("Містобудівні умови і обмеження"),
+      description: i18n._("Отримання містобудівних умов та обмежень"),
+      color: "from-orange-600 to-red-600",
+    },
+    {
+      id: "construction_plans_of_territories",
+      icon: Compass,
+      title: i18n._("Детальні плани територій (ДПТ)"),
+      description: i18n._("Розробка детальних планів територій"),
+      color: "from-yellow-500 to-orange-500",
+    },
+  ];
+
+  const serviceSecond = [
+    {
+      id: "construction_development_of_design_and_estimate_documentation",
+      icon: FaFileInvoice,
+      title: i18n._("Розробка проектно-кошторисної документації"),
+      description: i18n._("Проектно-кошторисна документація"),
+      color: "from-blue-700 to-sky-500",
+    }
+  ];
+
+  const serviceThird = [
+    {
+      id: "construction_amnesty",
+      icon: MdVerifiedUser,
+      title: i18n._("Будівельна амністія"),
+      description: i18n._("Спрощена процедура легалізації об’єкту"),
+      color: "from-emerald-500 to-teal-400",
+    },
+    {
+      id: "construction_technical_data_sheets",
+      icon: BsPassport,
+      title: i18n._("Технічні паспорти"),
+      description: i18n._("Оформлення та реєстрація технічних паспортів"),
+      color: "from-purple-700 to-blue-600",
+    },
+    {
+      id: "construction_division_of_existing_home_ownership",
+      icon: RxBorderSplit,
+      title: i18n._("Поділ існуючого домоволодіння"),
+      description: i18n._("Підготовка та реєстрація договору поділу домоволодіння"),
+      color: "from-purple-500 to-green-600",
+    },
+  ];
+
+  const serviceFourth = [
+    {
+      id: "construction_architectural_visualization_and_animation",
+      icon: Md3dRotation,
+      title: i18n._("Архітектурна візуалізація та анімація"),
+      description: i18n._("Розробка концепцій архітектурних об’єктів"),
+      color: "from-blue-700 to-orange-500",
+    },
+  ]
+
   const router = useRouter();
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -111,6 +114,9 @@ export default function ConstructionWrapper() {
   });
 
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  const [hoveredServiceSecond, setHoveredServiceSecond] = useState<number | null>(null);
+  const [hoveredServiceThird, setHoveredServiceThird] = useState<number | null>(null);
+  const [hoveredServiceFourth, setHoveredServiceFourth] = useState<number | null>(null);
 
   const handleServiceClick = (service: any) => {
     router.push(`/construction/${service.id}`);
@@ -121,13 +127,24 @@ export default function ConstructionWrapper() {
       {/* Main Content */}
       <div className="container mx-auto px-0 md:px-4 relative z-10" ref={ref}>
         {/* Services Grid */}
+        <motion.h1
+          initial={{ opacity: 0, y: 100 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.2, delay: 0.4 }}
+          className="text-center mb-10 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          bg-clip-text text-transparent"
+        >
+          {i18n._("Підготовка вихідних даних для проектування")}
+        </motion.h1>
+
+        {/* First Service */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
           className="grid xs-responsive md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8"
         >
-          {services.map((service, index) => {
+          {serviceFirst.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
@@ -202,6 +219,279 @@ export default function ConstructionWrapper() {
           })}
         </motion.div>
 
+        {/* Second Service */}
+        <motion.h1
+          initial={{ opacity: 0, y: 100 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="text-center mb-10 mt-20 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          bg-clip-text text-transparent"
+        >
+          {i18n._("Розробка проектно-кошторисної документації")}
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="grid xs-responsive md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8"
+        >
+          {serviceSecond.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.05 }}
+                onHoverStart={() => setHoveredServiceSecond(index)}
+                onHoverEnd={() => setHoveredServiceSecond(null)}
+                onClick={() => handleServiceClick(service)}
+                className="group"
+              >
+                <motion.div
+                  animate={{
+                    scale:
+                      hoveredServiceSecond === index &&
+                      typeof window !== "undefined" &&
+                      window.innerWidth >= 768
+                        ? 1.05
+                        : 1,
+                  }}
+                  transition={{ duration: 0.4 }}
+                  className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
+                >
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
+                    {/* Animated glow */}
+                    <motion.div
+                      animate={{
+                        opacity: hoveredServiceSecond === index ? 0.15 : 0,
+                        scale: hoveredServiceSecond === index ? 1.2 : 1,
+                      }}
+                      className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
+                    />
+
+                    <div className="relative z-10">
+                      {/* Service Icon */}
+                      <div className="mb-4">
+                        <motion.div
+                          animate={{
+                            scale: hoveredServiceSecond === index ? 1.1 : 1,
+                          }}
+                          transition={{ duration: 0.6 }}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r ${service.color} rounded-lg md:rounded-xl flex items-center justify-center shadow-lg`}
+                        >
+                          <Icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
+                        </motion.div>
+                      </div>
+
+                      <motion.h3
+                        animate={{
+                          color:
+                            hoveredServiceSecond === index ? "#fb923c" : "#ffffff",
+                        }}
+                        className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-2 sm:mb-3 leading-tight"
+                      >
+                        {service.title}
+                      </motion.h3>
+                      <motion.p
+                        animate={{
+                          color:
+                            hoveredServiceSecond === index ? "#d1d5db" : "#9ca3af",
+                        }}
+                        className="leading-relaxed text-xs sm:text-xs md:text-xs lg:text-xs"
+                      >
+                        {service.description}
+                      </motion.p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Third Service */}
+        <motion.h1
+          initial={{ opacity: 0, y: 100 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="text-center mb-10 mt-20 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          bg-clip-text text-transparent"
+        >
+          {i18n._("Робота з готовими об’єктами будівництва")}
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="grid xs-responsive md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8"
+        >
+          {serviceThird.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.05 }}
+                onHoverStart={() => setHoveredServiceThird(index)}
+                onHoverEnd={() => setHoveredServiceThird(null)}
+                onClick={() => handleServiceClick(service)}
+                className="group"
+              >
+                <motion.div
+                  animate={{
+                    scale:
+                      hoveredServiceThird === index &&
+                      typeof window !== "undefined" &&
+                      window.innerWidth >= 768
+                        ? 1.05
+                        : 1,
+                  }}
+                  transition={{ duration: 0.4 }}
+                  className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
+                >
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
+                    {/* Animated glow */}
+                    <motion.div
+                      animate={{
+                        opacity: hoveredServiceThird === index ? 0.15 : 0,
+                        scale: hoveredServiceThird === index ? 1.2 : 1,
+                      }}
+                      className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
+                    />
+
+                    <div className="relative z-10">
+                      {/* Service Icon */}
+                      <div className="mb-4">
+                        <motion.div
+                          animate={{
+                            scale: hoveredServiceThird === index ? 1.1 : 1,
+                          }}
+                          transition={{ duration: 0.6 }}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r ${service.color} rounded-lg md:rounded-xl flex items-center justify-center shadow-lg`}
+                        >
+                          <Icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
+                        </motion.div>
+                      </div>
+
+                      <motion.h3
+                        animate={{
+                          color:
+                            hoveredServiceThird === index ? "#fb923c" : "#ffffff",
+                        }}
+                        className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-2 sm:mb-3 leading-tight"
+                      >
+                        {service.title}
+                      </motion.h3>
+                      <motion.p
+                        animate={{
+                          color:
+                            hoveredServiceThird === index ? "#d1d5db" : "#9ca3af",
+                        }}
+                        className="leading-relaxed text-xs sm:text-xs md:text-xs lg:text-xs"
+                      >
+                        {service.description}
+                      </motion.p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Fourth Service */}
+        <motion.h1
+          initial={{ opacity: 0, y: 100 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="text-center mb-10 mt-20 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          bg-clip-text text-transparent"
+        >
+          {i18n._("Архітектурна візуалізація та анімація")}
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="grid xs-responsive md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8"
+        >
+          {serviceFourth.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.05 }}
+                onHoverStart={() => setHoveredServiceFourth(index)}
+                onHoverEnd={() => setHoveredServiceFourth(null)}
+                onClick={() => handleServiceClick(service)}
+                className="group"
+              >
+                <motion.div
+                  animate={{
+                    scale:
+                      hoveredServiceFourth === index &&
+                      typeof window !== "undefined" &&
+                      window.innerWidth >= 768
+                        ? 1.05
+                        : 1,
+                  }}
+                  transition={{ duration: 0.4 }}
+                  className="h-full min-h-[160px] md:min-h-[200px] cursor-pointer"
+                >
+                  <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-slate-600 h-full relative overflow-hidden">
+                    {/* Animated glow */}
+                    <motion.div
+                      animate={{
+                        opacity: hoveredServiceFourth === index ? 0.15 : 0,
+                        scale: hoveredServiceFourth === index ? 1.2 : 1,
+                      }}
+                      className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl`}
+                    />
+
+                    <div className="relative z-10">
+                      {/* Service Icon */}
+                      <div className="mb-4">
+                        <motion.div
+                          animate={{
+                            scale: hoveredServiceFourth === index ? 1.1 : 1,
+                          }}
+                          transition={{ duration: 0.6 }}
+                          className={`w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-r ${service.color} rounded-lg md:rounded-xl flex items-center justify-center shadow-lg`}
+                        >
+                          <Icon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
+                        </motion.div>
+                      </div>
+
+                      <motion.h3
+                        animate={{
+                          color:
+                            hoveredServiceFourth === index ? "#fb923c" : "#ffffff",
+                        }}
+                        className="text-sm sm:text-base md:text-base lg:text-base font-bold mb-2 sm:mb-3 leading-tight"
+                      >
+                        {service.title}
+                      </motion.h3>
+                      <motion.p
+                        animate={{
+                          color:
+                            hoveredServiceFourth === index ? "#d1d5db" : "#9ca3af",
+                        }}
+                        className="leading-relaxed text-xs sm:text-xs md:text-xs lg:text-xs"
+                      >
+                        {service.description}
+                      </motion.p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
         {/* Contact Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -215,7 +505,9 @@ export default function ConstructionWrapper() {
           <div className="relative z-10">
             <div className="text-center mb-8">
               <p className="text-lg md:text-xl opacity-90">
-                Зв{"'"}яжіться з нами для отримання професійної консультації
+                {i18n._(
+                  "Зв’яжіться з нами для отримання професійної консультації"
+                )}
               </p>
             </div>
 

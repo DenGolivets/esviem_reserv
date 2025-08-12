@@ -5,12 +5,15 @@ import { Scale } from "lucide-react";
 import LegalConsultingWrapper from "./LegalConsultingWrapper";
 import TopBar from "../TopBar";
 import Title from "../Title";
+import { useLingui } from "@lingui/react";
 
 export default function LegalConsulting() {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const { i18n } = useLingui();
 
   return (
     <section
@@ -28,7 +31,7 @@ export default function LegalConsulting() {
         <Title
           inView={inView}
           icon={<Scale className="w-10 h-10 text-white" />}
-          titleParts={["Юридичні", "послуги"]}
+          titleParts={[i18n._("Юридичні"), i18n._("послуги")]}
           textGradientClasses={[
             "bg-gradient-to-r from-purple-400 to-indigo-500",
             "bg-gradient-to-r from-purple-400 to-indigo-500",
