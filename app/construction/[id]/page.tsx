@@ -189,7 +189,7 @@ export default function ConstructionDetailPage() {
             <Title
               inView={inView}
               icon={<Building className="w-10 h-10 text-white" />}
-              titleParts={["Будівельний", "консалтинг"]}
+              titleParts={[i18n._("Будівельний"), i18n._("консалтинг")]}
               textGradientClasses={[
                 "bg-gradient-to-r from-orange-400 to-red-500",
                 "bg-gradient-to-r from-orange-400 to-red-500",
