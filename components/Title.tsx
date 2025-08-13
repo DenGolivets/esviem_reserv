@@ -67,7 +67,7 @@ const Title = ({
 
       <h2
         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4
-              items-center justify-center md:flex-row leading-relaxed"
+              items-center justify-center lg:flex-row"
       >
         <span
           className={`${textGradientClasses[0]} bg-clip-text text-transparent mr-2`}

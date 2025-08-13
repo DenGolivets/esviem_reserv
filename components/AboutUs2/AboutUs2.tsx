@@ -7,12 +7,15 @@ import { Award, Target, Heart } from "lucide-react";
 import TopBar from "../TopBar";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 import { partners } from "@/utils";
+import { useLingui } from "@lingui/react";
 
 const AboutUs = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const { i18n } = useLingui();
 
   return (
     <section
@@ -71,8 +74,8 @@ const AboutUs = () => {
                 fontWeight: "700",
               }}
             >
-              <span>Про</span>
-              <span>нас</span>
+              <span>{i18n._("Про")}</span>
+              <span>{i18n._("нас")}</span>
             </h2>
 
             <motion.p
@@ -86,14 +89,7 @@ const AboutUs = () => {
                   "Montserrat, Inter, system-ui, -apple-system, sans-serif",
               }}
             >
-              ESVIEM — це професійна консультаційна компанія з понад 15-річним
-              досвідом роботи у сферах юридичного, фінансового, будівельного та
-              земельного консультування. Ми спеціалізуємось на вирішенні
-              найскладніших завдань для бізнесу та приватних клієнтів, надаючи
-              комплексні рішення та індивідуальний підхід до кожного проекту.
-              Наша місія — забезпечити клієнтам впевненість у прийнятті
-              стратегічних рішень завдяки експертним знанням та проверенному
-              досвіду.
+              {i18n._("ESVIEM — це професійна консультаційна компанія з понад 15-річним досвідом роботи у сферах юридичного, фінансового, будівельного та земельного консультування. Ми спеціалізуємось на вирішенні найскладніших завдань для бізнесу та приватних клієнтів, надаючи комплексні рішення та індивідуальний підхід до кожного проекту. Наша місія — забезпечити клієнтам впевненість у прийнятті стратегічних рішень завдяки експертним знанням та проверенному досвіду")}
             </motion.p>
           </motion.div>
 
@@ -113,7 +109,7 @@ const AboutUs = () => {
                 fontWeight: "700",
               }}
             >
-              Наші клієнти
+              {i18n._("Наші клієнти")}
             </h3>
           </motion.div>
 
@@ -140,17 +136,17 @@ const AboutUs = () => {
             {[
               {
                 icon: Award,
-                text: "15+ років досвіду",
+                text: i18n._("15+ років досвіду"),
                 color: "linear-gradient(135deg, #60a5fa, #3b82f6)",
               },
               {
                 icon: Target,
-                text: "Найскладніші задачі",
+                text: i18n._("Найскладніші задачі"),
                 color: "linear-gradient(135deg, #4ade80, #22c55e)",
               },
               {
                 icon: Heart,
-                text: "Індивідуальний підхід",
+                text: i18n._("Індивідуальний підхід"),
                 color: "linear-gradient(135deg, #f87171, #ef4444)",
               },
             ].map((item, index) => {

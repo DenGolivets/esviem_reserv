@@ -14,6 +14,41 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/AboutUs2.tsx:77
+msgid "Про"
+msgstr "About"
+
+#. js-lingui-explicit-id
+#: components/AboutUs2.tsx:78
+msgid "нас"
+msgstr "us"
+
+#. js-lingui-explicit-id
+#: components/AboutUs2.tsx:92
+msgid "ESVIEM — це професійна консультаційна компанія з понад 15-річним досвідом роботи у сферах юридичного, фінансового, будівельного та земельного консультування. Ми спеціалізуємось на вирішенні найскладніших завдань для бізнесу та приватних клієнтів, надаючи комплексні рішення та індивідуальний підхід до кожного проекту. Наша місія — забезпечити клієнтам впевненість у прийнятті стратегічних рішень завдяки експертним знанням та проверенному досвіду"
+msgstr "ESVIEM is a professional consulting company with over 15 years of experience in the fields of legal, financial, construction and land consulting. We specialize in solving the most complex tasks for business and private clients, providing comprehensive solutions and an individual approach to each project. Our mission is to provide clients with confidence in making strategic decisions thanks to expert knowledge and proven experience"
+
+#. js-lingui-explicit-id
+#: components/AboutUs2.tsx:112
+msgid "Наші клієнти"
+msgstr "Our clients"
+
+#. js-lingui-explicit-id
+#: components/AboutUs2.tsx:139
+msgid "15+ років досвіду"
+msgstr "15+ years of experience"
+
+#. js-lingui-explicit-id
+#: components/AboutUs2.tsx:144
+msgid "Найскладніші задачі"
+msgstr "The most difficult tasks"
+
+#. js-lingui-explicit-id
+#: components/AboutUs2.tsx:149
+msgid "Індивідуальний підхід"
+msgstr "Individual approach"
+
+#. js-lingui-explicit-id
 #: components/FinancialConsulting.tsx:34
 msgid "Фінансовий"
 msgstr "Financial"
