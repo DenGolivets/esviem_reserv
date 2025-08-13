@@ -34,7 +34,7 @@ const Title = ({
       initial={{ opacity: 0, y: 60 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1.2, delay: 0.2 }}
-      className={`text-center mb-16 ${className}`}
+      className={`text-center mb-16 h-full ${className}`}
     >
       <motion.div
         initial={{ scale: 0.8, rotateY: -180 }}
@@ -66,16 +66,16 @@ const Title = ({
       </motion.div>
 
       <h2
-        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white flex flex-col gap-1 md:gap-4
-              items-center justify-center lg:flex-row"
+        className="text-4xl md:text-5xl lg:text-6xl font-bold text-white flex flex-col
+              items-center justify-center lg:flex-row h-full"
       >
         <span
-          className={`${textGradientClasses[0]} bg-clip-text text-transparent mr-2`}
+          className={`${textGradientClasses[0]} h-17 lg:h-20 bg-clip-text text-transparent mr-2`}
         >
           {titleParts[0]}
         </span>
         <span
-          className={`${textGradientClasses[1]} bg-clip-text text-transparent`}
+          className={`${textGradientClasses[1]} h-20 bg-clip-text text-transparent`}
         >
           {titleParts[1]}
         </span>
