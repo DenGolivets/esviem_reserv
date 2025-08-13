@@ -516,3 +516,7 @@ select {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
+.custom-clip {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
