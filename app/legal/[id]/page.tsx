@@ -160,7 +160,7 @@ export default function LegalDetailPage() {
             <Title
               inView={inView}
               icon={<Scale className="w-10 h-10 text-white" />}
-              titleParts={["Юридичні", "послуги"]}
+              titleParts={[i18n._("Юридичні"), i18n._("послуги")]}
               textGradientClasses={[
                 "bg-gradient-to-r from-purple-400 to-indigo-500",
                 "bg-gradient-to-r from-purple-400 to-indigo-500",

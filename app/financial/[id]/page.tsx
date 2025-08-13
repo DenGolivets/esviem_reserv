@@ -169,7 +169,7 @@ export default function FinancialDetailPage() {
             <Title
               inView={inView}
               icon={<DollarSign className="w-10 h-10 text-white" />}
-              titleParts={["Фінансовий", "консалтинг"]}
+              titleParts={[i18n._("Фінансовий"), i18n._("консалтинг")]}
               textGradientClasses={[
                 "bg-gradient-to-r from-yellow-400 to-amber-500",
                 "bg-gradient-to-r from-yellow-400 to-amber-500",

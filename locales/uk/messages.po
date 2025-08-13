@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/FinancialConsultingWrapper.tsx:181
+msgid "Надання послуг на міжнародному ринку"
+msgstr "Надання послуг на міжнародному ринку"
+
+#. js-lingui-explicit-id
 #: components/AboutUs2.tsx:77
 msgid "Про"
 msgstr "Про"
