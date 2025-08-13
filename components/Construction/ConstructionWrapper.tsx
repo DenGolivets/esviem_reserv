@@ -131,7 +131,7 @@ export default function ConstructionWrapper() {
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="text-center mb-10 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          className="text-center mb-10 text-3xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
           bg-clip-text text-transparent"
         >
           {i18n._("Підготовка вихідних даних для проектування")}
@@ -224,7 +224,7 @@ export default function ConstructionWrapper() {
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-center mb-10 mt-20 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          className="text-center mb-10 mt-20 text-3xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
           bg-clip-text text-transparent"
         >
           {i18n._("Розробка проектно-кошторисної документації")}
@@ -315,7 +315,7 @@ export default function ConstructionWrapper() {
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-center mb-10 mt-20 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          className="text-center mb-10 mt-20 text-3xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
           bg-clip-text text-transparent"
         >
           {i18n._("Робота з готовими об’єктами будівництва")}
@@ -406,7 +406,7 @@ export default function ConstructionWrapper() {
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-center mb-10 mt-20 text-2xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
+          className="text-center mb-10 mt-20 text-3xl font-semibold bg-gradient-to-r from-orange-800 via-white/95 to-red-800
           bg-clip-text text-transparent"
         >
           {i18n._("Архітектурна візуалізація та анімація")}
