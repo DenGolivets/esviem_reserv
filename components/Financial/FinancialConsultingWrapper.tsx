@@ -175,7 +175,7 @@ export default function FinancialConsultingWrapper() {
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-center mb-10 mt-20 text-3xl font-semibold bg-gradient-to-r from-yellow-300 via-white/95 to-yellow-700
+          className="text-center mb-10 mt-20 text-3xl font-semibold bg-gradient-to-r from-yellow-300 to-orange-400
           bg-clip-text text-transparent"
         >
           {i18n._("Надання послуг на міжнародному ринку")}

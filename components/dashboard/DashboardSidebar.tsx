@@ -60,68 +60,68 @@ export default function DashboardSidebar() {
   const { i18n } = useLingui();
 
   const menuItems: MenuItem[] = [
-  {
-    id: "about",
-    title: i18n._("Про компанію"),
-    icon: Users,
-    color: "from-blue-500 to-blue-600",
-    textColor: "text-blue-400",
-    textColorActive: "from-blue-300 to-blue-400",
-    borderActive: "from-blue-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "land",
-    title: i18n._("Земельний"),
-    icon: MapPin,
-    color: "from-green-500 to-green-600",
-    textColor: "text-green-500",
-    textColorActive: "from-green-500 to-green-600",
-    borderActive: "from-green-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "construction",
-    title: i18n._("Будівельний"),
-    icon: Building,
-    color: "from-orange-500 to-orange-600",
-    textColor: "text-orange-500",
-    textColorActive: "from-orange-500 to-orange-600",
-    borderActive: "from-orange-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "financial",
-    title: i18n._("Фінансовий"),
-    icon: DollarSign,
-    color: "from-yellow-500 to-yellow-600",
-    textColor: "text-yellow-500",
-    textColorActive: "from-yellow-500 to-yellow-600",
-    borderActive: "from-yellow-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-  {
-    id: "legal",
-    title: i18n._("Юридичний"),
-    icon: Scale,
-    color: "from-purple-500 to-purple-600",
-    textColor: "text-purple-500",
-    textColorActive: "from-purple-500 to-purple-600",
-    borderActive: "from-purple-500 to-yellow-600",
-    font: "font-montserrat",
-  },
-];
+    {
+      id: "about",
+      title: i18n._("Про компанію"),
+      icon: Users,
+      color: "from-blue-500 to-blue-600",
+      textColor: "text-blue-400",
+      textColorActive: "from-blue-300 to-blue-400",
+      borderActive: "from-blue-500 to-yellow-600",
+      font: "font-montserrat",
+    },
+    {
+      id: "land",
+      title: i18n._("Земельний"),
+      icon: MapPin,
+      color: "from-green-500 to-green-600",
+      textColor: "text-green-500",
+      textColorActive: "from-green-500 to-green-600",
+      borderActive: "from-green-500 to-yellow-600",
+      font: "font-montserrat",
+    },
+    {
+      id: "construction",
+      title: i18n._("Будівельний"),
+      icon: Building,
+      color: "from-orange-500 to-orange-600",
+      textColor: "text-orange-500",
+      textColorActive: "from-orange-500 to-orange-600",
+      borderActive: "from-orange-500 to-yellow-600",
+      font: "font-montserrat",
+    },
+    {
+      id: "financial",
+      title: i18n._("Фінансовий"),
+      icon: DollarSign,
+      color: "from-yellow-500 to-yellow-600",
+      textColor: "text-yellow-500",
+      textColorActive: "from-yellow-500 to-yellow-600",
+      borderActive: "from-yellow-500 to-yellow-600",
+      font: "font-montserrat",
+    },
+    {
+      id: "legal",
+      title: i18n._("Юридичний"),
+      icon: Scale,
+      color: "from-purple-500 to-purple-600",
+      textColor: "text-purple-500",
+      textColorActive: "from-purple-500 to-purple-600",
+      borderActive: "from-purple-500 to-yellow-600",
+      font: "font-montserrat",
+    },
+  ];
 
   useEffect(() => {
-  // Простая проверка iOS
-  if (
-    typeof window !== "undefined" &&
-    /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-    !(window as any).MSStream
-  ) {
-    setIsIos(true);
-  }
-}, []);
+    // Простая проверка iOS
+    if (
+      typeof window !== "undefined" &&
+      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+      !(window as any).MSStream
+    ) {
+      setIsIos(true);
+    }
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -353,7 +353,11 @@ export default function DashboardSidebar() {
               style={{
                 paddingLeft: !isMobile ? "0" : "0",
                 paddingRight: !isMobile ? "0" : "24px",
-                paddingTop: !isMobile ? "6px" : isMobile && isIos ? "40px" : "0",
+                paddingTop: !isMobile
+                  ? "6px"
+                  : isMobile && isIos
+                  ? "40px"
+                  : "0",
                 paddingBottom: !isMobile ? "12px" : "0",
                 marginTop: !isMobile ? "0" : "0",
               }}

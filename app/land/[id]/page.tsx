@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import TopBar from "@/components/TopBar";
 import Title from "@/components/Title";
 import {
+  MdEditDocument,
   MdOutlineInventory2,
   MdOutlineLayers,
   MdOutlineLayersClear,
@@ -88,7 +89,7 @@ export default function LandDetailPage() {
       },
       {
         id: "entering_the_destination_code",
-        icon: Scale,
+        icon: MdEditDocument,
         title: i18n._("Внесення коду цільового призначення"),
         description: i18n._(
           "при існуючому праві власності на землю і без нього"

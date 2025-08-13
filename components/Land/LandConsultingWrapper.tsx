@@ -15,6 +15,7 @@ import {
 import { FaTelegramPlane, FaViber, FaWhatsapp } from "react-icons/fa";
 import { FaSignalMessenger } from "react-icons/fa6";
 import {
+  MdEditDocument,
   MdOutlineInventory2,
   MdOutlineLayers,
   MdOutlineLayersClear,
@@ -44,7 +45,7 @@ const LandConsultingWrapper = () => {
       },
       {
         id: "entering_the_destination_code",
-        icon: Scale,
+        icon: MdEditDocument,
         title: i18n._("Внесення коду цільового призначення"),
         description: i18n._(
           "при існуючому праві власності на землю і без нього"
@@ -218,15 +219,17 @@ const LandConsultingWrapper = () => {
         </motion.div>
 
         {/* Kyiv Services Grid */}
-        <motion.div className="flex items-center justify-center gap-10 lg:flex-row flex-col my-14 sm:my-20">
-          <Image
-            src="/land/kyiv.jpg"
-            loading="lazy"
-            alt="Kyiv"
-            width={500}
-            height={500}
-            className="rounded-lg w-100 h-60 shadow-xl"
-          />
+        <motion.div className="flex items-center justify-center gap-10 flex-col my-14 sm:my-20">
+          <div className="flex w-full items-center justify-center">
+            <Image
+              src="/land/kyiv.jpg"
+              loading="lazy"
+              alt="Kyiv"
+              width={1200}
+              height={1000}
+              className="rounded-lg w-full md:w-160 md:h-100 shadow-xl"
+            />
+          </div>
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
