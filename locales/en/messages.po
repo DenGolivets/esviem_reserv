@@ -14,6 +14,106 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: components/FinancialConsulting.tsx:34
+msgid "Фінансовий"
+msgstr "Financial"
+
+#. js-lingui-explicit-id
+#: components/FinancialConsultingWrapper.tsx:181
+msgid "Зв’яжіться з нами для отримання професійної фінансової консультації"
+msgstr "Contact us for professional financial advice"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:59
+msgid "Консультування та підтримка бухгалтерії з питань оподаткування та фінансів"
+msgstr "Consulting and support for accounting on taxation and finance issues"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:61
+msgid "Підтримка та консультації"
+msgstr "Support and advice"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:64
+msgid "Етапи роботи:\n\n1. Аналіз поточної системи обліку\n2. Виявлення проблемних питань\n3. Розробка рекомендацій з оптимізації\n4. Постійна підтримка та консультації\n5. Супровід при перевірках\n\nСупроводжуємо:\n\n- Введення бухгалтерського обліку юридичних осіб та ФОП\n- Оптимізацію податкових платежів\n- Питання уникнення штрафів та санкцій\n- Підготувку до перевірок"
+msgstr "Stages of work:\n\n1. Analysis of the current accounting system\n2. Identification of problematic issues\n3. Development of optimization recommendations\n4. Ongoing support and consultations\n5. Support during inspections\n\nWe support:\n\n- Introduction of accounting for legal entities and individual entrepreneurs\n- Optimization of tax payments\n- Issues of avoiding fines and sanctions\n- Preparation for inspections"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:71
+msgid "Планування податкових зобов'язань та розробка стратегії податкових обов’язків"
+msgstr "Tax liability planning and tax liability strategy development"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:73
+msgid "Прогнозування податкових платежів"
+msgstr "Forecasting tax payments"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:76
+msgid "Етапи роботи:\n\n1. Аналіз поточного податкового навантаження\n2. Прогнозування податкових платежів\n3. Розробка стратегії оптимізації\n4. Впровадження запланованих заходів\n5. Моніторинг результатів\n\nРезультат:\n\n- Зменшення податкового навантаження\n- Покращення фінансового планування\n- Уникнення податкових ризиків"
+msgstr "Stages of work:\n\n1. Analysis of the current tax burden\n2. Forecasting tax payments\n3. Development of an optimization strategy\n4. Implementation of planned measures\n5. Monitoring results\n\nResult:\n\n- Reduction of the tax burden\n- Improvement of financial planning\n- Avoidance of tax risks"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:82
+msgid "Аналіз фінансової звітності"
+msgstr "Financial statement analysis"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:84
+msgid "за 2024 рік та за 1 квартал 2025 року для розробки стратегії та плану розвитку підприємства"
+msgstr "for 2024 and for the 1st quarter of 2025 to develop a strategy and development plan for the enterprise"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:88
+msgid "Комплексний аналіз фінансового стану підприємства за 2024 рік та за 1 квартал 2025 року для розробки стратегії та плану розвитку.\n\nЕтапи роботи:\n\n1. Збір та систематизація звітності\n2. Горизонтальний та вертикальний аналіз\n3. Розрахунок фінансових коефіцієнтів\n4. Оцінка динаміки показників\n5. Підготовка висновків та рекомендацій\n\nПроводимо аналіз:\n\n- Ліквідності та платоспроможності підприємств\n- Рентабельність діяльності підприємства\n- Фінансову стійкість\n- Ділову активність"
+msgstr "Comprehensive analysis of the financial condition of the enterprise for 2024 and for the 1st quarter of 2025 to develop a strategy and development plan.\n\nStages of work:\n\n1. Collection and systematization of reporting\n2. Horizontal and vertical analysis\n3. Calculation of financial ratios\n4. Assessment of the dynamics of indicators\n5. Preparation of conclusions and recommendations\n\nWe analyze:\n\n- Liquidity and solvency of enterprises\n- Profitability of the enterprise\n- Financial stability\n- Business activity"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:94
+msgid "Оптимізація витрат підприємства"
+msgstr "Optimization of enterprise costs"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:96
+msgid "надання рекомендацій для ефективного використання матеріальних ресурсів"
+msgstr "providing recommendations for the effective use of material resources"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:100
+msgid "Проведення аналізу 20 рахунків бухгалтерського обліку та надання рекомендацій для ефективного використання матеріальних ресурсів.\n\nЕтапи роботи:\n\n1. Аналіз поточного фінансового стану\n2. Визначення цілей та завдань\n3. Розробка фінансових планів\n4. Прогнозування фінансових потоків\n5. Моніторинг виконання планів\n\nРезультат:\n\n- Чіткий план розвитку підприємства\n- Прогноз фінансових потоків\n- Стратегія інвестування"
+msgstr "Conducting an analysis of 20 accounting accounts and providing recommendations for the effective use of material resources.\n\nStages of work:\n\n1. Analysis of the current financial situation\n2. Defining goals and objectives\n3. Development of financial plans\n4. Forecasting financial flows\n5. Monitoring the implementation of plans\n\nResult:\n\n- A clear plan for the development of the enterprise\n- Forecast of financial flows\n- Investment strategy"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:106
+msgid "Збір установчих, фінансових, бухгалтерських документів"
+msgstr "Collection of constituent, financial, accounting documents"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:108
+msgid "Відповідно до положень Господарського кодексу України"
+msgstr "In accordance with the provisions of the Commercial Code of Ukraine"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:112
+msgid "Збір установчих, фінансових, бухгалтерських документів відповідно до положень Господарського кодексу України, зокрема статті 81, та постанови Кабінету Міністрів України від 3 червня 2020 р. №475.\n\nЕтапи роботи:\n\n1. Збір та систематизація даних\n2. Підготовка звітності підприємств\n3. Перевірка правильності звітності\n4. Супровід аудиторської перевірки\n5. Виправлення зауважень\n\nРезультат:\n\n- Якісна фінансова звітність\n- Успішне проходження аудиту\n- Дотримання стандартів"
+msgstr "Collection of constituent, financial, and accounting documents in accordance with the provisions of the Commercial Code of Ukraine, in particular Article 81, and the Resolution of the Cabinet of Ministers of Ukraine dated June 3, 2020 No. 475.\n\nStages of work:\n\n1. Collection and systematization of data\n2. Preparation of enterprise reporting\n3. Verification of the correctness of reporting\n4. Support for the audit\n5. Correction of comments\n\nResult:\n\n- High-quality financial reporting\n- Successful completion of the audit\n- Compliance with standards"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:121
+msgid "Міжнародні послуги"
+msgstr "International services"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:122
+msgid "Консультування та підтримка"
+msgstr "Consulting and support"
+
+#. js-lingui-explicit-id
+#: app/financial/[id]/page.tsx:124
+msgid "Етапи роботи\n\n1. Консультування з питань бухгалтерського обліку\n2. Аналіз структури компанії та побудова облікової політики\n3. Ведення первинної документації\n4. Супровід банківських операцій\n5. Облік усіх господарських операцій відповідно до чинного законодавства.\n6. Проведення аналізу рахунків бухгалтерського обліку та надання рекомендацій для ефективного використання матеріальних ресурсів\n7. Планування податкових зобов’язань та розробка стратегії податкових обов’язків\n8. Аналіз фінансової звітності для розробки стратегії та плану розвитку підприємства , та рекомендаціі щодо її  підготовки\n9. Консультації щодо чинного податкового законодавства\n10. Супровід під час перевірок"
+msgstr "Stages of work\n\n1. Consulting on accounting issues\n2. Analysis of the company's structure and development of accounting policies\n3. Maintenance of primary documentation\n4. Support of banking transactions\n5. Accounting for all business transactions in accordance with current legislation.\n6. Analysis of accounting accounts and provision of recommendations for the effective use of material resources\n7. Planning of tax liabilities and development of a tax liability strategy\n8. Analysis of financial statements for the development of a strategy and development plan for the enterprise, and recommendations for its preparation\n9. Consultations on current tax legislation\n10. Support during inspections"
+
+#. js-lingui-explicit-id
 #: components/LegalConsulting.tsx:34
 msgid "Юридичні"
 msgstr "Legal"

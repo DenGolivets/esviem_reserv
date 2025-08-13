@@ -5,12 +5,15 @@ import { DollarSign } from "lucide-react";
 import FinancialConsultingWrapper from "./FinancialConsultingWrapper";
 import TopBar from "../TopBar";
 import Title from "../Title";
+import { useLingui } from "@lingui/react";
 
 export default function FinancialConsulting() {
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
+
+  const { i18n } = useLingui();
 
   return (
     <section
@@ -28,7 +31,7 @@ export default function FinancialConsulting() {
         <Title
           inView={inView}
           icon={<DollarSign className="w-10 h-10 text-white" />}
-          titleParts={["Фінансовий", "консалтинг"]}
+          titleParts={[i18n._("Фінансовий"), i18n._("консалтинг")]}
           textGradientClasses={[
             "bg-gradient-to-r from-yellow-400 to-amber-500",
             "bg-gradient-to-r from-yellow-400 to-amber-500",
