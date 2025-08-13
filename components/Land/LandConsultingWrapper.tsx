@@ -227,7 +227,7 @@ const LandConsultingWrapper = () => {
               alt="Kyiv"
               width={1200}
               height={1000}
-              className="rounded-lg w-full md:w-160 md:h-100 shadow-xl"
+              className="rounded-lg w-full object-cover md:h-70 shadow-xl"
             />
           </div>
           <motion.h2
