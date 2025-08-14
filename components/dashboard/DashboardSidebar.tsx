@@ -106,7 +106,7 @@ export default function DashboardSidebar() {
       icon: Scale,
       color: "from-purple-500 to-purple-600",
       textColor: "text-purple-500",
-      textColorActive: "from-purple-500 to-purple-600",
+      textColorActive: "from-purple-400 to-purple-400",
       borderActive: "from-purple-500 to-yellow-600",
       font: "font-montserrat",
     },
