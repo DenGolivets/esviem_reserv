@@ -14,6 +14,51 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:116
+msgid "Банкрутство юридичних осіб"
+msgstr "Bankruptcy of legal entities"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:117
+msgid "Супровід процедур банкрутства та ліквідації підприємств"
+msgstr "Support for bankruptcy and liquidation procedures of enterprises"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:119
+msgid "Супровід процедур банкрутства та ліквідації підприємств.\n\n- Представництво інтересів кредитора в процедурі банкрутства\n- Представництво інтересів боржника в процедурі банкрутства\n- Складання процесуальних документів на всіх стадіях процедури банкрутства"
+msgstr "Support of bankruptcy and liquidation procedures of enterprises.\n\n- Representation of the interests of the creditor in the bankruptcy procedure\n- Representation of the interests of the debtor in the bankruptcy procedure\n- Preparation of procedural documents at all stages of the bankruptcy procedure"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:124
+msgid "Корпоративне право"
+msgstr "Corporate law"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:125
+msgid "Юридичний супровід корпоративних відносин та бізнес-угод"
+msgstr "Legal support for corporate relations and business agreements"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:127
+msgid "Юридичний супровід корпоративних відносин та бізнес-угод.\n\n- Корпоративні спори (представництво інтересів клієнтів у судах з питань корпоративного права)\n- Захист інтересів юридичних осіб та їх учасників у державних органах, на загальних зборах акціонерів та в інших органах управління\n- Захист прав учасників товариств, включаючи право на участь в управлінні, право на отримання дивідендів та право на частку при виході зі складу учасників та при ліквідації"
+msgstr "Legal support of corporate relations and business agreements.\n\n- Corporate disputes (representation of clients' interests in courts on corporate law issues)\n- Protection of the interests of legal entities and their participants in state bodies, at general meetings of shareholders and in other management bodies\n- Protection of the rights of participants in companies, including the right to participate in management, the right to receive dividends and the right to a share upon withdrawal from the membership and upon liquidation"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:132
+msgid "Господарські спори"
+msgstr "Business disputes"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:133
+msgid "Юридичний супровід корпоративних відносин та бізнес-угод"
+msgstr "Legal support for corporate relations and business agreements"
+
+#. js-lingui-explicit-id
+#: app/legal/[id]/page.tsx:135
+msgid "Юридичний супровід корпоративних відносин та бізнес-угод.\n\n- Захист інтересів клієнта в судах усіх інстанцій\n- Складання процесуальних документів на всіх стадіях судового процесу\n- Надання правової інформації, консультації з питань застосування законодавства, аналіз ситуації, оцінка ризиків"
+msgstr "Legal support for corporate relations and business agreements.\n\n- Protection of the client's interests in courts of all instances\n- Preparation of procedural documents at all stages of the legal process\n- Provision of legal information, consultations on the application of legislation, situation analysis, risk assessment"
+
+#. js-lingui-explicit-id
 #: components/FinancialConsultingWrapper.tsx:181
 msgid "Юридичний супровід при придбанні нерухомості"
 msgstr "Legal support when purchasing real estate"

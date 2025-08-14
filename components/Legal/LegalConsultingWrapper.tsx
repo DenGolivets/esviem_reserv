@@ -11,6 +11,9 @@ import {
   UserCheck,
   ShieldCheck,
   House,
+  FileX2,
+  BriefcaseBusiness,
+  BookOpenText,
 } from "lucide-react";
 import { FaTelegramPlane, FaViber, FaWhatsapp } from "react-icons/fa";
 import { FaSignalMessenger } from "react-icons/fa6";
@@ -69,6 +72,27 @@ export default function LegalConsultingWrapper() {
       title: i18n._("Представництво у виконавчому провадженні"),
       description: i18n._("Професійний супровід на стадії виконання судових рішень"),
       color: "from-emerald-500 to-teal-500",
+    },
+    {
+      id: "bankruptcy_of_legal_entities",
+      icon: FileX2,
+      title: i18n._("Банкрутство юридичних осіб"),
+      description: i18n._("Супровід процедур банкрутства та ліквідації підприємств"),
+      color: "from-red-500 to-gray-500",
+    },
+    {
+      id: "corporate_law",
+      icon: BriefcaseBusiness,
+      title: i18n._("Корпоративне право"),
+      description: i18n._("Юридичний супровід корпоративних відносин та бізнес-угод"),
+      color: "from-amber-900 to-zinc-700",
+    },
+    {
+      id: "business_disputes",
+      icon: BookOpenText,
+      title: i18n._("Господарські спори"),
+      description: i18n._("Юридичний супровід корпоративних відносин та бізнес-угод"),
+      color: "from-amber-500 to-orange-500",
     },
     {
       id: "other_types_of_legal_services",
