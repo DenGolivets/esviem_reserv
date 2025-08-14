@@ -364,8 +364,16 @@ export default function DashboardSidebar() {
             >
               <div className="space-y-1 select-none">
                 {menuItems.map((item) => {
-                  const isActive =
-                    pathname === (item.id === "about" ? "/" : `/${item.id}`);
+                  const isActive = (() => {
+                    if (item.id === "about") {
+                      return pathname === "/";
+                    }
+                    // Проверяем точное совпадение и вложенные пути
+                    return (
+                      pathname === `/${item.id}` ||
+                      pathname.startsWith(`/${item.id}/`)
+                    );
+                  })();
 
                   return (
                     <motion.button
