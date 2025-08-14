@@ -15,6 +15,11 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: components/FinancialConsultingWrapper.tsx:181
+msgid "Юридичний супровід при придбанні нерухомості"
+msgstr "Юридичний супровід при придбанні нерухомості"
+
+#. js-lingui-explicit-id
+#: components/FinancialConsultingWrapper.tsx:181
 msgid "Надання послуг на міжнародному ринку"
 msgstr "Надання послуг на міжнародному ринку"
 
