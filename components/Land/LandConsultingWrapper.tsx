@@ -69,7 +69,7 @@ const LandConsultingWrapper = () => {
       {
         id: "preparation_of_documents_for_legal_proceedings",
         icon: Scale,
-        title: i18n._("Підготовка документів для судового процесу"),
+        title: i18n._("Підготовка документів досудового процесу"),
         description: i18n._(
           "(в разі самовільного зайняття земельної ділянки та інше)"
         ),
@@ -92,7 +92,7 @@ const LandConsultingWrapper = () => {
       {
         id: "division_of_land_plots",
         icon: MdOutlineLayersClear,
-        title: i18n._("⁠Поділ земельних ділянок"),
+        title: i18n._("⁠Поділ земельної ділянки"),
         description: i18n._("для продажу, дарування чи забудови"),
         color: "from-orange-600 to-red-800",
       },

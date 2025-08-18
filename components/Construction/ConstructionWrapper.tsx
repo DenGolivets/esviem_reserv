@@ -34,7 +34,7 @@ export default function ConstructionWrapper() {
     {
       id: "construction_design_tasks",
       icon: PiBlueprintLight,
-      title: i18n._("Завдання на проектування"),
+      title: i18n._("Завдання на проєктування"),
       description: i18n._(
         "(планувальних, архітектурних, інженерних і технологічних рішень об'єкта будівництва)"
       ),
@@ -134,7 +134,7 @@ export default function ConstructionWrapper() {
           className="text-center mb-10 text-3xl font-semibold bg-gradient-to-r from-orange-200 to-red-400
           bg-clip-text text-transparent"
         >
-          {i18n._("Підготовка вихідних даних для проектування")}
+          {i18n._("Підготовка вихідних даних для проєктування")}
         </motion.h1>
 
         {/* First Service */}
