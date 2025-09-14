@@ -96,11 +96,11 @@ export const metadata: Metadata = {
     title: "ESVIEM Consulting",
     description: "Професійні консультаційні послуги",
     type: "website",
-    url: "https://esviem.com.ua",
+    url: "https://esviem-reserv.vercel.app",
     siteName: "ESVIEM Consulting",
     images: [
       {
-        url: "/esviem2.png",
+        url: "https://esviem-reserv.vercel.app/esviem2.png",
         width: 1200,
         height: 630,
         alt: "ESVIEM Consulting Logo",
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ESVIEM Consulting",
     description: "Професійні консультаційні послуги",
-    images: ["/esviem2.png"],
+    images: ["https://esviem-reserv.vercel.app/esviem2.png"],
   },
 };
 
