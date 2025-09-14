@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     title: "ESVIEM Consulting",
     description: "Професійні консультаційні послуги",
     type: "website",
-    url: "https://esviem-reserv.vercel.app",
+    url: "https://esviem.com.ua",
     siteName: "ESVIEM Consulting",
     images: [
       {
@@ -133,6 +133,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#1d293d" />
         <meta name="msapplication-navbutton-color" content="#1d293d" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta property="og:image" content="/esviem2.png" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
