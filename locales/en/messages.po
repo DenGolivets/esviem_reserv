@@ -85,8 +85,8 @@ msgstr "us"
 
 #. js-lingui-explicit-id
 #: components/AboutUs2.tsx:92
-msgid "ESVIEM — це професійна команда спеціалістів з понад 15-річним досвідом роботи у сферах юридичного, фінансового, будівельного та земельного консультування. Ми спеціалізуємось на вирішенні найскладніших завдань для бізнесу та приватних клієнтів, надаючи комплексні рішення та індивідуальний підхід до кожного проєкту. Наша місія — забезпечити клієнтам впевненість у прийнятті стратегічних рішень завдяки експертним знанням та набутому досвіду"
-msgstr "ESVIEM is a professional team of specialists with over 15 years of experience in the fields of legal, financial, construction and land consulting. We specialize in solving the most complex tasks for business and private clients, providing comprehensive solutions and an individual approach to each project. Our mission is to provide clients with confidence in making strategic decisions thanks to expert knowledge and acquired experience"
+msgid "ESVIEM — це професійна команда спеціалістів з 15-річним досвідом роботи у сферах юридичного, фінансового, будівельного та земельного консультування. Ми спеціалізуємось на вирішенні найскладніших завдань для бізнесу та приватних клієнтів, надаючи комплексні рішення та індивідуальний підхід до кожного проєкту. Наша місія — забезпечити клієнтам впевненість у прийнятті стратегічних рішень завдяки експертним знанням та набутому досвіду"
+msgstr "ESVIEM is a professional team of specialists with 15 years of experience in the fields of legal, financial, construction and land consulting. We specialize in solving the most complex tasks for business and private clients, providing comprehensive solutions and an individual approach to each project. Our mission is to provide clients with confidence in making strategic decisions thanks to expert knowledge and acquired experience"
 
 #. js-lingui-explicit-id
 #: components/AboutUs2.tsx:112
